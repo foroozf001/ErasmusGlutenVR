@@ -1147,6 +1147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grabBegin: 0.55
   grabEnd: 0.35
+  skinnedMeshRenderer: {fileID: 137383442524578654}
   m_parentHeldObject: 0
   m_gripTransform: {fileID: 456902}
   m_grabVolumes:

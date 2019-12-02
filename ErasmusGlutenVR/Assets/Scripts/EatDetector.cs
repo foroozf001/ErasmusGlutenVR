@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class EatDetector : MonoBehaviour
 {
-    [SerializeField] ParticleSystem success;
+    [SerializeField] Material material;
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other == null)
+            return;
+
         if (other.tag == "Edible")
         {
-            success.Play();
+            OVRGrabber grabber = other.gameObject.GetComponent<OVRGrabbable>().grabbedBy;
+            OVRGrabbable grabbedObject = grabber.grabbedObject;
+            grabber.ForceRelease(grabbedObject); //Voordat je het object destroyed moet je hem van de grabber afhalen!!!
+            Destroy(other.gameObject);
+            grabber.skinnedMeshRenderer.material = material;
         }
     }
 }

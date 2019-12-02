@@ -257,10 +257,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnerLeft
       objectReference: {fileID: 0}
+    - target: {fileID: 8971303663196539690, guid: 4ffd1e1c7761ec0429505912021ac2bc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8971303663196539692, guid: 4ffd1e1c7761ec0429505912021ac2bc,
         type: 3}
       propertyPath: respawnTime
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8971303663196539693, guid: 4ffd1e1c7761ec0429505912021ac2bc,
         type: 3}
@@ -457,50 +462,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6370857137606031579, guid: cf86d60aa0029c84480d3b9f8211fab1,
-        type: 3}
-      propertyPath: m_TagString
-      value: Edible
-      objectReference: {fileID: 0}
-    - target: {fileID: 6370857137606031579, guid: cf86d60aa0029c84480d3b9f8211fab1,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 6370857137606194475, guid: cf86d60aa0029c84480d3b9f8211fab1,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7846712176670148575, guid: cf86d60aa0029c84480d3b9f8211fab1,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 7846712176670148575, guid: cf86d60aa0029c84480d3b9f8211fab1,
-        type: 3}
-      propertyPath: m_Height
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7846712176670148575, guid: cf86d60aa0029c84480d3b9f8211fab1,
-        type: 3}
-      propertyPath: m_Direction
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7846712176670148575, guid: cf86d60aa0029c84480d3b9f8211fab1,
-        type: 3}
-      propertyPath: m_Center.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8738604529091718309, guid: cf86d60aa0029c84480d3b9f8211fab1,
         type: 3}
       propertyPath: m_Name
       value: LocalAvatarWithGrab
-      objectReference: {fileID: 0}
-    - target: {fileID: 8738829014039208241, guid: cf86d60aa0029c84480d3b9f8211fab1,
-        type: 3}
-      propertyPath: m_TagString
-      value: MainCamera
       objectReference: {fileID: 0}
     - target: {fileID: 8740922090773552947, guid: cf86d60aa0029c84480d3b9f8211fab1,
         type: 3}
@@ -574,7 +539,7 @@ PrefabInstance:
     - target: {fileID: 8971303663196539692, guid: 4ffd1e1c7761ec0429505912021ac2bc,
         type: 3}
       propertyPath: respawnTime
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8971303663196539693, guid: 4ffd1e1c7761ec0429505912021ac2bc,
         type: 3}
