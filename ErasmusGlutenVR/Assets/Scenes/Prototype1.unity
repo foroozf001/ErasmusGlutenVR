@@ -536,6 +536,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnerRight
       objectReference: {fileID: 0}
+    - target: {fileID: 8971303663196539690, guid: 4ffd1e1c7761ec0429505912021ac2bc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8971303663196539692, guid: 4ffd1e1c7761ec0429505912021ac2bc,
         type: 3}
       propertyPath: respawnTime

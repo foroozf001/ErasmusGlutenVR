@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EatDetector : MonoBehaviour
+public class CollisionDetectorEdibles : MonoBehaviour
 {
     [SerializeField] Material material;
 
@@ -13,11 +13,12 @@ public class EatDetector : MonoBehaviour
 
         if (other.tag == "Edible")
         {
-            OVRGrabber grabber = other.gameObject.GetComponent<OVRGrabbable>().grabbedBy;
+            Debug.Log(other.gameObject.name);
+            /*OVRGrabber grabber = other.gameObject.GetComponent<OVRGrabbable>().grabbedBy;
             OVRGrabbable grabbedObject = grabber.grabbedObject;
             grabber.ForceRelease(grabbedObject); //Voordat je het object destroyed moet je hem van de grabber afhalen!!!
             Destroy(other.gameObject);
-            grabber.skinnedMeshRenderer.material = material;
+            grabber.skinnedMeshRenderer.material = material;*/
         }
     }
 }
