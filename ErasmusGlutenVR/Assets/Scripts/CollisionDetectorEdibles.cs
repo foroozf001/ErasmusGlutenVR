@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class CollisionDetectorEdibles : MonoBehaviour
 {
-    [SerializeField] Material material;
-
     private void OnTriggerEnter(Collider other)
     {
         if (other == null)
@@ -13,12 +11,18 @@ public class CollisionDetectorEdibles : MonoBehaviour
 
         if (other.tag == "Edible")
         {
-            Debug.Log(other.gameObject.name);
-            /*OVRGrabber grabber = other.gameObject.GetComponent<OVRGrabbable>().grabbedBy;
+            OVRGrabber grabber = other.gameObject.GetComponent<OVRGrabbable>().grabbedBy;
             OVRGrabbable grabbedObject = grabber.grabbedObject;
+
+            if (grabber.IsLeft)
+                GameManager.Instance.LeftHandContaminated = true;
+
+            if (grabber.IsRight)
+                GameManager.Instance.RightHandContaminated = true;
+
             grabber.ForceRelease(grabbedObject); //Voordat je het object destroyed moet je hem van de grabber afhalen!!!
             Destroy(other.gameObject);
-            grabber.skinnedMeshRenderer.material = material;*/
+            //grabber.skinnedMeshRenderer.material = material;
         }
     }
 }

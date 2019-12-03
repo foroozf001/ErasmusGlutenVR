@@ -4,13 +4,36 @@ using UnityEngine;
 
 public class HandManager : MonoBehaviour
 {
-    [SerializeField] SkinnedMeshRenderer grabberLeft;
-    [SerializeField] SkinnedMeshRenderer grabberRight;
-    [SerializeField] Material red;
-    [SerializeField] Material green;
+    [SerializeField] OVRGrabber grabberLeft;
+    [SerializeField] OVRGrabber grabberRight;
+    [SerializeField] Material contaminatedMaterial;
+    [SerializeField] Material cleanMaterial;
 
-    public void ChangeMaterial(SkinnedMeshRenderer s, Material m)
+    private void Update()
     {
-        s.material = m;
+        if (ChangeHandContaminated(grabberLeft, GameManager.Instance.LeftHandContaminated))
+            grabberLeft.skinnedMeshRenderer.material = contaminatedMaterial;
+        else if (ChangeHandClean(grabberLeft, GameManager.Instance.LeftHandContaminated))
+            grabberLeft.skinnedMeshRenderer.material = cleanMaterial;
+
+        if (ChangeHandContaminated(grabberRight, GameManager.Instance.RightHandContaminated))
+            grabberRight.skinnedMeshRenderer.material = contaminatedMaterial;
+        else if (ChangeHandClean(grabberRight, GameManager.Instance.RightHandContaminated))
+            grabberRight.skinnedMeshRenderer.material = cleanMaterial;
+
+    }
+
+    bool ChangeHandContaminated(OVRGrabber grabber, bool contaminated)
+    {
+        if (contaminated && grabber.skinnedMeshRenderer.material != contaminatedMaterial)
+            return true;
+        return false;
+    }
+
+    bool ChangeHandClean(OVRGrabber grabber, bool contaminated)
+    {
+        if (!contaminated && grabber.skinnedMeshRenderer.material == contaminatedMaterial)
+            return true;
+        return false;
     }
 }
