@@ -8,6 +8,7 @@ public class CharacterControl : MonoBehaviour
     {
         Throw,
         Hit,
+        ForcedTransition,
     }
 
     public bool Throw;

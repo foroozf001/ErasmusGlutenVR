@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New State", menuName = "Ability/Idle")]
-public class Idle : StateData
+[CreateAssetMenu(fileName = "New State", menuName = "Ability/ForcedTransition")]
+public class ForcedTransition : StateData
 {
+    [Range(0.01f, 1f)]
+    public float TransitionTiming;
+
     public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
     {
         //throw new System.NotImplementedException();
@@ -12,16 +15,16 @@ public class Idle : StateData
 
     public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
     {
-        //throw new System.NotImplementedException();
+        animator.SetBool(CharacterControl.TransitionParameters.ForcedTransition.ToString(), false);
     }
 
     public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
     {
         CharacterControl control = characterState.GetCharacterControl(animator);
 
-        if (control.Throw)
+        if (stateInfo.normalizedTime >= TransitionTiming)
         {
-            animator.SetBool(CharacterControl.TransitionParameters.Throw.ToString(), true);
-        } 
+            animator.SetBool(CharacterControl.TransitionParameters.ForcedTransition.ToString(), true);
+        }
     }
 }
