@@ -732,6 +732,7 @@ GameObject:
   m_Component:
   - component: {fileID: 473518}
   - component: {fileID: 13623232}
+  - component: {fileID: 2862529396275583526}
   m_Layer: 0
   m_Name: GrabVolumeBig
   m_TagString: Untagged
@@ -768,6 +769,19 @@ CapsuleCollider:
   m_Height: 0.1
   m_Direction: 0
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2862529396275583526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efd6fbe27c93a0447b50e6202be50ae5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabber: {fileID: 11477634}
 --- !u!1 &174170
 GameObject:
   m_ObjectHideFlags: 0
@@ -1148,6 +1162,8 @@ MonoBehaviour:
   grabBegin: 0.55
   grabEnd: 0.35
   skinnedMeshRenderer: {fileID: 137383442524578654}
+  IsLeft: 0
+  IsRight: 0
   m_parentHeldObject: 0
   m_gripTransform: {fileID: 456902}
   m_grabVolumes:

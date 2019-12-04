@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollisionDetectorEdibles : MonoBehaviour
+public class EatCollisionHandler : MonoBehaviour
 {
     public ParticleSystem success;
     private void OnTriggerEnter(Collider other)

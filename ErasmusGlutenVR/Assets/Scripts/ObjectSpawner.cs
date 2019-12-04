@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectSpawner : MonoBehaviour
 {
-    [SerializeField] GameObject spawnableObject;
+    [SerializeField] List<GameObject> spawnableObjects;
     [SerializeField][Range(1, 10)] int respawnTime;
 
     private void OnEnable()
@@ -21,7 +21,7 @@ public class ObjectSpawner : MonoBehaviour
     {
         while (true)
         {
-            SpawnObject(spawnableObject, this.transform.position);
+            SpawnObject(spawnableObjects[Random.Range(0, spawnableObjects.Count)], this.transform.position);
             yield return new WaitForSeconds(respawnTime);
         }
     }
@@ -29,12 +29,6 @@ public class ObjectSpawner : MonoBehaviour
     void SpawnObject(GameObject g, Vector3 pos)
     {
         GameObject spawnedObject = Instantiate(g);
-        if (spawnedObject.GetComponent<EdibleObject>() != null)
-            if (Random.Range(0.0f, 1.0f) > 0.5f)
-                spawnedObject.GetComponent<EdibleObject>().SetHasGluten(true);
-            else
-                spawnedObject.GetComponent<EdibleObject>().SetHasGluten(false);
-
-        spawnableObject.transform.position = pos;
+        spawnedObject.transform.position = pos;
     }
 }

@@ -11,18 +11,6 @@ public class HandManager : MonoBehaviour
 
     private void Update()
     {
-        /*
-        if (ChangeHandContaminated(grabberLeft, GameManager.Instance.LeftHandContaminated))
-            grabberLeft.skinnedMeshRenderer.material = contaminatedMaterial;
-        else if (ChangeHandClean(grabberLeft, GameManager.Instance.LeftHandContaminated))
-            grabberLeft.skinnedMeshRenderer.material = cleanMaterial;
-
-        if (ChangeHandContaminated(grabberRight, GameManager.Instance.RightHandContaminated))
-            grabberRight.skinnedMeshRenderer.material = contaminatedMaterial;
-        else if (ChangeHandClean(grabberRight, GameManager.Instance.RightHandContaminated))
-            grabberRight.skinnedMeshRenderer.material = cleanMaterial;
-            */
-
         if (GameManager.Instance.LeftHandContaminated)
             grabberLeft.skinnedMeshRenderer.material = contaminatedMaterial;
         else

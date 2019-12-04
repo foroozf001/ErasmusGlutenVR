@@ -12,11 +12,12 @@ public class MoveObject : MonoBehaviour
     void Start()
     {
         rigidBody = this.GetComponent<Rigidbody>();
+        rigidBody.AddForce(direction.normalized.x * thrust, direction.normalized.y * thrust, direction.normalized.z * thrust, ForceMode.Impulse);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        rigidBody.AddForce(direction.normalized * thrust);
+        //rigidBody.AddForce(direction.normalized * thrust);
     }
 }

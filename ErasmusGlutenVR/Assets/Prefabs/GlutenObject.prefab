@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 126219315632338017}
   - component: {fileID: 211523926402536408}
   m_Layer: 8
-  m_Name: SpawnableSphere
+  m_Name: GlutenObject
   m_TagString: Edible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47db3721d8cfe2e4485e6bb22428834a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 0.23
+  thrust: 0.5
   direction: {x: 0, y: 0, z: -1}
 --- !u!114 &211523926402536408
 MonoBehaviour:
@@ -155,4 +155,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0848e6c68c23bbe4bbc4f28685f353f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifetimeInSeconds: 10
   _hasGluten: 1
