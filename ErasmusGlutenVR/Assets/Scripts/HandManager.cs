@@ -11,6 +11,7 @@ public class HandManager : MonoBehaviour
 
     private void Update()
     {
+        /*
         if (ChangeHandContaminated(grabberLeft, GameManager.Instance.LeftHandContaminated))
             grabberLeft.skinnedMeshRenderer.material = contaminatedMaterial;
         else if (ChangeHandClean(grabberLeft, GameManager.Instance.LeftHandContaminated))
@@ -20,20 +21,16 @@ public class HandManager : MonoBehaviour
             grabberRight.skinnedMeshRenderer.material = contaminatedMaterial;
         else if (ChangeHandClean(grabberRight, GameManager.Instance.RightHandContaminated))
             grabberRight.skinnedMeshRenderer.material = cleanMaterial;
+            */
 
-    }
+        if (GameManager.Instance.LeftHandContaminated)
+            grabberLeft.skinnedMeshRenderer.material = contaminatedMaterial;
+        else
+            grabberLeft.skinnedMeshRenderer.material = cleanMaterial;
 
-    bool ChangeHandContaminated(OVRGrabber grabber, bool contaminated)
-    {
-        if (contaminated && grabber.skinnedMeshRenderer.material != contaminatedMaterial)
-            return true;
-        return false;
-    }
-
-    bool ChangeHandClean(OVRGrabber grabber, bool contaminated)
-    {
-        if (!contaminated && grabber.skinnedMeshRenderer.material == contaminatedMaterial)
-            return true;
-        return false;
+        if (GameManager.Instance.RightHandContaminated)
+            grabberRight.skinnedMeshRenderer.material = contaminatedMaterial;
+        else
+            grabberRight.skinnedMeshRenderer.material = cleanMaterial;
     }
 }

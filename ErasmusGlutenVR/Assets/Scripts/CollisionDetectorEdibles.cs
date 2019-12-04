@@ -4,24 +4,35 @@ using UnityEngine;
 
 public class CollisionDetectorEdibles : MonoBehaviour
 {
+    public ParticleSystem success;
     private void OnTriggerEnter(Collider other)
     {
         if (other == null)
             return;
 
-        if (other.tag == "Edible")
+        if (other.gameObject.GetComponent<EdibleObject>() != null)
         {
-            OVRGrabber grabber = other.gameObject.GetComponent<OVRGrabbable>().grabbedBy;
-            OVRGrabbable grabbedObject = grabber.grabbedObject;
+            if (other.gameObject.GetComponent<OVRGrabbable>().grabbedBy != null)
+            {
+                OVRGrabber grabber = other.gameObject.GetComponent<OVRGrabbable>().grabbedBy;
+                OVRGrabbable grabbedObject = grabber.grabbedObject;
 
-            if (grabber.IsLeft)
-                GameManager.Instance.LeftHandContaminated = true;
+                if (grabber.IsLeft)
+                    if (grabbedObject.GetComponent<EdibleObject>().HasGluten())
+                        GameManager.Instance.LeftHandContaminated = true;
+                    else
+                        GameManager.Instance.LeftHandContaminated = false;
 
-            if (grabber.IsRight)
-                GameManager.Instance.RightHandContaminated = true;
+                if (grabber.IsRight)
+                    if (grabbedObject.GetComponent<EdibleObject>().HasGluten())
+                        GameManager.Instance.RightHandContaminated = true;
+                    else
+                        GameManager.Instance.RightHandContaminated = false;
 
-            grabber.ForceRelease(grabbedObject); //Voordat je het object destroyed moet je hem van de grabber afhalen!!!
-            Destroy(other.gameObject);
+                grabber.ForceRelease(grabbedObject); //Voordat je het object destroyed moet je hem van de grabber afhalen!!!
+                Destroy(other.gameObject);
+                success.Play();
+            }
             //grabber.skinnedMeshRenderer.material = material;
         }
     }
