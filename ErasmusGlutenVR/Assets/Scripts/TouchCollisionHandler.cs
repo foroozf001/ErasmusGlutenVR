@@ -13,16 +13,30 @@ public class TouchCollisionHandler : MonoBehaviour
         if (other.gameObject.GetComponent<EdibleObject>() != null)
         {
             if (grabber.IsLeft)
-                if (other.GetComponent<EdibleObject>().HasGluten())
-                    GameManager.Instance.LeftHandContaminated = true;
-                else
-                    GameManager.Instance.LeftHandContaminated = false;
-
+            {
+                if (GameManager.Instance.LeftHandContaminated)
+                {
+                    if (!other.GetComponent<EdibleObject>().HasGluten())
+                        other.GetComponent<EdibleObject>().SetHasGluten(true);
+                } else
+                {
+                    if (other.GetComponent<EdibleObject>().HasGluten())
+                        GameManager.Instance.LeftHandContaminated = true;
+                }
+            }
+            
             if (grabber.IsRight)
-                if (other.GetComponent<EdibleObject>().HasGluten())
-                    GameManager.Instance.RightHandContaminated = true;
-                else
-                    GameManager.Instance.RightHandContaminated = false;
+            {
+                if (GameManager.Instance.RightHandContaminated)
+                {
+                    if (!other.GetComponent<EdibleObject>().HasGluten())
+                        other.GetComponent<EdibleObject>().SetHasGluten(true);
+                } else
+                {
+                    if (other.GetComponent<EdibleObject>().HasGluten())
+                        GameManager.Instance.RightHandContaminated = true;
+                }
+            }
         }
     }
 }

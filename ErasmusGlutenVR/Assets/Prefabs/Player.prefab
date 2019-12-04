@@ -17,6 +17,69 @@ MonoBehaviour:
   contaminatedMaterial: {fileID: 2100000, guid: 8bf1fedb6e0d82e4d9dca8890e795c84,
     type: 2}
   cleanMaterial: {fileID: 2100000, guid: 668014c105f7bbc4999627a959f4627b, type: 2}
+--- !u!1001 &2796527804883681826
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8740922090773552947}
+    m_Modifications:
+    - target: {fileID: 1469142659871422, guid: 819d83726e436964c99212c7629d4d6c, type: 3}
+      propertyPath: m_Name
+      value: Explosion Particles
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436899185823514, guid: 819d83726e436964c99212c7629d4d6c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436899185823514, guid: 819d83726e436964c99212c7629d4d6c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436899185823514, guid: 819d83726e436964c99212c7629d4d6c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436899185823514, guid: 819d83726e436964c99212c7629d4d6c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436899185823514, guid: 819d83726e436964c99212c7629d4d6c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436899185823514, guid: 819d83726e436964c99212c7629d4d6c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436899185823514, guid: 819d83726e436964c99212c7629d4d6c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436899185823514, guid: 819d83726e436964c99212c7629d4d6c, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436899185823514, guid: 819d83726e436964c99212c7629d4d6c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436899185823514, guid: 819d83726e436964c99212c7629d4d6c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436899185823514, guid: 819d83726e436964c99212c7629d4d6c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 819d83726e436964c99212c7629d4d6c, type: 3}
+--- !u!198 &2598411037549677794 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198204746014789312, guid: 819d83726e436964c99212c7629d4d6c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2796527804883681826}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8738018382957884083
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -76,6 +139,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 166659100763327815, guid: efe266538a8dcda4dbd04fbff7997053,
+        type: 3}
+      propertyPath: death
+      value: 
+      objectReference: {fileID: 2598411037549677794}
     - target: {fileID: 1544860271928415263, guid: efe266538a8dcda4dbd04fbff7997053,
         type: 3}
       propertyPath: m_Enabled
@@ -158,6 +226,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efe266538a8dcda4dbd04fbff7997053, type: 3}
+--- !u!4 &8740922090773552947 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4032153296153984, guid: efe266538a8dcda4dbd04fbff7997053,
+    type: 3}
+  m_PrefabInstance: {fileID: 8738018382957884083}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8738853920070032615 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1416425936023124, guid: efe266538a8dcda4dbd04fbff7997053,

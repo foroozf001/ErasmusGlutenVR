@@ -5,6 +5,7 @@ using UnityEngine;
 public class EatCollisionHandler : MonoBehaviour
 {
     public ParticleSystem success;
+    public ParticleSystem death;
     private void OnTriggerEnter(Collider other)
     {
         if (other == null)
@@ -17,23 +18,19 @@ public class EatCollisionHandler : MonoBehaviour
                 OVRGrabber grabber = other.gameObject.GetComponent<OVRGrabbable>().grabbedBy;
                 OVRGrabbable grabbedObject = grabber.grabbedObject;
 
-                if (grabber.IsLeft)
-                    if (grabbedObject.GetComponent<EdibleObject>().HasGluten())
-                        GameManager.Instance.LeftHandContaminated = true;
-                    else
-                        GameManager.Instance.LeftHandContaminated = false;
+                if (grabbedObject.GetComponent<EdibleObject>().HasGluten())
+                    death.Play();
+                else
+                    success.Play();
 
-                if (grabber.IsRight)
-                    if (grabbedObject.GetComponent<EdibleObject>().HasGluten())
-                        GameManager.Instance.RightHandContaminated = true;
-                    else
-                        GameManager.Instance.RightHandContaminated = false;
+                if (grabbedObject.GetComponent<EdibleObject>().HasGluten())
+                    death.Play();
+                else
+                    success.Play();
 
                 grabber.ForceRelease(grabbedObject); //Voordat je het object destroyed moet je hem van de grabber afhalen!!!
                 Destroy(other.gameObject);
-                success.Play();
             }
-            //grabber.skinnedMeshRenderer.material = material;
         }
     }
 }
