@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObjectSpawner : MonoBehaviour
 {
     [SerializeField] List<GameObject> spawnableObjects;
-    [SerializeField][Range(1, 10)] int respawnTime;
+    [SerializeField][Range(1, 8)] int respawnTime;
 
     private void OnEnable()
     {
@@ -22,6 +22,7 @@ public class ObjectSpawner : MonoBehaviour
         while (true)
         {
             SpawnObject(spawnableObjects[Random.Range(0, spawnableObjects.Count)], this.transform.position);
+            respawnTime = Random.Range(1, 8);
             yield return new WaitForSeconds(respawnTime);
         }
     }
