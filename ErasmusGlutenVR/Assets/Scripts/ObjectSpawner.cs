@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ObjectSpawner : MonoBehaviour
 {
-    [SerializeField] List<GameObject> spawnableObjects;
-    [SerializeField][Range(1, 8)] int respawnTime;
+    [SerializeField] public List<GameObject> spawnableObjects;
+    [SerializeField][Range(1, 8)] public int respawnTime;
 
     private void OnEnable()
     {
@@ -19,15 +19,19 @@ public class ObjectSpawner : MonoBehaviour
 
     IEnumerator Respawn()
     {
-        while (true)
+        
+        while (true)//(GameObject.FindGameObjectsWithTag("Edible").Length <= 0)
         {
-            SpawnObject(spawnableObjects[Random.Range(0, spawnableObjects.Count)], this.transform.position);
-            respawnTime = Random.Range(1, 8);
+            if (GameObject.FindGameObjectsWithTag("Edible").Length == 0)
+            {
+                GameManager.Instance.chef.Throw = true;
+                respawnTime = Random.Range(1, 4);
+            }
             yield return new WaitForSeconds(respawnTime);
         }
     }
 
-    void SpawnObject(GameObject g, Vector3 pos)
+    public void SpawnObject(GameObject g, Vector3 pos)
     {
         GameObject spawnedObject = Instantiate(g);
         spawnedObject.transform.position = pos;

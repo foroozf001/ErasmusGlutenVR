@@ -13,11 +13,11 @@ public class Thrown : StateData
 
     public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
     {
+        
         //animator.SetBool(CharacterControl.TransitionParameters.Hit.ToString(), false);
     }
 
     public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
     {
-        // return;
     }
 }
