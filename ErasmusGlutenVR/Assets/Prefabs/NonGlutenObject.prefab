@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 539543997869827210}
   - component: {fileID: 5148385327835931781}
   - component: {fileID: 5269306649385711136}
-  - component: {fileID: 2014342684423316552}
   - component: {fileID: 805416090111951577}
+  - component: {fileID: 2014342684423316552}
   m_Layer: 8
   m_Name: NonGlutenObject
   m_TagString: Edible
@@ -108,14 +108,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6350603246401409405}
   serializedVersion: 2
-  m_Mass: 0.2
+  m_Mass: 0.001
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.01
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!135 &5269306649385711136
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -129,6 +129,20 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &805416090111951577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6350603246401409405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47db3721d8cfe2e4485e6bb22428834a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust: 0.5
+  direction: {x: 0, y: 0, z: -1}
 --- !u!114 &2014342684423316552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,17 +157,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifetimeInSeconds: 8
   _hasGluten: 0
---- !u!114 &805416090111951577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6350603246401409405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47db3721d8cfe2e4485e6bb22428834a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thrust: 0.3
-  direction: {x: 0, y: 0, z: -1}

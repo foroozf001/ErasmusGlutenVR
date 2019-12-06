@@ -10,6 +10,7 @@ public abstract class SpawnableObject : MonoBehaviour
     {
         this.gameObject.GetComponent<Rigidbody>().useGravity = false;
         this.gameObject.GetComponent<Rigidbody>().mass = 0.2f;
+        this.gameObject.GetComponent<Rigidbody>().angularDrag = 0.01f;
         this.gameObject.GetComponent<SphereCollider>().isTrigger = true;
     }
 }

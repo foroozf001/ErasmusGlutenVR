@@ -20,5 +20,11 @@ public class HandManager : MonoBehaviour
             grabberRight.skinnedMeshRenderer.material = contaminatedMaterial;
         else
             grabberRight.skinnedMeshRenderer.material = cleanMaterial;
+
+        if (grabberLeft.grabbedObject != null)
+            grabberLeft.grabbedObject.grabbedRigidbody.useGravity = true;
+        
+        if (grabberRight.grabbedObject != null)
+            grabberRight.grabbedObject.grabbedRigidbody.useGravity = true;
     }
 }

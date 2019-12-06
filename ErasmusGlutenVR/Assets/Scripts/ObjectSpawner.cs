@@ -22,11 +22,8 @@ public class ObjectSpawner : MonoBehaviour
         
         while (true)//(GameObject.FindGameObjectsWithTag("Edible").Length <= 0)
         {
-            if (GameObject.FindGameObjectsWithTag("Edible").Length == 0)
-            {
-                GameManager.Instance.chef.Throw = true;
-                respawnTime = Random.Range(1, 4);
-            }
+            GameManager.Instance.chef.Throw = true;
+            respawnTime = Random.Range(1, 4);
             yield return new WaitForSeconds(respawnTime);
         }
     }
