@@ -18,10 +18,12 @@ public class Idle : StateData
     public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
     {
         CharacterControl control = characterState.GetCharacterControl(animator);
-
-        if (control.Throw)
+        if (control.Throw && !animator.GetBool(CharacterControl.TransitionParameters.Throw.ToString()))
         {
             animator.SetBool(CharacterControl.TransitionParameters.Throw.ToString(), true);
-        } 
+
+            foreach (ObjectSpawner s in GameManager.Instance.spawners)
+                s.SpawnObject(s.spawnableObjects[Random.Range(0, s.spawnableObjects.Count)], s.transform.position);
+        }
     }
 }

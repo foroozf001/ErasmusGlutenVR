@@ -6,4 +6,11 @@ public class GameManager : Singleton<GameManager>
 {
     public bool LeftHandContaminated;
     public bool RightHandContaminated;
+    public CharacterControl chef;
+    public List<ObjectSpawner> spawners;
+
+    private void Update()
+    {
+        
+    }
 }

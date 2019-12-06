@@ -214,30 +214,6 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &878096663 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8971303663196539692, guid: 4ffd1e1c7761ec0429505912021ac2bc,
-    type: 3}
-  m_PrefabInstance: {fileID: 8971303662514533337}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7941d263be340fa40a2d08a25e744728, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1049367251 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7741280710664999707, guid: e178daa2c4ff9534d95d237841912779,
-    type: 3}
-  m_PrefabInstance: {fileID: 1902438626}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 944374f94bfebd74c89d67dae1d9ecde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1104097168
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,9 +245,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LeftHandContaminated: 0
   RightHandContaminated: 0
-  chef: {fileID: 1049367251}
+  chef: {fileID: 1393922320}
   spawners:
-  - {fileID: 878096663}
+  - {fileID: 1877818727}
 --- !u!4 &1104097170
 Transform:
   m_ObjectHideFlags: 0
@@ -286,6 +262,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1393922320 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7741280710664999707, guid: e178daa2c4ff9534d95d237841912779,
+    type: 3}
+  m_PrefabInstance: {fileID: 1902438626}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 944374f94bfebd74c89d67dae1d9ecde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1723585589
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,6 +384,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ffd1e1c7761ec0429505912021ac2bc, type: 3}
+--- !u!114 &1877818727 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8971303663196539692, guid: 4ffd1e1c7761ec0429505912021ac2bc,
+    type: 3}
+  m_PrefabInstance: {fileID: 8971303662514533337}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7941d263be340fa40a2d08a25e744728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1884511239
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,7 +518,7 @@ PrefabInstance:
     - target: {fileID: 7488381319797088891, guid: e178daa2c4ff9534d95d237841912779,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4
+      value: 3.34
       objectReference: {fileID: 0}
     - target: {fileID: 7488381319797088891, guid: e178daa2c4ff9534d95d237841912779,
         type: 3}
@@ -558,6 +558,11 @@ PrefabInstance:
     - target: {fileID: 7488381319797088891, guid: e178daa2c4ff9534d95d237841912779,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7741280710664999707, guid: e178daa2c4ff9534d95d237841912779,
+        type: 3}
+      propertyPath: Hit
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -690,17 +695,17 @@ PrefabInstance:
     - target: {fileID: 8971303663196539693, guid: 4ffd1e1c7761ec0429505912021ac2bc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.5
+      value: -0.312
       objectReference: {fileID: 0}
     - target: {fileID: 8971303663196539693, guid: 4ffd1e1c7761ec0429505912021ac2bc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.369
+      value: 1.392
       objectReference: {fileID: 0}
     - target: {fileID: 8971303663196539693, guid: 4ffd1e1c7761ec0429505912021ac2bc,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.322
+      value: 2.725
       objectReference: {fileID: 0}
     - target: {fileID: 8971303663196539693, guid: 4ffd1e1c7761ec0429505912021ac2bc,
         type: 3}
