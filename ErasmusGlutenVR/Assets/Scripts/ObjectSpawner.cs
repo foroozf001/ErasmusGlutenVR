@@ -6,6 +6,7 @@ public class ObjectSpawner : MonoBehaviour
 {
     [SerializeField] public List<GameObject> spawnableObjects;
     [SerializeField][Range(1, 8)] public int respawnTime;
+    [SerializeField] public int deviation;
 
     private void OnEnable()
     {
@@ -23,7 +24,7 @@ public class ObjectSpawner : MonoBehaviour
         while (true)//(GameObject.FindGameObjectsWithTag("Edible").Length <= 0)
         {
             GameManager.Instance.chef.Throw = true;
-            respawnTime = Random.Range(1, 4);
+            respawnTime = 4 + Random.Range(0, deviation);
             yield return new WaitForSeconds(respawnTime);
         }
     }
