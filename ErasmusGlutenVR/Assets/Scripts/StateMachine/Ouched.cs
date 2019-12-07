@@ -18,6 +18,9 @@ public class Ouched : StateData
 
     public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
     {
-        // return;
+        CharacterControl control = characterState.GetCharacterControl(animator);
+
+        if (control.Throw)
+            animator.SetBool(CharacterControl.TransitionParameters.Throw.ToString(), true);
     }
 }

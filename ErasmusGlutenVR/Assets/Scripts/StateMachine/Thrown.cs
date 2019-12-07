@@ -19,5 +19,9 @@ public class Thrown : StateData
 
     public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
     {
+        CharacterControl control = characterState.GetCharacterControl(animator);
+
+        if (control.Hit)
+            animator.SetBool(CharacterControl.TransitionParameters.Hit.ToString(), true);
     }
 }
