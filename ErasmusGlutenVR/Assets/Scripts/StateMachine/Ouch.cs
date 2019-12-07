@@ -7,7 +7,7 @@ public class Ouch : StateData
 {
     public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
     {
-        //throw new System.NotImplementedException();
+        animator.SetBool(CharacterControl.TransitionParameters.Throw.ToString(), false);
     }
 
     public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
@@ -20,8 +20,6 @@ public class Ouch : StateData
         CharacterControl control = characterState.GetCharacterControl(animator);
 
         if (control.Hit)
-        {
             animator.SetBool(CharacterControl.TransitionParameters.Hit.ToString(), true);
-        }
     }
 }

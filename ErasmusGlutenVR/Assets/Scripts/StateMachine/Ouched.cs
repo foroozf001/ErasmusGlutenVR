@@ -9,6 +9,14 @@ public class Ouched : StateData
     {
         animator.SetBool(CharacterControl.TransitionParameters.Hit.ToString(), false);
         characterState.GetCharacterControl(animator).Hit = false;
+
+        foreach (ObjectSpawner s in GameManager.Instance.spawners)
+        {
+            if (s.glutenThrowRate > 0f)
+                s.glutenThrowRate -= s.glutenDecreaseRate;
+            else
+                s.glutenThrowRate = 0f;
+        }
     }
 
     public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)

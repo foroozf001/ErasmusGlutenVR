@@ -23,7 +23,13 @@ public class Idle : StateData
             animator.SetBool(CharacterControl.TransitionParameters.Throw.ToString(), true);
 
             foreach (ObjectSpawner s in GameManager.Instance.spawners)
-                s.SpawnObject(s.spawnableObjects[Random.Range(0, s.spawnableObjects.Count)], s.transform.position);
+            {
+                bool throwGluten = Random.Range(0f, 1f) <= s.glutenThrowRate;
+                if (throwGluten)
+                    s.SpawnObject(s.spawnableObjects[0], s.transform.position);
+                else
+                    s.SpawnObject(s.spawnableObjects[1], s.transform.position);
+            }
         }
     }
 }
