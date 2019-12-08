@@ -26,8 +26,6 @@ public class MoveObject : MonoBehaviour
         if (other == null)
             return;
 
-        Debug.Log(other.gameObject.layer);
-
         if (other.gameObject.layer == 11)
         {
             Destroy(this.gameObject);

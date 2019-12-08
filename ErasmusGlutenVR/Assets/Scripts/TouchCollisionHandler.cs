@@ -37,6 +37,13 @@ public class TouchCollisionHandler : MonoBehaviour
                         GameManager.Instance.RightHandContaminated = true;
                 }
             }
+        } else if (other.gameObject.tag == "CleanHands")
+        {
+            if (grabber.IsRight)
+                GameManager.Instance.RightHandContaminated = false;
+
+            if (grabber.IsLeft)
+                GameManager.Instance.LeftHandContaminated = false;
         }
     }
 }
