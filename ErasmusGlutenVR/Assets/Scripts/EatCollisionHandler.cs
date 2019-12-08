@@ -23,11 +23,6 @@ public class EatCollisionHandler : MonoBehaviour
                 else
                     success.Play();
 
-                if (grabbedObject.GetComponent<EdibleObject>().HasGluten())
-                    death.Play();
-                else
-                    success.Play();
-
                 grabber.ForceRelease(grabbedObject); //Voordat je het object destroyed moet je hem van de grabber afhalen!!!
                 Destroy(other.gameObject);
             }

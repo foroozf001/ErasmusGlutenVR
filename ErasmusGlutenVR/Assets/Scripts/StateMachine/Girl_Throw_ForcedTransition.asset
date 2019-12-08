@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32b958537763d9b4985f5663d83fbb49, type: 3}
   m_Name: Girl_Throw_ForcedTransition
   m_EditorClassIdentifier: 
-  TransitionTiming: 0.6
+  TransitionTiming: 0.75

@@ -14,7 +14,9 @@ public class GirlCollisionHandler : MonoBehaviour
         if (other.gameObject.GetComponent<EdibleObject>() != null)
             if (other.gameObject.GetComponent<EdibleObject>().HasGluten())
             {
-                this.GetComponent<CharacterControl>().Hit = true;
+                GameManager.Instance.chef.GetComponent<CharacterControl>().Hit = true;
+                GameObject.Find("WinLoseManager").GetComponent<RoundResultManager>().hitCount++;
+
                 foreach (ParticleSystem p in hitspark)
                 {
                     p.Play();

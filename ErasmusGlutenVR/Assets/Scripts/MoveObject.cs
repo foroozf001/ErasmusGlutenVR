@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveObject : MonoBehaviour
 {
-    [SerializeField][Range(0.1f, 1.0f)] float thrust;
+    [SerializeField][Range(0.01f, 1.0f)] float thrust;
     [SerializeField] Vector3 direction;
     private Rigidbody rigidBody;
 
@@ -19,5 +19,18 @@ public class MoveObject : MonoBehaviour
     void FixedUpdate()
     {
         //rigidBody.AddForce(direction.normalized * thrust);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other == null)
+            return;
+
+        Debug.Log(other.gameObject.layer);
+
+        if (other.gameObject.layer == 11)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
