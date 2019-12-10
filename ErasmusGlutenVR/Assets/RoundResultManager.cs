@@ -8,17 +8,25 @@ public class RoundResultManager : MonoBehaviour
     public bool win;
     public bool lost;
     private float timeLeft = 60f;
+    private float maxTime;
     GameObject spawner;
     public int hitCount = 0;
+    public Image timer;
 
     private void Start()
     {
         spawner = GameObject.Find("SpawnerRight");
+        maxTime = timeLeft;
+        timer = GameObject.Find("ForegroundTimer").GetComponent<Image>();
     }
 
     void Update()
     {
-        timeLeft -= Time.deltaTime;
+        if (timeLeft > 0)
+        {
+            timeLeft -= Time.deltaTime;
+        }
+
         if (timeLeft < 0 && !win)
         {
             lost = true;
@@ -30,6 +38,12 @@ public class RoundResultManager : MonoBehaviour
             win = true;
             Win();
         }
+
+        fillTimer();
+        GameObject.Find("Time").GetComponent<Text>().text = timeLeft.ToString("0.00");
+
+
+
     }
 
     private void Lost()
@@ -42,5 +56,12 @@ public class RoundResultManager : MonoBehaviour
     {
         spawner.SetActive(false);
         GetComponentInChildren<Text>().text = "You Win!";
+    }
+
+    private void fillTimer()
+    {
+        float fill = timeLeft / maxTime;
+        timer.fillAmount = fill;
+
     }
 }
