@@ -1,5 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1285414979495527457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8738853920070032615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0f7f719288799e49a8de544952a8fa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabberLeft: {fileID: 6370857137599963615}
+  grabberRight: {fileID: 7846712176672307869}
+  contaminatedMaterial: {fileID: 2100000, guid: 8bf1fedb6e0d82e4d9dca8890e795c84,
+    type: 2}
+  cleanMaterial: {fileID: 2100000, guid: 668014c105f7bbc4999627a959f4627b, type: 2}
 --- !u!135 &4226575848071265264
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -130,23 +147,6 @@ MonoBehaviour:
   volumetricRadius: 0
   reverbSend: 0
   enableRfl: 0
---- !u!114 &1285414979495527457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8738853920070032615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0f7f719288799e49a8de544952a8fa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grabberLeft: {fileID: 6370857137599963615}
-  grabberRight: {fileID: 7846712176672307869}
-  contaminatedMaterial: {fileID: 2100000, guid: 8bf1fedb6e0d82e4d9dca8890e795c84,
-    type: 2}
-  cleanMaterial: {fileID: 2100000, guid: 668014c105f7bbc4999627a959f4627b, type: 2}
 --- !u!1001 &8738018382957884083
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -223,6 +223,11 @@ PrefabInstance:
       propertyPath: eating
       value: 
       objectReference: {fileID: 8300000, guid: 8e7cecdb8b663b44d9bb9951789984c2, type: 3}
+    - target: {fileID: 166659100763327815, guid: efe266538a8dcda4dbd04fbff7997053,
+        type: 3}
+      propertyPath: cross
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1560130355925698606, guid: efe266538a8dcda4dbd04fbff7997053,
         type: 3}
       propertyPath: IsRight

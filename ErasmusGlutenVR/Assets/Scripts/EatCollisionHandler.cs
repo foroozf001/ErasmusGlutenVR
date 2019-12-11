@@ -9,6 +9,7 @@ public class EatCollisionHandler : MonoBehaviour
 
     public ParticleSystem success;
     public ParticleSystem death;
+    public GameObject cross;
 
     void Start()
     {
@@ -27,16 +28,29 @@ public class EatCollisionHandler : MonoBehaviour
                 OVRGrabber grabber = other.gameObject.GetComponent<OVRGrabbable>().grabbedBy;
                 OVRGrabbable grabbedObject = grabber.grabbedObject;
 
-                audioSource.PlayOneShot(eating, 1f);
+                audioSource.PlayOneShot(eating, 2f);
 
                 if (grabbedObject.GetComponent<EdibleObject>().HasGluten())
-                    death.Play();
+                    StartCoroutine(FailedRoutine(1));
                 else
-                    success.Play();
+                    SuccessRoutine();
 
                 grabber.ForceRelease(grabbedObject); //Voordat je het object destroyed moet je hem van de grabber afhalen!!!
                 Destroy(other.gameObject);
             }
         }
+    }
+
+    void SuccessRoutine()
+    {
+        success.Play();
+    }
+    
+    IEnumerator FailedRoutine(int wait)
+    {
+        cross.SetActive(true);
+        death.Play();
+        yield return new WaitForSeconds(wait);
+        cross.SetActive(false);
     }
 }
