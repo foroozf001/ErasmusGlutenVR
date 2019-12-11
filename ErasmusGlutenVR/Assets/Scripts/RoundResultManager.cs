@@ -27,7 +27,8 @@ public class RoundResultManager : MonoBehaviour
             timeLeft -= Time.deltaTime;
             GameObject.Find("Time").GetComponent<Text>().text = timeLeft.ToString("0") + "/" + maxTime.ToString("0");
         }
-        else {
+        else if(lost && timeLeft <= 0)
+        {
             GameObject.Find("Time").GetComponent<Text>().text = "Time's up!";
         }
 
