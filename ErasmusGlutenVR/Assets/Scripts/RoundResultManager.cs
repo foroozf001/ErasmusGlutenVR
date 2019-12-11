@@ -22,9 +22,13 @@ public class RoundResultManager : MonoBehaviour
 
     void Update()
     {
-        if (timeLeft > 0)
+        if (timeLeft > 0 && !win && !lost)
         {
             timeLeft -= Time.deltaTime;
+            GameObject.Find("Time").GetComponent<Text>().text = timeLeft.ToString("0") + "/" + maxTime.ToString("0");
+        }
+        else {
+            GameObject.Find("Time").GetComponent<Text>().text = "Time's up!";
         }
 
         if (timeLeft < 0 && !win)
@@ -40,7 +44,7 @@ public class RoundResultManager : MonoBehaviour
         }
 
         fillTimer();
-        GameObject.Find("Time").GetComponent<Text>().text = timeLeft.ToString("0.00");
+        
 
 
 
