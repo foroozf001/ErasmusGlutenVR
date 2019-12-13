@@ -49,7 +49,7 @@ public class EatCollisionHandler : MonoBehaviour
     IEnumerator FailedRoutine(int wait)
     {
         cross.SetActive(true);
-        death.Play();
+        ///death.Play();
         yield return new WaitForSeconds(wait);
         cross.SetActive(false);
     }
