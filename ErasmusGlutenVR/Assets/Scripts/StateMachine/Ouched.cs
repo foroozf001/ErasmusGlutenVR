@@ -10,12 +10,12 @@ public class Ouched : StateData
         animator.SetBool(CharacterControl.TransitionParameters.Hit.ToString(), false);
         characterState.GetCharacterControl(animator).Hit = false;
 
-        foreach (ObjectSpawner s in GameManager.Instance.spawners)
+        foreach (FoodThrower s in GameManager.Instance.spawners)
         {
-            if (s.glutenThrowRate > 0f)
-                s.glutenThrowRate -= s.glutenDecreaseRate;
+            if (s._chanceToThrowGluten > 0f)
+                s._chanceToThrowGluten -= s._glutenDecreaseRateOnHit;
             else
-                s.glutenThrowRate = 0f;
+                s._chanceToThrowGluten = 0f;
         }
     }
 

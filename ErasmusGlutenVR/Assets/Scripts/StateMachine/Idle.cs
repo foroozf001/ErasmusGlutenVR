@@ -22,13 +22,15 @@ public class Idle : StateData
         {
             animator.SetBool(CharacterControl.TransitionParameters.Throw.ToString(), true);
 
-            foreach (ObjectSpawner s in GameManager.Instance.spawners)
+            foreach (FoodThrower s in GameManager.Instance.spawners)
             {
-                bool throwGluten = Random.Range(0f, 1f) <= s.glutenThrowRate;
+                bool throwGluten = Random.Range(0f, 1f) <= s._chanceToThrowGluten;
                 if (throwGluten)
-                    s.SpawnObject(s.spawnableGluten[Random.Range(0, s.spawnableGluten.Count)], s.transform.position);
+                    //s.ThrowFoodObject(s._spawnableGlutenObjects[Random.Range(0, s._spawnableGlutenObjects.Count)], s.transform.position);
+                    s.ThrowFoodRoutine(s.CreateFoodObject(s._spawnableGlutenObjects[Random.Range(0, s._spawnableGlutenObjects.Count)], s.transform.position), s._throwDirection);
                 else
-                    s.SpawnObject(s.spawnableNonGluten[Random.Range(0,s.spawnableNonGluten.Count)], s.transform.position);
+                    //s.SpawnObject(s._spawnableNonGlutenObjects[Random.Range(0,s._spawnableNonGlutenObjects.Count)], s.transform.position);
+                    s.ThrowFoodRoutine(s.CreateFoodObject(s._spawnableNonGlutenObjects[Random.Range(0, s._spawnableNonGlutenObjects.Count)], s.transform.position), s._throwDirection);
             }
         }
     }

@@ -7,15 +7,15 @@ public class RoundResultManager : MonoBehaviour
 {
     public bool win;
     public bool lost;
-    private float timeLeft = 60f;
+    private float timeLeft = 100f;
     private float maxTime;
-    GameObject spawner;
+    GameObject thrower;
     public int hitCount = 0;
     public Image timer;
 
     private void Start()
     {
-        spawner = GameObject.Find("SpawnerRight");
+        thrower = GameObject.Find("FoodThrower");
         maxTime = timeLeft;
         timer = GameObject.Find("ForegroundTimer").GetComponent<Image>();
     }
@@ -43,23 +43,18 @@ public class RoundResultManager : MonoBehaviour
             win = true;
             Win();
         }
-
         fillTimer();
-        
-
-
-
     }
 
     private void Lost()
     {
-        spawner.SetActive(false);
+        thrower.SetActive(false);
         GetComponentInChildren<Text>().text = "Game Over";
     }
 
     private void Win()
     {
-        spawner.SetActive(false);
+        thrower.SetActive(false);
         GetComponentInChildren<Text>().text = "You Win!";
     }
 

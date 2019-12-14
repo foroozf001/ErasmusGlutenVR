@@ -298,8 +298,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   win: 0
   lost: 0
-  hitCount: 0
-  timer: {fileID: 0}
+  hitCount: 3
+  timer: {fileID: 7240428278666820205}
 --- !u!1 &5173323687406164441
 GameObject:
   m_ObjectHideFlags: 0
