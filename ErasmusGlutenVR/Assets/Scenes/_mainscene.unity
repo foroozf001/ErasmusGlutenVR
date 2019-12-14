@@ -297,7 +297,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 891355035}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.023, y: -0.233, z: -0.004}
+  m_LocalPosition: {x: -0.023, y: -0.233, z: -0.019}
   m_LocalScale: {x: 0.74001, y: 0.74001, z: 0.74001}
   m_Children: []
   m_Father: {fileID: 0}
@@ -446,10 +446,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1363002895830196610, guid: 754a1d4fbaee02e42b675523cb70c3ab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1363002896188254640, guid: 754a1d4fbaee02e42b675523cb70c3ab,
         type: 3}
       propertyPath: m_Name
       value: Environment
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363002896188254640, guid: 754a1d4fbaee02e42b675523cb70c3ab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1363002896188254643, guid: 754a1d4fbaee02e42b675523cb70c3ab,
         type: 3}
@@ -860,7 +870,7 @@ PrefabInstance:
     - target: {fileID: 4226575848071265264, guid: cf86d60aa0029c84480d3b9f8211fab1,
         type: 3}
       propertyPath: m_Radius
-      value: 0.18
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 4226575848071265264, guid: cf86d60aa0029c84480d3b9f8211fab1,
         type: 3}
@@ -890,7 +900,7 @@ PrefabInstance:
     - target: {fileID: 8740922090773552947, guid: cf86d60aa0029c84480d3b9f8211fab1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.368
+      value: -0.708
       objectReference: {fileID: 0}
     - target: {fileID: 8740922090773552947, guid: cf86d60aa0029c84480d3b9f8211fab1,
         type: 3}
@@ -958,6 +968,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8971303663196539692, guid: 4ffd1e1c7761ec0429505912021ac2bc,
         type: 3}
+      propertyPath: spawnableGluten.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8971303663196539692, guid: 4ffd1e1c7761ec0429505912021ac2bc,
+        type: 3}
+      propertyPath: spawnableNonGluten.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8971303663196539692, guid: 4ffd1e1c7761ec0429505912021ac2bc,
+        type: 3}
       propertyPath: respawnTime
       value: 4
       objectReference: {fileID: 0}
@@ -971,6 +991,48 @@ PrefabInstance:
       propertyPath: glutenDecreaseRate
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 8971303663196539692, guid: 4ffd1e1c7761ec0429505912021ac2bc,
+        type: 3}
+      propertyPath: spawnableObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 1000010759889362, guid: 3245fc5926a7535429f2989cab01a844,
+        type: 3}
+    - target: {fileID: 8971303663196539692, guid: 4ffd1e1c7761ec0429505912021ac2bc,
+        type: 3}
+      propertyPath: spawnableObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 1000012997751318, guid: 0550765fb22bb954ea0412b7153ff417,
+        type: 3}
+    - target: {fileID: 8971303663196539692, guid: 4ffd1e1c7761ec0429505912021ac2bc,
+        type: 3}
+      propertyPath: spawnableNonGluten.Array.data[0]
+      value: 
+      objectReference: {fileID: 1000010759889362, guid: 3245fc5926a7535429f2989cab01a844,
+        type: 3}
+    - target: {fileID: 8971303663196539692, guid: 4ffd1e1c7761ec0429505912021ac2bc,
+        type: 3}
+      propertyPath: spawnableGluten.Array.data[0]
+      value: 
+      objectReference: {fileID: 1000011448446114, guid: 8155176e03f33f44884efb0dd767197c,
+        type: 3}
+    - target: {fileID: 8971303663196539692, guid: 4ffd1e1c7761ec0429505912021ac2bc,
+        type: 3}
+      propertyPath: spawnableGluten.Array.data[1]
+      value: 
+      objectReference: {fileID: 1000010864150500, guid: 07c1ce2b91eb18f4c83d7d36268a0341,
+        type: 3}
+    - target: {fileID: 8971303663196539692, guid: 4ffd1e1c7761ec0429505912021ac2bc,
+        type: 3}
+      propertyPath: spawnableNonGluten.Array.data[1]
+      value: 
+      objectReference: {fileID: 1000012997751318, guid: 0550765fb22bb954ea0412b7153ff417,
+        type: 3}
+    - target: {fileID: 8971303663196539692, guid: 4ffd1e1c7761ec0429505912021ac2bc,
+        type: 3}
+      propertyPath: spawnableNonGluten.Array.data[2]
+      value: 
+      objectReference: {fileID: 1000010528404258, guid: b7d70d80ddd390f41a1bdde5957f74f0,
+        type: 3}
     - target: {fileID: 8971303663196539693, guid: 4ffd1e1c7761ec0429505912021ac2bc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -979,7 +1041,7 @@ PrefabInstance:
     - target: {fileID: 8971303663196539693, guid: 4ffd1e1c7761ec0429505912021ac2bc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.6
+      value: 1.825
       objectReference: {fileID: 0}
     - target: {fileID: 8971303663196539693, guid: 4ffd1e1c7761ec0429505912021ac2bc,
         type: 3}

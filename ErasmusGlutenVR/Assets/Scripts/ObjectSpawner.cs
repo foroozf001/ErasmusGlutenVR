@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ObjectSpawner : MonoBehaviour
 {
-    [SerializeField] public List<GameObject> spawnableObjects;
+    [SerializeField] public List<GameObject> spawnableGluten;
+    [SerializeField] public List<GameObject> spawnableNonGluten;
     [SerializeField][Range(1, 8)] public int respawnTime;
     [SerializeField] public int deviation;
     public float glutenThrowRate = 0.5f;

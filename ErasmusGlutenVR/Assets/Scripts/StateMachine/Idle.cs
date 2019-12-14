@@ -26,9 +26,9 @@ public class Idle : StateData
             {
                 bool throwGluten = Random.Range(0f, 1f) <= s.glutenThrowRate;
                 if (throwGluten)
-                    s.SpawnObject(s.spawnableObjects[0], s.transform.position);
+                    s.SpawnObject(s.spawnableGluten[Random.Range(0, s.spawnableGluten.Count)], s.transform.position);
                 else
-                    s.SpawnObject(s.spawnableObjects[1], s.transform.position);
+                    s.SpawnObject(s.spawnableNonGluten[Random.Range(0,s.spawnableNonGluten.Count)], s.transform.position);
             }
         }
     }

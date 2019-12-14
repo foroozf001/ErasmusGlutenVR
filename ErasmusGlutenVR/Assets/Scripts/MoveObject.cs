@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MoveObject : MonoBehaviour
 {
-    [SerializeField][Range(0.01f, 1.0f)] float thrust;
-    [SerializeField] Vector3 direction;
+    [SerializeField][Range(0.01f, 1.0f)] public float thrust;
+    [SerializeField] public Vector3 direction;
     private Rigidbody rigidBody;
     private float scale = 2.0f;
 
