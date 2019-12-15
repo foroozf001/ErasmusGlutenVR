@@ -40,7 +40,7 @@ public class FoodThrower : MonoBehaviour
         Rigidbody rb = o.GetComponent<Rigidbody>();
         yield return new WaitForSeconds(_waitBeforeThrow);
         if (rb != null && _throwForce >= 0)
-            rb.AddForce(direction.normalized.x * _throwForce, direction.normalized.y * _throwForce, direction.normalized.z * _throwForce, ForceMode.Impulse);
+            rb.AddForce((direction.normalized.x + AddHorizontalJitter(0.1f)) * _throwForce, direction.normalized.y * _throwForce, direction.normalized.z * _throwForce, ForceMode.Impulse);
     }
 
     public void ThrowFoodRoutine(EdibleObject o, Vector3 direction)
@@ -53,5 +53,11 @@ public class FoodThrower : MonoBehaviour
         EdibleObject newFoodObject = Instantiate(o);
         newFoodObject.transform.position = pos;
         return newFoodObject;
+    }
+
+    public float AddHorizontalJitter(float horizontalJitterRange)
+    {
+        float jitterValue = Random.Range(-horizontalJitterRange, horizontalJitterRange);
+        return jitterValue;
     }
 }

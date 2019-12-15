@@ -7,7 +7,7 @@ public class RoundResultManager : MonoBehaviour
 {
     public bool win;
     public bool lost;
-    private float timeLeft = 100f;
+    private float timeLeft = 120f;
     private float maxTime;
     GameObject thrower;
     public int hitCount = 0;
