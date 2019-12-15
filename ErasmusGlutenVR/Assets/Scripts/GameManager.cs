@@ -8,4 +8,5 @@ public class GameManager : Singleton<GameManager>
     public bool RightHandContaminated;
     public CharacterControl chef;
     public List<FoodThrower> spawners;
+    public ScoreManager scoreManager;
 }

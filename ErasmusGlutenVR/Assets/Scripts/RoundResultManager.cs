@@ -38,7 +38,7 @@ public class RoundResultManager : MonoBehaviour
             Lost();
         }
 
-        if (hitCount == 3 && !lost)
+        if (hitCount == 6 && !lost)
         {
             win = true;
             Win();
@@ -49,13 +49,13 @@ public class RoundResultManager : MonoBehaviour
     private void Lost()
     {
         thrower.SetActive(false);
-        GetComponentInChildren<Text>().text = "Game Over";
+        GetComponentInChildren<Text>().text = "Game Over \r\nScore: " + GameManager.Instance.scoreManager._score;
     }
 
     private void Win()
     {
         thrower.SetActive(false);
-        GetComponentInChildren<Text>().text = "You Win!";
+        GetComponentInChildren<Text>().text = "You Win! \r\nScore: " + GameManager.Instance.scoreManager._score;
     }
 
     private void fillTimer()

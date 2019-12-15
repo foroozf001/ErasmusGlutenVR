@@ -44,6 +44,7 @@ public class EatCollisionHandler : MonoBehaviour
     void SuccessRoutine()
     {
         success.Play();
+        GameManager.Instance.scoreManager.AddScore(1);
     }
     
     IEnumerator FailedRoutine(int wait)
