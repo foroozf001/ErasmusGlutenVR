@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 23000012382687454}
   - component: {fileID: 3007015280619294648}
   - component: {fileID: 5567786740704196549}
-  - component: {fileID: 6990770811852748628}
   - component: {fileID: 1472481224982664273}
   - component: {fileID: 1375657519363989952}
   m_Layer: 8
@@ -100,7 +99,7 @@ MonoBehaviour:
   m_snapOrientation: 0
   m_snapOffset: {fileID: 0}
   m_grabPoints:
-  - {fileID: 6990770811852748628}
+  - {fileID: 0}
 --- !u!54 &5567786740704196549
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -117,19 +116,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &6990770811852748628
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000010759889362}
-  m_Material: {fileID: 13400000, guid: e5e3dd9a080bca643b963b0ee1897f0a, type: 2}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.1
-  m_Center: {x: 8.326673e-17, y: 0.0000000027939682, z: 2.4980018e-16}
 --- !u!114 &1472481224982664273
 MonoBehaviour:
   m_ObjectHideFlags: 0
