@@ -1,0 +1,61 @@
+ManifestFileVersion: 0
+CRC: 1140452815
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 2f14f9d2258da057ea8602204e5f2257
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: dc58c56b3ac91dfb9e775ce4912d68d0
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+Assets:
+- Assets/DownloadedAssets/Animations/01_Idles/AGIA_Idle_calm_01_hands_on_back.fbx
+- Assets/Oculus/SampleFramework/Core/CustomHands/Animations/l_hand_cap_touch_anim.fbx
+- Assets/Oculus/SampleFramework/Usage/SharedAssets/Models/door_01.fbx
+- Assets/Oculus/SampleFramework/Core/CustomHands/Animations/r_hand_thumbs_up_anim.fbx
+- Assets/Oculus/SampleFramework/Core/CustomHands/Animations/r_hand_relax_3qtr_fist_anim.fbx
+- Assets/Models/Food Pack Mesh/Croissant.fbx
+- Assets/DownloadedAssets/Animations/02_Layers/AGIA_Layer_look_away_01.fbx
+- Assets/Oculus/SampleFramework/Core/CustomHands/Animations/l_hand_relax_3qtr_fist_anim.fbx
+- Assets/Oculus/SampleFramework/Core/CustomHands/Animations/r_hand_cap_touch_thumb_mask_anim.fbx
+- Assets/Models/Food Pack Mesh/Banana.fbx
+- Assets/Oculus/SampleFramework/Core/CustomHands/Animations/r_hand_pinch_anim.fbx
+- Assets/Models/Food Pack Mesh/Chips_Bag.fbx
+- Assets/Models/Food Pack Mesh/Chicken.fbx
+- Assets/Oculus/SampleFramework/Core/CustomHands/Animations/r_hand_hold_ping_pong_ball_anim.fbx
+- Assets/Oculus/SampleFramework/Core/CustomHands/Animations/l_hand_cap_touch_index_mask_anim.fbx
+- Assets/Oculus/SampleFramework/Usage/SharedAssets/Models/light_01.fbx
+- Assets/DownloadedAssets/Animations/01_Idles/AGIA_Idle_energetic_02_right_hand_piece.fbx
+- Assets/DownloadedAssets/Animations/01_Idles/AGIA_Idle_generic_01.fbx
+- Assets/DownloadedAssets/Animations/01_Idles/AGIA_Idle_brave_01_hand_on_chest.fbx
+- Assets/DownloadedAssets/Animations/01_Idles/AGIA_Idle_pitiable_01_right_hand_on_back_head.fbx
+- Assets/Oculus/SampleFramework/Core/CustomHands/Animations/l_hand_hold_generic_anim.fbx
+- Assets/Oculus/SampleFramework/Core/CustomHands/Animations/l_hand_cap_touch_thumb_mask_anim.fbx
+- Assets/Oculus/SampleFramework/Core/CustomHands/Animations/r_hand_fist_anim.fbx
+- Assets/Kitchen Asset/FBX/Plates/Plate3/Plate3.fbx
+- Assets/Oculus/SampleFramework/Core/CustomHands/Animations/l_hand_pinch_anim.fbx
+- Assets/Models/Food Pack Mesh/Avocado.fbx
+Dependencies:
+- C:/Users/domii/Desktop/Unity Projects/GlutenProject/ErasmusGlutenVR/ErasmusGlutenVR/OVRAssetBundles/OVRMasterBundle/asset_fbx0
+- C:/Users/domii/Desktop/Unity Projects/GlutenProject/ErasmusGlutenVR/ErasmusGlutenVR/OVRAssetBundles/OVRMasterBundle/asset_mat0

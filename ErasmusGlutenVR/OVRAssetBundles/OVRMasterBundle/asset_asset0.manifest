@@ -1,0 +1,31 @@
+ManifestFileVersion: 0
+CRC: 230892369
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 4d6fb734cbdb7b25c5ef0168166996d9
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: af21b00e9ba1c19e8c5d354246e5ad28
+HashAppended: 0
+ClassTypes:
+- Class: 114
+  Script: {fileID: 11500000, guid: 1d0958d0b49fec8439e1d33b2f69b93c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 80c89692155228544bfc17ddb99b388f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 32b958537763d9b4985f5663d83fbb49, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2e544dc43bb6d49468f01000bb9f5288, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 065ce8d4457e2874cb0d6f17abbf8858, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+Assets:
+- Assets/Scripts/StateMachine/Girl_Ouch_ForcedTransition.asset
+- Assets/Scripts/StateMachine/Girl_Throw_ForcedTransition.asset
+- Assets/Scripts/StateMachine/Thrown.asset
+- Assets/Scripts/StateMachine/Idle.asset
+- Assets/Scripts/StateMachine/Ouch.asset
+- Assets/Scripts/StateMachine/Ouched.asset
+Dependencies: []

@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 1824330910
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 2c46a6eaa84dd00b0fb420ba060bd27f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: f19fbf085e00d23fbc8d6cf7b345590b
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Kitchen Asset/FBX/Plates/Plate3/Materials/Plate_DefaultMaterial_AlbedoTransparency.tga
+- Assets/Kitchen Asset/FBX/Plates/Plate3/Materials/Plate_DefaultMaterial_MetallicSmoothness.tga
+- Assets/Kitchen Asset/FBX/Plates/Plate3/Materials/Plate_DefaultMaterial_AO.tga
+Dependencies: []

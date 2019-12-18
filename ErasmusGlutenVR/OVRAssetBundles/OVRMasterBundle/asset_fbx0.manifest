@@ -1,0 +1,66 @@
+ManifestFileVersion: 0
+CRC: 1640855304
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 48cdcbe23ffdae7575cf57bda1893e79
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: f881add57992e661af442a7356112ea5
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+Assets:
+- Assets/DownloadedAssets/Animations/01_Idles/AGIA_Idle_concern_01_right_hand_front.fbx
+- Assets/Oculus/SampleFramework/Core/CustomHands/Models/l_hand_skeletal_lowres.fbx
+- Assets/DownloadedAssets/Animations/02_Layers/AGIA_Layer_nodding_once_01.fbx
+- Assets/Oculus/SampleFramework/Core/CustomHands/Models/r_hand_skeletal_lowres.fbx
+- Assets/Mixamo Animations/Throw.fbx
+- Assets/DownloadedAssets/Animations/01_Idles/AGIA_Idle_surprise_01_hands_open_front.fbx
+- Assets/Models/Food Pack Mesh/Coconut.fbx
+- Assets/Oculus/SampleFramework/Core/CustomHands/Animations/l_hand_thumbs_up_anim.fbx
+- Assets/Oculus/SampleFramework/Usage/SharedAssets/Models/window_01.fbx
+- Assets/Oculus/SampleFramework/Core/CustomHands/Animations/l_hand_relax_mid_fist_anim.fbx
+- Assets/DownloadedAssets/Animations/01_Idles/AGIA_Idle_angry_01_hands_on_waist.fbx
+- Assets/Oculus/SampleFramework/Core/CustomHands/Animations/r_hand_point_anim.fbx
+- Assets/Oculus/SampleFramework/Core/CustomHands/Animations/r_hand_hold_generic_anim.fbx
+- Assets/DownloadedAssets/Model/AGIA_anime_girl.fbx
+- Assets/Oculus/SampleFramework/Usage/SharedAssets/Models/room_01.fbx
+- Assets/Oculus/SampleFramework/Core/CustomHands/Animations/r_hand_relax_mid_fist_anim.fbx
+- Assets/Mixamo Animations/Ouch.fbx
+- Assets/DownloadedAssets/Animations/03_Others/AGIA_Other_walking_01.fbx
+- Assets/Models/Food Pack Mesh/Bread.fbx
+- Assets/DownloadedAssets/Animations/02_Layers/AGIA_Layer_swinging_body_01.fbx
+- Assets/DownloadedAssets/Animations/03_Others/AGIA_Other_waving_arm_01.fbx
+- Assets/Oculus/SampleFramework/Core/CustomHands/Animations/l_hand_hold_ping_pong_ball_anim.fbx
+- Assets/Oculus/SampleFramework/Core/CustomHands/Animations/r_hand_cap_touch_index_mask_anim.fbx
+- Assets/Oculus/SampleFramework/Core/CustomHands/Animations/l_hand_point_anim.fbx
+- Assets/Oculus/SampleFramework/Usage/SharedAssets/Models/table_01.fbx
+- Assets/Models/Food Pack Mesh/Burger.fbx
+- Assets/Oculus/SampleFramework/Usage/SharedAssets/Models/doorframe_01.fbx
+- Assets/Oculus/SampleFramework/Core/CustomHands/Animations/r_hand_cap_touch_anim.fbx
+- Assets/DownloadedAssets/Animations/01_Idles/AGIA_Idle_energetic_01_right_fist_up.fbx
+- Assets/Oculus/SampleFramework/Core/CustomHands/Animations/l_hand_fist_anim.fbx
+Dependencies:
+- C:/Users/domii/Desktop/Unity Projects/GlutenProject/ErasmusGlutenVR/ErasmusGlutenVR/OVRAssetBundles/OVRMasterBundle/asset_mat0

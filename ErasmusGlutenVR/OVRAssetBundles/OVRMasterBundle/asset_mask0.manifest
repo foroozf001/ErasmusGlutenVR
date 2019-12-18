@@ -1,0 +1,16 @@
+ManifestFileVersion: 0
+CRC: 4059231511
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 8400762604b0b0f8635542b1d09286df
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 618316c8167c7e3ed46bc262a34af1a0
+HashAppended: 0
+ClassTypes:
+- Class: 319
+  Script: {instanceID: 0}
+Assets:
+- Assets/DownloadedAssets/Model/AGIA_Arms_Mask.mask
+Dependencies: []

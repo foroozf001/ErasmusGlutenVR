@@ -1,0 +1,34 @@
+ManifestFileVersion: 0
+CRC: 1921997415
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 8d1b59223804c2a758f91fee86c58a49
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2164263bd948184a9373784f776f453a
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Oculus/SampleFramework/Usage/SharedAssets/Materials/MAT_room_atlas_01.mat
+- Assets/DownloadedAssets/Model/AGIA_shader.mat
+- Assets/Materials/Green.mat
+- Assets/DownloadedAssets/Model/girl.mat
+- Assets/Oculus/SampleFramework/Usage/DistanceGrab/GroundMaterial.mat
+- Assets/Oculus/SampleFramework/Usage/SharedAssets/Materials/MAT_room_atlas_02.mat
+- Assets/Oculus/SampleFramework/Core/CustomHands/Materials/Hands_solid.mat
+- Assets/Oculus/SampleFramework/Usage/SharedAssets/Skyboxes/Sky_01/Skybox01.mat
+- Assets/Kitchen Asset/FBX/Plates/Plate3/Materials/No Name.mat
+- Assets/Materials/Red.mat
+- Assets/Materials/Food Package Materials/Food_Fresnel.mat
+- Assets/EffectTexturesAndPrefabs/Materials/Light.mat
+Dependencies:
+- C:/Users/domii/Desktop/Unity Projects/GlutenProject/ErasmusGlutenVR/ErasmusGlutenVR/OVRAssetBundles/OVRMasterBundle/asset_png0
+- C:/Users/domii/Desktop/Unity Projects/GlutenProject/ErasmusGlutenVR/ErasmusGlutenVR/OVRAssetBundles/OVRMasterBundle/asset_tga0
+- C:/Users/domii/Desktop/Unity Projects/GlutenProject/ErasmusGlutenVR/ErasmusGlutenVR/OVRAssetBundles/OVRMasterBundle/asset_shader0
