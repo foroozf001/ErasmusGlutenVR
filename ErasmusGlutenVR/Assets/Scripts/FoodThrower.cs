@@ -6,8 +6,8 @@ public class FoodThrower : MonoBehaviour
 {
     [SerializeField] public List<EdibleObject> _spawnableGlutenObjects;
     [SerializeField] public List<EdibleObject> _spawnableNonGlutenObjects;
-    [SerializeField][Range(1, 8)] public int _rethrowTime;
-    [SerializeField] public int _waitDeviation = 2;
+    [SerializeField][Range(0, 8)] public float _rethrowTime;
+    [SerializeField] public float _waitDeviation = 2;
     [SerializeField] public float _waitBeforeThrow = 1;
     [SerializeField] [Range(0.1f, 1.0f)] public float _throwForce = 0.5f;
     [SerializeField] public Vector3 _throwDirection = new Vector3(0, 1, -1);
@@ -30,7 +30,7 @@ public class FoodThrower : MonoBehaviour
         while (true)//(GameObject.FindGameObjectsWithTag("Edible").Length <= 0)
         {
             GameManager.Instance.chef.Throw = true;
-            int wait = _rethrowTime + Random.Range(0, _waitDeviation);
+            float wait = _rethrowTime + Random.Range(0, _waitDeviation);
             yield return new WaitForSeconds(wait);
         }
     }

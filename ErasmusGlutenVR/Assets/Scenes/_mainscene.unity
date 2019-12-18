@@ -1100,7 +1100,7 @@ PrefabInstance:
     - target: {fileID: 3073540313672987121, guid: fac60482851d4ef46aa7d31a38efe85b,
         type: 3}
       propertyPath: _rethrowTime
-      value: 3
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3073540313672987121, guid: fac60482851d4ef46aa7d31a38efe85b,
         type: 3}
@@ -1296,6 +1296,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6370857137594618165, guid: cf86d60aa0029c84480d3b9f8211fab1,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7846712176670148575, guid: cf86d60aa0029c84480d3b9f8211fab1,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.11
+      objectReference: {fileID: 0}
     - target: {fileID: 8738604529091718309, guid: cf86d60aa0029c84480d3b9f8211fab1,
         type: 3}
       propertyPath: m_Name
