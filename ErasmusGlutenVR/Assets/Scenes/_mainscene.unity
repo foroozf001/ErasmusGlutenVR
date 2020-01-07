@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1037074513}
-  m_IndirectSpecularColor: {r: 0.35239303, g: 0.5784324, b: 0.76843244, a: 1}
+  m_IndirectSpecularColor: {r: 0.3517761, g: 0.57806706, b: 0.76798236, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -567,7 +567,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1959527766022406, guid: 8f4f312dac6724ad7ba0c8c3d9ab3b03, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1959527766022406, guid: 8f4f312dac6724ad7ba0c8c3d9ab3b03, type: 3}
       propertyPath: m_Layer
@@ -922,7 +922,7 @@ Light:
   serializedVersion: 9
   m_Type: 1
   m_Color: {r: 0.9411765, g: 0.9829615, b: 1, a: 1}
-  m_Intensity: 0.25
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -978,13 +978,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1037074512}
-  m_LocalRotation: {x: 0.6532815, y: -0.27059805, z: -0.27059805, w: 0.6532815}
+  m_LocalRotation: {x: 0.31898376, y: 0.2206783, z: -0.63107, w: 0.6717895}
   m_LocalPosition: {x: -0.717, y: 2.604, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1800472820}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 45, y: -90, z: -90}
+  m_LocalEulerAnglesHint: {x: 45, y: -8.63, z: -90}
 --- !u!20 &1366917135 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 8722156243716657705, guid: cf86d60aa0029c84480d3b9f8211fab1,
@@ -1215,6 +1215,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488381319806438811, guid: e178daa2c4ff9534d95d237841912779,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e178daa2c4ff9534d95d237841912779, type: 3}
