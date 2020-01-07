@@ -25,13 +25,13 @@ public class OVRGrabbable : MonoBehaviour
     [SerializeField]
     protected bool m_allowOffhandGrab = true;
     [SerializeField]
-    protected bool m_snapPosition = false;
+    public bool m_snapPosition = false;
     [SerializeField]
     protected bool m_snapOrientation = false;
     [SerializeField]
     protected Transform m_snapOffset;
     [SerializeField]
-    protected Collider[] m_grabPoints = null;
+    public Collider[] m_grabPoints = null;
 
     protected bool m_grabbedKinematic = false;
     protected Collider m_grabbedCollider = null;
