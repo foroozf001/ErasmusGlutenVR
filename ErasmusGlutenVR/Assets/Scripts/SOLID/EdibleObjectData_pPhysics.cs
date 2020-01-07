@@ -1,11 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 namespace ErasmusGluten
 {
-    [RequireComponent(typeof(OVRGrabbable))]
-    [RequireComponent(typeof(Rigidbody))]
-    [RequireComponent(typeof(CapsuleCollider))]
     public partial class EdibleObjectData : ScriptableObject
     {
         [Header("Is a trigger?")]

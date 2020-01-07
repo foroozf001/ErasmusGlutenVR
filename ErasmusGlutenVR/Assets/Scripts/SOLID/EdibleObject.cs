@@ -3,7 +3,10 @@ using UnityEngine.Assertions;
 
 namespace ErasmusGluten
 {
-    public class EdibleObject : MonoBehaviour
+    [RequireComponent(typeof(OVRGrabbable))]
+    [RequireComponent(typeof(Rigidbody))]
+    [RequireComponent(typeof(CapsuleCollider))]
+    public class EdibleObject : MonoBehaviour, IEdibleObject
     {
         public EdibleObjectData edibleObjectData;
 
@@ -26,6 +29,16 @@ namespace ErasmusGluten
         public void WaitForDestroy(int seconds)
         {
             Object.Destroy(this.gameObject, (float)seconds);
+        }
+
+        void OnEat()
+        {
+            //
+        }
+
+        void OnHitChef()
+        {
+            //
         }
     }
 }
