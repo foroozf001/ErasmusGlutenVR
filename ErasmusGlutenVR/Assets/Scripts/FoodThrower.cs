@@ -37,6 +37,7 @@ public class FoodThrower : MonoBehaviour
 
     public IEnumerator ThrowFoodObject(EdibleObject o, Vector3 direction)
     {
+        SoundManager.sndMan.PlayThrowSound();
         Rigidbody rb = o.GetComponent<Rigidbody>();
         yield return new WaitForSeconds(_waitBeforeThrow);
         if (rb != null && _throwForce >= 0)
