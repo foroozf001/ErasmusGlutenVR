@@ -21,51 +21,9 @@ namespace ErasmusGluten
         #endregion
 
         #region interfaces
-        private bool _includeInactive = false;
         private List<Transform> _rootTransforms;
-        List<Transform> RootTransforms
-        {
-            get
-            {
-                if(_rootTransforms == null)
-                {
-                    _rootTransforms = (from t in FindObjectsOfType<Transform>()
-                                       where t.parent == null
-                                       select t).ToList();
-                }
-                return _rootTransforms;
-            }
-        }
-
         private List<IEating> _edibleObjects;
-        List<IEating> EdibleObjects
-        {
-            get
-            {
-                if (_edibleObjects == null)
-                {
-                    _edibleObjects = new List<IEating>();
-                    foreach (Transform t in _rootTransforms)
-                        _edibleObjects.AddRange(t.GetComponentsInChildren<IEating>(_includeInactive));
-                }
-                return _edibleObjects;
-            }
-        }
-
         private List<IThrowing> _throwableObjects;
-        List<IThrowing> ThrowableObjects
-        {
-            get
-            {
-                if (_throwableObjects == null)
-                {
-                    _throwableObjects = new List<IThrowing>();
-                    foreach (Transform t in _rootTransforms)
-                        _throwableObjects.AddRange(t.GetComponentsInChildren<IThrowing>(_includeInactive));
-                }
-                return _throwableObjects;
-            }
-        }
         #endregion
 
         #region Gameplay
@@ -95,6 +53,18 @@ namespace ErasmusGluten
         private void Awake()
         {
             Assert.IsNotNull(edibleSpawner, "Food spawner");
+
+            List<Transform> rootTransforms = (from t in FindObjectsOfType<Transform>()
+                                               where t.parent == null
+                                               select t).ToList();
+
+            _edibleObjects = new List<IEating>();
+            foreach (Transform t in rootTransforms)
+                _edibleObjects.AddRange(t.GetComponentsInChildren<IEating>());
+
+            _throwableObjects = new List<IThrowing>();
+            foreach (Transform t in rootTransforms)
+                _throwableObjects.AddRange(t.GetComponentsInChildren<IThrowing>());
         }
 
         private void Start()
@@ -104,10 +74,11 @@ namespace ErasmusGluten
 
         public void OnEat(EdibleObject o)
         {
-            if (EdibleObjects.Count > 0)
-                for (int i = 0; i < EdibleObjects.Count; i++)
-                    EdibleObjects[i].OnEat(o);
-            Destroy(o);
+            if (_edibleObjects.Count > 0)
+                for (int i = 0; i < _edibleObjects.Count; i++)
+                    if (_edibleObjects[i].GetType() != typeof(GameManager)) //Negeert zichzelf als interface
+                        _edibleObjects[i].OnEat(o);
+            Destroy(o.gameObject);
         }
         #endregion
     }

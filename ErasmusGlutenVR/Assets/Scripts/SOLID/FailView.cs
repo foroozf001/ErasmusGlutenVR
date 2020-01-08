@@ -14,9 +14,9 @@ namespace ErasmusGluten
 
         IEnumerator WaitRoutine(int wait)
         {
-            this.enabled = true;
+            this.GetComponent<Canvas>().enabled = true;
             yield return new WaitForSeconds(wait);
-            this.enabled = false;
+            this.GetComponent<Canvas>().enabled = false;
         }
     }
 }
