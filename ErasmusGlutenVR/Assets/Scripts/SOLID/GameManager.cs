@@ -6,12 +6,14 @@ using System.Linq;
 
 namespace ErasmusGluten
 {
-    public class GameManager : Singleton<GameManager>
+    public class GameManager : Singleton<ErasmusGluten.GameManager>
+        , IEating
     {
-        public static EdibleSpawner edibleSpawner;
+        public EdibleSpawner edibleSpawner;
+        private bool _spawnerIsActive = true;
 
-        public static bool LeftHandContaminated;
-        public static bool RightHandContaminated;
+        public bool leftHandContaminated;
+        public bool rightHandContaminated;
 
         #region delegates
         public delegate void OnEatDelegate();
@@ -66,10 +68,46 @@ namespace ErasmusGluten
         }
         #endregion
 
+        #region Gameplay
+        IEnumerator SpawnEdibleObject()
+        { 
+            while (_spawnerIsActive)
+            {
+                int wait = edibleSpawner.spawnerData.BaseRespawnTime + Random.Range(0, edibleSpawner.spawnerData.DeviationRespawnTime);
+                yield return new WaitForSeconds(wait);
+
+                bool throwGluten = Random.Range(0f, 1f) <= edibleSpawner.spawnerData.ChanceToSpawnGluten;
+                if (throwGluten)
+                    edibleSpawner.ThrowFoodRoutine(
+                        edibleSpawner.CreateFoodObject(edibleSpawner.spawnerData.SpawnableGlutenObjects[Random.Range(0, edibleSpawner.spawnerData.SpawnableGlutenObjects.Count)], edibleSpawner.transform.position),
+                        edibleSpawner.spawnerData.ThrowDirection
+                        );
+                else
+                    edibleSpawner.ThrowFoodRoutine(
+                        edibleSpawner.CreateFoodObject(edibleSpawner.spawnerData.SpawnableNonGlutenObjects[Random.Range(0, edibleSpawner.spawnerData.SpawnableNonGlutenObjects.Count)], edibleSpawner.transform.position),
+                        edibleSpawner.spawnerData.ThrowDirection
+                        );
+            }
+        }
+        #endregion
+
         #region Monobehaviour
         private void Awake()
         {
             Assert.IsNotNull(edibleSpawner, "Food spawner");
+        }
+
+        private void Start()
+        {
+            StartCoroutine(SpawnEdibleObject());
+        }
+
+        public void OnEat(EdibleObject o)
+        {
+            if (EdibleObjects.Count > 0)
+                for (int i = 0; i < EdibleObjects.Count; i++)
+                    EdibleObjects[i].OnEat(o);
+            Destroy(o);
         }
         #endregion
     }

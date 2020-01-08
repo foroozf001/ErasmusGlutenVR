@@ -7,32 +7,11 @@ namespace ErasmusGluten
 {
     public class EdibleSpawner : MonoBehaviour
     {
-        public static bool respawnObject = false;
-        public static EdibleSpawnerData spawnerData;
+        public EdibleSpawnerData spawnerData;
 
         private void Awake()
         {
             Assert.IsNotNull(spawnerData, "Spawner data");
-        }
-
-        private void OnEnable()
-        {
-            StartCoroutine(RespawnEdibleObject());
-        }
-
-        private void OnDisable()
-        {
-            StopCoroutine(RespawnEdibleObject());
-        }
-
-        IEnumerator RespawnEdibleObject()
-        {
-            while (true)
-            {
-                respawnObject = true;
-                int wait = spawnerData.BaseRespawnTime + Random.Range(0, spawnerData.DeviationRespawnTime);
-                yield return new WaitForSeconds(wait);
-            }
         }
 
         public void ThrowFoodRoutine(EdibleObject o, Vector3 direction)

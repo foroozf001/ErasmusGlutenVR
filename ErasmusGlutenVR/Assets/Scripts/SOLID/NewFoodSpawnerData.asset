@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: NewFoodSpawnerData
   m_EditorClassIdentifier: 
   _spawnableGlutenObjects:
-  - {fileID: 0}
+  - {fileID: 5124903833236414890, guid: 8b48072eb13ec4b4eae82f3aa3097c1b, type: 3}
   _spawnableNonGlutenObjects:
-  - {fileID: 0}
+  - {fileID: 5975159076488551888, guid: 52eb808e4e67f03469fbc5f27c2ceb70, type: 3}
   _baseRespawnTime: 3
   _deviationRespawnTime: 2
   _waitBeforeRespawnTime: 1

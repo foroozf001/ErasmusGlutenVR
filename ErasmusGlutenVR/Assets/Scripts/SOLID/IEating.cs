@@ -6,6 +6,6 @@ namespace ErasmusGluten
 {
     interface IEating
     {
-        void OnEat();
+        void OnEat(EdibleObject o);
     }
 }
