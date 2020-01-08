@@ -6,6 +6,7 @@ using System.Linq;
 
 namespace ErasmusGluten
 {
+    [RequireComponent(typeof(Clock))]
     public class GameManager : Singleton<ErasmusGluten.GameManager>
         , IEating
     {
@@ -14,11 +15,6 @@ namespace ErasmusGluten
 
         public bool leftHandContaminated;
         public bool rightHandContaminated;
-
-        #region delegates
-        public delegate void OnEatDelegate();
-        public event OnEatDelegate OnEatEvent;
-        #endregion
 
         #region interfaces
         private List<Transform> _rootTransforms;
