@@ -18,13 +18,18 @@ public class RoundResultManager : MonoBehaviour
         thrower = GameObject.Find("FoodThrower");
         maxTime = timeLeft;
         timer = GameObject.Find("ForegroundTimer").GetComponent<Image>();
+
+        GameManager.Instance.IntroState = true;
     }
 
     void Update()
     {
         if (timeLeft > 0 && !win && !lost)
         {
-            timeLeft -= Time.deltaTime;
+            if (GameManager.Instance.GameState == true)
+            {
+                timeLeft -= Time.deltaTime;
+            }
             GameObject.Find("Time").GetComponent<Text>().text = timeLeft.ToString("0") + "/" + maxTime.ToString("0");
         }
         else if(lost && timeLeft <= 0)

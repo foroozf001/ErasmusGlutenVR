@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
+    public bool IntroState;
+    public bool GameState;
     public bool LeftHandContaminated;
     public bool RightHandContaminated;
     public CharacterControl chef;
