@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f707da99542ad34a98bab42f5a338fe, type: 3}
+  m_Name: NewFoodSpawnerData
+  m_EditorClassIdentifier: 
+  _spawnableGlutenObjects:
+  - {fileID: 0}
+  _spawnableNonGlutenObjects:
+  - {fileID: 0}
+  _baseRespawnTime: 3
+  _deviationRespawnTime: 2
+  _waitBeforeRespawnTime: 1
+  _throwForce: 0.5
+  _throwDirection: {x: 0, y: 1, z: -1}
+  _chanceToSpawnGluten: 0.5

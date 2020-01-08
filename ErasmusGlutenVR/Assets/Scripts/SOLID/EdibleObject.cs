@@ -6,14 +6,22 @@ namespace ErasmusGluten
     [RequireComponent(typeof(OVRGrabbable))]
     [RequireComponent(typeof(Rigidbody))]
     [RequireComponent(typeof(CapsuleCollider))]
-    public class EdibleObject : MonoBehaviour, IEdibleObject
+    public class EdibleObject : MonoBehaviour
     {
+
         public EdibleObjectData edibleObjectData;
 
         void Awake()
         {
-            Assert.AreNotEqual(edibleObjectData, null);
+            Assert.IsNotNull(edibleObjectData, "Edible object data");
+        }
 
+        void Start()
+        {
+            Init();
+        }
+
+        void Init() {
             WaitForDestroy(edibleObjectData.MaxLifetimeInSeconds);
             transform.localScale = new Vector3(edibleObjectData.Scale, edibleObjectData.Scale, edibleObjectData.Scale);
             GetComponent<OVRGrabbable>().m_snapPosition = edibleObjectData.IsSnap;
@@ -28,17 +36,7 @@ namespace ErasmusGluten
 
         public void WaitForDestroy(int seconds)
         {
-            Object.Destroy(this.gameObject, (float)seconds);
-        }
-
-        void OnEat()
-        {
-            //
-        }
-
-        void OnHitChef()
-        {
-            //
+            Destroy(this.gameObject, (float)seconds);
         }
     }
 }

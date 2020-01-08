@@ -6,23 +6,20 @@ namespace ErasmusGluten
 {
     public partial class EdibleObjectData : ScriptableObject
     {
-        [Header("Is a trigger?")]
-        [SerializeField] private bool _colliderIsTrigger = false;
+        private bool _colliderIsTrigger = false;
 
         public bool ColliderIsTrigger
         {
             get { return _colliderIsTrigger; }
         }
 
-        [Header("Snap to hand?")]
-        [SerializeField] private bool _isSnap = true;
+        private bool _isSnap = true;
 
         public bool IsSnap
         {
             get { return _isSnap; }
         }
-
-        [Header("Food behaviour on collision")]
+        [Header("Physics material")]
         [SerializeField] private PhysicMaterial _physicsMaterial;
 
         public PhysicMaterial PhysicsMaterial
@@ -30,8 +27,7 @@ namespace ErasmusGluten
             get { return _physicsMaterial; }
         }
 
-        [Header("Does object have gravity?")]
-        [SerializeField] private bool _hasGravity = true;
+        private bool _hasGravity = true;
 
         public bool HasGravity
         {

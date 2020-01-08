@@ -4,9 +4,8 @@ using UnityEngine;
 
 namespace ErasmusGluten
 {
-    public interface IEdibleObject
+    interface IEating
     {
         void OnEat();
-        void OnHitChef();
     }
 }
