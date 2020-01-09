@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f707da99542ad34a98bab42f5a338fe, type: 3}
-  m_Name: NewFoodSpawnerData
+  m_Name: FoodSpawner
   m_EditorClassIdentifier: 
   _spawnableGlutenObjects:
   - {fileID: 5124903833236414890, guid: 8b48072eb13ec4b4eae82f3aa3097c1b, type: 3}
   _spawnableNonGlutenObjects:
   - {fileID: 5975159076488551888, guid: 52eb808e4e67f03469fbc5f27c2ceb70, type: 3}
-  _baseRespawnTime: 3
-  _deviationRespawnTime: 2
-  _waitBeforeRespawnTime: 1
-  _throwForce: 0.5
-  _throwDirection: {x: 0, y: 1, z: -1}
+  _baseRespawnTime: 1
+  _deviationRespawnTime: 1
+  _waitBeforeRespawnTime: 0.1
+  _throwForce: 0.65
+  _throwDirection: {x: 0, y: 1.3, z: -1}
   _chanceToSpawnGluten: 0.5

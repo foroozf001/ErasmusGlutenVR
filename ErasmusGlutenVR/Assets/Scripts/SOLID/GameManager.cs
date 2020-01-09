@@ -19,6 +19,11 @@ namespace ErasmusGluten
         public int score;
         private bool _win;
 
+        #region delegates
+        public delegate void OnStartThrowAnimation();
+        public event OnStartThrowAnimation OnStartThrowEvent;
+        #endregion
+
         #region interfaces
         private List<Transform> _rootTransforms;
         private List<IEating> _edibleInterfaces;
@@ -34,6 +39,9 @@ namespace ErasmusGluten
                 yield return new WaitForSeconds(wait);
 
                 bool throwGluten = Random.Range(0f, 1f) <= edibleSpawner.spawnerData.ChanceToSpawnGluten;
+                
+                OnStartThrowEvent?.Invoke();
+                
                 if (throwGluten)
                     edibleSpawner.ThrowFoodRoutine(
                         edibleSpawner.CreateFoodObject(edibleSpawner.spawnerData.SpawnableGlutenObjects[Random.Range(0, edibleSpawner.spawnerData.SpawnableGlutenObjects.Count)], edibleSpawner.transform.position),
@@ -86,7 +94,7 @@ namespace ErasmusGluten
                     if (_edibleInterfaces[i].GetType() != typeof(GameManager)) //Negeert zichzelf als interface
                         _edibleInterfaces[i].OnEat(o);
 
-            if (!o.edibleObjectData.ContainsGluten)
+            if (!o.hasGluten)
                 score++;
 
             Destroy(o.gameObject);
@@ -101,7 +109,7 @@ namespace ErasmusGluten
 
             score++;
 
-            Destroy(o);
+            Destroy(o.gameObject);
         }
         #endregion
     }

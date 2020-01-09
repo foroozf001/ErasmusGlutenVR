@@ -8,11 +8,11 @@ namespace ErasmusGluten
     {
         public void OnEat(EdibleObject o)
         {
-            if (o.edibleObjectData.ContainsGluten)
-                StartCoroutine(WaitRoutine(1));
+            if (o.hasGluten)
+                StartCoroutine(WaitRoutine(.5f));
         }
 
-        IEnumerator WaitRoutine(int wait)
+        IEnumerator WaitRoutine(float wait)
         {
             this.GetComponent<Canvas>().enabled = true;
             yield return new WaitForSeconds(wait);

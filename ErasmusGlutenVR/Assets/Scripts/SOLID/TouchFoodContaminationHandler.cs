@@ -19,12 +19,12 @@ namespace ErasmusGluten
                 {
                     if (GameManager.Instance.leftHandContaminated)
                     {
-                        if (!other.GetComponent<EdibleObject>().ContainsGluten)
-                            other.GetComponent<EdibleObject>().ContainsGluten = true;
+                        if (!other.GetComponent<EdibleObject>().hasGluten)
+                            other.GetComponent<EdibleObject>().hasGluten = true;
                     }
                     else
                     {
-                        if (other.GetComponent<EdibleObject>().ContainsGluten)
+                        if (other.GetComponent<EdibleObject>().hasGluten)
                             GameManager.Instance.leftHandContaminated = true;
                     }
                 }
@@ -33,23 +33,15 @@ namespace ErasmusGluten
                 {
                     if (GameManager.Instance.rightHandContaminated)
                     {
-                        if (!other.GetComponent<EdibleObject>().ContainsGluten)
-                            other.GetComponent<EdibleObject>().ContainsGluten = true;
+                        if (!other.GetComponent<EdibleObject>().hasGluten)
+                            other.GetComponent<EdibleObject>().hasGluten = true;
                     }
                     else
                     {
-                        if (other.GetComponent<EdibleObject>().ContainsGluten)
+                        if (other.GetComponent<EdibleObject>().hasGluten)
                             GameManager.Instance.rightHandContaminated = true;
                     }
                 }
-            }
-            else if (other.gameObject.tag == "CleanHands")
-            {
-                if (grabber.IsRight)
-                    GameManager.Instance.rightHandContaminated = false;
-
-                if (grabber.IsLeft)
-                    GameManager.Instance.leftHandContaminated = false;
             }
         }
     }

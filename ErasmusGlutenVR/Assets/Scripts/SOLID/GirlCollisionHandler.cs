@@ -12,7 +12,7 @@ namespace ErasmusGluten
                 return;
 
             if (other.gameObject.GetComponent<EdibleObject>() != null)
-                if (other.gameObject.GetComponent<EdibleObject>().edibleObjectData.ContainsGluten)
+                if (other.gameObject.GetComponent<EdibleObject>().hasGluten)
                 {
                     GameManager.Instance.OnHitChef(other.gameObject.GetComponent<EdibleObject>());
                 }

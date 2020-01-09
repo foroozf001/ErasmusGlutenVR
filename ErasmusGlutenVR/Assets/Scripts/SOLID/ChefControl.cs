@@ -18,6 +18,16 @@ namespace ErasmusGluten
         public bool Throw;
         public bool Hit;
 
+        void Awake()
+        {
+            GameManager.Instance.OnStartThrowEvent += OnStartThrowAnimation;
+        }
+
+        public void OnStartThrowAnimation()
+        {
+            animator.SetBool(TransitionParameters.Throw.ToString(), true);
+        }
+
         public void OnHitChef(EdibleObject o)
         {
             animator.SetBool(TransitionParameters.Hit.ToString(), true);

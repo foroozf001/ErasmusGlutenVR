@@ -24,7 +24,7 @@ namespace ErasmusGluten
             Rigidbody rb = o.GetComponent<Rigidbody>();
             yield return new WaitForSeconds(spawnerData.WaitBeforeRespawnTime);
             if (rb != null && spawnerData.ThrowForce >= 0)
-                rb.AddForce((direction.normalized.x + AddHorizontalJitter(0.0f)) * spawnerData.ThrowForce,
+                rb.AddForce((direction.normalized.x + AddHorizontalJitter(0.1f)) * spawnerData.ThrowForce,
                     direction.normalized.y * spawnerData.ThrowForce, direction.normalized.z * spawnerData.ThrowForce,
                     ForceMode.Impulse);
         }

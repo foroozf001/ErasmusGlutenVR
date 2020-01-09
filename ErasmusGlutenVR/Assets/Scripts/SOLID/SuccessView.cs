@@ -8,7 +8,7 @@ namespace ErasmusGluten
     {
         public void OnEat(EdibleObject o)
         {
-            if (!o.edibleObjectData.ContainsGluten)
+            if (!o.hasGluten)
                 this.GetComponent<ParticleSystem>().Play();
         }
     }

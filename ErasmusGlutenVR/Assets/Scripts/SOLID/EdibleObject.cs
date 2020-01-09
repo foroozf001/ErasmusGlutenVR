@@ -10,12 +10,7 @@ namespace ErasmusGluten
     {
 
         public EdibleObjectData edibleObjectData;
-        private bool _hasGluten;
-        public bool ContainsGluten
-        {
-            get { return _hasGluten; }
-            set { _hasGluten = value; }
-        }
+        public bool hasGluten;
 
         void Awake()
         {
@@ -28,7 +23,7 @@ namespace ErasmusGluten
         }
 
         void Init() {
-            ContainsGluten = edibleObjectData.ContainsGluten;
+            hasGluten = edibleObjectData.ContainsGluten;
             WaitForDestroy(edibleObjectData.MaxLifetimeInSeconds);
             transform.localScale = new Vector3(edibleObjectData.Scale, edibleObjectData.Scale, edibleObjectData.Scale);
             GetComponent<OVRGrabbable>().m_snapPosition = edibleObjectData.IsSnap;
