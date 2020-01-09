@@ -6,6 +6,6 @@ namespace ErasmusGluten
 {
     interface IThrowing
     {
-        void OnHitChef();
+        void OnHitChef(EdibleObject o);
     }
 }

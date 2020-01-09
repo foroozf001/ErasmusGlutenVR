@@ -8,7 +8,7 @@ namespace ErasmusGluten
 {
     [RequireComponent(typeof(Clock))]
     public class GameManager : Singleton<ErasmusGluten.GameManager>
-        , IEating
+        , IEating, IThrowing
     {
         public EdibleSpawner edibleSpawner;
         private bool _spawnerIsActive = true;
@@ -22,7 +22,7 @@ namespace ErasmusGluten
         #region interfaces
         private List<Transform> _rootTransforms;
         private List<IEating> _edibleInterfaces;
-        private List<IThrowing> _throwableObjects;
+        private List<IThrowing> _throwableInterface;
         #endregion
 
         #region Gameplay
@@ -63,9 +63,9 @@ namespace ErasmusGluten
             foreach (Transform t in rootTransforms)
                 _edibleInterfaces.AddRange(t.GetComponentsInChildren<IEating>());
 
-            _throwableObjects = new List<IThrowing>();
+            _throwableInterface = new List<IThrowing>();
             foreach (Transform t in rootTransforms)
-                _throwableObjects.AddRange(t.GetComponentsInChildren<IThrowing>());
+                _throwableInterface.AddRange(t.GetComponentsInChildren<IThrowing>());
         }
 
         private void Start()
@@ -90,6 +90,18 @@ namespace ErasmusGluten
                 score++;
 
             Destroy(o.gameObject);
+        }
+
+        public void OnHitChef(EdibleObject o)
+        {
+            if (_throwableInterface.Count > 0)
+                for (int i = 0; i < _throwableInterface.Count; i++)
+                    if (_throwableInterface[i].GetType() != typeof(GameManager))
+                        _throwableInterface[i].OnHitChef(o);
+
+            score++;
+
+            Destroy(o);
         }
         #endregion
     }
