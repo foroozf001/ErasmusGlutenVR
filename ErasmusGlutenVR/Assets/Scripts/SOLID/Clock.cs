@@ -8,7 +8,7 @@ namespace ErasmusGluten
     {
         public bool paused = false;
         public float timeLeftInRound = 120f;
-        private float maxRoundTime;
+        [HideInInspector] public float maxRoundTime;
 
         #region delegates
         public delegate void OnTick();
@@ -43,7 +43,8 @@ namespace ErasmusGluten
             }
             else
             {
-                paused = true; Reset();
+                paused = true;
+                Reset();
             }
         }
     }
