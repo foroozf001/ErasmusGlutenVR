@@ -19,7 +19,7 @@ namespace ErasmusGluten
                     OVRGrabbable grabbedObject = grabber.grabbedObject;
                     grabber.ForceRelease(grabbedObject); //Voordat je het object destroyed moet je hem van de grabber afhalen!!!
 
-                    GameManager.Instance.OnEat(other.gameObject.GetComponent<EdibleObject>());
+                    GameManager.Instance.OnEat(other.gameObject.GetComponent<EdibleObject>()); //registreer eat event
                 }
             }
         }

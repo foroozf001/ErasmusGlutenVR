@@ -13,6 +13,7 @@ namespace ErasmusGluten
         private void Awake()
         {
             Clock.Instance.OnTickEvent += OnTickEvent;
+            Clock.Instance.OnTimesUpEvent += OnTimesUp;
         }
 
         private void Start()
@@ -28,6 +29,11 @@ namespace ErasmusGluten
             _text.text = Clock.Instance.timeLeftInRound.ToString("0") + "/" + Clock.Instance.maxRoundTime.ToString("0");
             float fill = Clock.Instance.timeLeftInRound / Clock.Instance.maxRoundTime;
             _timer.fillAmount = fill;
+        }
+
+        void OnTimesUp()
+        {
+            OnTickEvent();
         }
     }
 }

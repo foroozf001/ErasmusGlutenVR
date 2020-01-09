@@ -16,9 +16,12 @@ namespace ErasmusGluten
         public bool leftHandContaminated;
         public bool rightHandContaminated;
 
+        public int score;
+        private bool _win;
+
         #region interfaces
         private List<Transform> _rootTransforms;
-        private List<IEating> _edibleObjects;
+        private List<IEating> _edibleInterfaces;
         private List<IThrowing> _throwableObjects;
         #endregion
 
@@ -50,13 +53,15 @@ namespace ErasmusGluten
         {
             Assert.IsNotNull(edibleSpawner, "Food spawner");
 
+            Clock.Instance.OnTimesUpEvent += OnTimesUp;
+
             List<Transform> rootTransforms = (from t in FindObjectsOfType<Transform>()
                                                where t.parent == null
                                                select t).ToList();
 
-            _edibleObjects = new List<IEating>();
+            _edibleInterfaces = new List<IEating>();
             foreach (Transform t in rootTransforms)
-                _edibleObjects.AddRange(t.GetComponentsInChildren<IEating>());
+                _edibleInterfaces.AddRange(t.GetComponentsInChildren<IEating>());
 
             _throwableObjects = new List<IThrowing>();
             foreach (Transform t in rootTransforms)
@@ -65,15 +70,25 @@ namespace ErasmusGluten
 
         private void Start()
         {
+            score = 0;
             StartCoroutine(SpawnEdibleObject());
+        }
+
+        void OnTimesUp()
+        {
+            _spawnerIsActive = false;
         }
 
         public void OnEat(EdibleObject o)
         {
-            if (_edibleObjects.Count > 0)
-                for (int i = 0; i < _edibleObjects.Count; i++)
-                    if (_edibleObjects[i].GetType() != typeof(GameManager)) //Negeert zichzelf als interface
-                        _edibleObjects[i].OnEat(o);
+            if (_edibleInterfaces.Count > 0)
+                for (int i = 0; i < _edibleInterfaces.Count; i++)
+                    if (_edibleInterfaces[i].GetType() != typeof(GameManager)) //Negeert zichzelf als interface
+                        _edibleInterfaces[i].OnEat(o);
+
+            if (!o.edibleObjectData.ContainsGluten)
+                score++;
+
             Destroy(o.gameObject);
         }
         #endregion

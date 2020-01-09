@@ -13,6 +13,9 @@ namespace ErasmusGluten
         #region delegates
         public delegate void OnTick();
         public event OnTick OnTickEvent;
+
+        public delegate void OnTimesUp();
+        public event OnTimesUp OnTimesUpEvent;
         #endregion
 
         // Start is called before the first frame update
@@ -37,14 +40,14 @@ namespace ErasmusGluten
 
             if (timeLeftInRound > 0)
             { 
-                timeLeftInRound -= Time.deltaTime; 
-                if (OnTickEvent != null)
-                    OnTickEvent();
+                timeLeftInRound -= Time.deltaTime;
+                OnTickEvent?.Invoke();
             }
             else
             {
                 paused = true;
                 Reset();
+                OnTimesUpEvent?.Invoke();
             }
         }
     }
