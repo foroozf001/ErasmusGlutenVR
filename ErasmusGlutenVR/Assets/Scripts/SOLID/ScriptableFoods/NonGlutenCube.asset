@@ -17,4 +17,4 @@ MonoBehaviour:
   _physicsMaterial: {fileID: 13400000, guid: e5e3dd9a080bca643b963b0ee1897f0a, type: 2}
   _mass: 0.1
   _angularDrag: 0.01
-  _scale: 0.2
+  _scale: 2

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7449624034156717179}
   - component: {fileID: 4157570892364214735}
   - component: {fileID: 843974788966668837}
-  - component: {fileID: 7793240057264681154}
+  - component: {fileID: -8524913443790028974}
   m_Layer: 8
   m_Name: Pizza
   m_TagString: Edible
@@ -130,7 +130,7 @@ CapsuleCollider:
   m_Height: 0.23
   m_Direction: 2
   m_Center: {x: 0, y: 0.000000016763806, z: 0.000000018626451}
---- !u!114 &7793240057264681154
+--- !u!114 &-8524913443790028974
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,8 +139,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000012023308628}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0848e6c68c23bbe4bbc4f28685f353f8, type: 3}
+  m_Script: {fileID: 11500000, guid: 847d2bc9df0f666479ded15c945b6023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lifetimeInSeconds: 10
-  _hasGluten: 1
+  edibleObjectData: {fileID: 11400000, guid: 5acfd83265639cd4a94049683aac9069, type: 2}
+  hasGluten: 0

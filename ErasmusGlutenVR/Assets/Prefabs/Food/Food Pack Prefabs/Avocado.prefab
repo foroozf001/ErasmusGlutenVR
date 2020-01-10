@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 23000012382687454}
   - component: {fileID: 3007015280619294648}
   - component: {fileID: 5567786740704196549}
-  - component: {fileID: 1472481224982664273}
+  - component: {fileID: -1265313654091264785}
   - component: {fileID: 1375657519363989952}
   m_Layer: 8
   m_Name: Avocado
@@ -116,7 +116,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1472481224982664273
+--- !u!114 &-1265313654091264785
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,11 +125,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000010759889362}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0848e6c68c23bbe4bbc4f28685f353f8, type: 3}
+  m_Script: {fileID: 11500000, guid: 847d2bc9df0f666479ded15c945b6023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lifetimeInSeconds: 10
-  _hasGluten: 0
+  edibleObjectData: {fileID: 11400000, guid: 82039e7751c3df742986b4d3e21a20e2, type: 2}
+  hasGluten: 0
 --- !u!136 &1375657519363989952
 CapsuleCollider:
   m_ObjectHideFlags: 0

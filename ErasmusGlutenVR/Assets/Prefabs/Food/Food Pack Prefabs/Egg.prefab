@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -6527945722660656563}
   - component: {fileID: -8593707337677901825}
   - component: {fileID: -8504270442885595662}
-  - component: {fileID: -8919350443668284153}
+  - component: {fileID: 4390198378219747979}
   m_Layer: 8
   m_Name: Egg
   m_TagString: Edible
@@ -130,7 +130,7 @@ CapsuleCollider:
   m_Height: 0
   m_Direction: 1
   m_Center: {x: 0, y: -0.000000005122274, z: 0.0000000037252903}
---- !u!114 &-8919350443668284153
+--- !u!114 &4390198378219747979
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,8 +139,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000012343480272}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0848e6c68c23bbe4bbc4f28685f353f8, type: 3}
+  m_Script: {fileID: 11500000, guid: 847d2bc9df0f666479ded15c945b6023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lifetimeInSeconds: 10
-  _hasGluten: 0
+  edibleObjectData: {fileID: 11400000, guid: 82039e7751c3df742986b4d3e21a20e2, type: 2}
+  hasGluten: 0

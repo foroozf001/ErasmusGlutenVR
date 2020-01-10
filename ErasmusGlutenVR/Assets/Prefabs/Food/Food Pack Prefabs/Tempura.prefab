@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -5330476294259339991}
   - component: {fileID: -2482433698435845881}
   - component: {fileID: -9066928219883679594}
-  - component: {fileID: 5038042141679366399}
+  - component: {fileID: 2043216717744424660}
   m_Layer: 8
   m_Name: Tempura
   m_TagString: Edible
@@ -130,7 +130,7 @@ CapsuleCollider:
   m_Height: 0.13408229
   m_Direction: 1
   m_Center: {x: 0, y: -0.0000000037252903, z: 0.000000011175871}
---- !u!114 &5038042141679366399
+--- !u!114 &2043216717744424660
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,8 +139,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000012244298164}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0848e6c68c23bbe4bbc4f28685f353f8, type: 3}
+  m_Script: {fileID: 11500000, guid: 847d2bc9df0f666479ded15c945b6023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lifetimeInSeconds: 10
-  _hasGluten: 1
+  edibleObjectData: {fileID: 11400000, guid: 5acfd83265639cd4a94049683aac9069, type: 2}
+  hasGluten: 0

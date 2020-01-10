@@ -13,9 +13,37 @@ MonoBehaviour:
   m_Name: FoodSpawner
   m_EditorClassIdentifier: 
   _spawnableGlutenObjects:
-  - {fileID: 5124903833236414890, guid: 8b48072eb13ec4b4eae82f3aa3097c1b, type: 3}
+  - {fileID: 1372415139798388176, guid: 07c1ce2b91eb18f4c83d7d36268a0341, type: 3}
+  - {fileID: -5883788879360801444, guid: 8155176e03f33f44884efb0dd767197c, type: 3}
+  - {fileID: -8387836545815522739, guid: 6e2574af69e1ddd4497a11adb45777a1, type: 3}
+  - {fileID: 8924181425825518868, guid: 94d292219d961b445b269659a3994172, type: 3}
+  - {fileID: 393399986702372480, guid: 931dfc52fd271a846b05a6bf70694fca, type: 3}
+  - {fileID: 4390198378219747979, guid: 9425302b7c44a194bb8782c22588bfe2, type: 3}
+  - {fileID: -7511432354267243284, guid: 9b21be590f33e0d4ba19fec73ce555da, type: 3}
+  - {fileID: -2765123141493911867, guid: 180079041c49091489282ea6ecb31fbe, type: 3}
+  - {fileID: -7699322696629270220, guid: 87a32384fe2633648996ab825d5f4b5b, type: 3}
+  - {fileID: 6766022748949277139, guid: 0ba895ba2fb0b824798ba01dd8206fe7, type: 3}
+  - {fileID: 7855483262217998954, guid: 78dec3a2e9e50fc46882f9cc3751f692, type: 3}
+  - {fileID: -8524913443790028974, guid: 2a79153a0e896724caa73afa19f708c8, type: 3}
+  - {fileID: 2043216717744424660, guid: 3c2e7dbde68087547ae2eeca74dffec4, type: 3}
+  - {fileID: -3278965547857476444, guid: 00a1a863a89404d46a228ffab189f332, type: 3}
   _spawnableNonGlutenObjects:
-  - {fileID: 5975159076488551888, guid: 52eb808e4e67f03469fbc5f27c2ceb70, type: 3}
+  - {fileID: -1265313654091264785, guid: 3245fc5926a7535429f2989cab01a844, type: 3}
+  - {fileID: 4000504638758841401, guid: 0550765fb22bb954ea0412b7153ff417, type: 3}
+  - {fileID: 8730381167595363887, guid: b7d70d80ddd390f41a1bdde5957f74f0, type: 3}
+  - {fileID: -5686714455535909561, guid: 91e1f9e8a986ed344be385215d3145b3, type: 3}
+  - {fileID: 7534454410173151782, guid: 45c7dddf851acbb4e94a8fc0ead66eed, type: 3}
+  - {fileID: 4390198378219747979, guid: 9425302b7c44a194bb8782c22588bfe2, type: 3}
+  - {fileID: -5034287119619114444, guid: 097013ceeb8052648be3891c0984df9a, type: 3}
+  - {fileID: -6004375460657254844, guid: 789e3e78d5881e844ba2a11afa41cbde, type: 3}
+  - {fileID: 2569322933873161596, guid: 80c29c7e0bd64654f8f59dda85e24897, type: 3}
+  - {fileID: -3354053284269757371, guid: 196fe542ad163b149adf1ca04c19c753, type: 3}
+  - {fileID: 3807828709846306603, guid: 819bc2dc8cc285d4db64ae40568e2150, type: 3}
+  - {fileID: 2031964408859221041, guid: 0b2c2c6617d3fb54ab69e7ff4da40867, type: 3}
+  - {fileID: -3340632757104597181, guid: 44f60cf25f94eed4a98f3dcc6e5d04fc, type: 3}
+  - {fileID: 2040280273310411597, guid: 927b358a489fa874780f1278268d7bfb, type: 3}
+  - {fileID: 5505930860224202392, guid: b29c3addc4240254785fef8671d1291b, type: 3}
+  - {fileID: -1625849396303538674, guid: 78a6a596f3cdc2641b44bb3d371c8db0, type: 3}
   _baseRespawnTime: 1
   _deviationRespawnTime: 1
   _waitBeforeRespawnTime: 0.1
