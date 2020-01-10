@@ -17,7 +17,7 @@ namespace ErasmusGluten
         public bool rightHandContaminated;
 
         public int score;
-        private bool _win;
+        public int amountOfGlutenObjectsEaten;
 
         #region delegates
         public delegate void OnStartThrowAnimation();
@@ -79,6 +79,7 @@ namespace ErasmusGluten
         private void Start()
         {
             score = 0;
+            amountOfGlutenObjectsEaten = 0;
             StartCoroutine(SpawnEdibleObject());
         }
 
@@ -96,6 +97,8 @@ namespace ErasmusGluten
 
             if (!o.hasGluten)
                 score++;
+            else
+                amountOfGlutenObjectsEaten++;
 
             Destroy(o.gameObject);
         }
