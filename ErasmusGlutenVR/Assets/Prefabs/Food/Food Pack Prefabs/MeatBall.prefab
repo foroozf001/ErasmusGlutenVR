@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 191810767682668933}
   - component: {fileID: 4833139284791564273}
   - component: {fileID: -1950169403659404046}
-  - component: {fileID: 3195163437287784591}
+  - component: {fileID: 6766022748949277139}
   m_Layer: 8
   m_Name: MeatBall
   m_TagString: Edible
@@ -130,7 +130,7 @@ CapsuleCollider:
   m_Height: 0.22
   m_Direction: 0
   m_Center: {x: 0, y: -0.000000011175871, z: 0.00000009033829}
---- !u!114 &3195163437287784591
+--- !u!114 &6766022748949277139
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,8 +139,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000010154009144}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0848e6c68c23bbe4bbc4f28685f353f8, type: 3}
+  m_Script: {fileID: 11500000, guid: 847d2bc9df0f666479ded15c945b6023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lifetimeInSeconds: 10
-  _hasGluten: 1
+  edibleObjectData: {fileID: 11400000, guid: 5acfd83265639cd4a94049683aac9069, type: 2}
+  hasGluten: 0

@@ -2,29 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HandManager : MonoBehaviour
+namespace ErasmusGluten
 {
-    [SerializeField] OVRGrabber grabberLeft;
-    [SerializeField] OVRGrabber grabberRight;
-    [SerializeField] Material contaminatedMaterial;
-    [SerializeField] Material cleanMaterial;
-
-    private void Update()
+    public class HandManager : MonoBehaviour
     {
-        if (GameManager.Instance.LeftHandContaminated)
-            grabberLeft.skinnedMeshRenderer.material = contaminatedMaterial;
-        else
-            grabberLeft.skinnedMeshRenderer.material = cleanMaterial;
+        [SerializeField] OVRGrabber grabberLeft;
+        [SerializeField] OVRGrabber grabberRight;
+        [SerializeField] Material contaminatedMaterial;
+        [SerializeField] Material cleanMaterial;
 
-        if (GameManager.Instance.RightHandContaminated)
-            grabberRight.skinnedMeshRenderer.material = contaminatedMaterial;
-        else
-            grabberRight.skinnedMeshRenderer.material = cleanMaterial;
+        void Update()
+        {
+            if (GameManager.Instance.leftHandContaminated)
+                grabberLeft.skinnedMeshRenderer.material = contaminatedMaterial;
+            else
+                grabberLeft.skinnedMeshRenderer.material = cleanMaterial;
 
-        if (grabberLeft.grabbedObject != null)
-            grabberLeft.grabbedObject.grabbedRigidbody.useGravity = true;
-        
-        if (grabberRight.grabbedObject != null)
-            grabberRight.grabbedObject.grabbedRigidbody.useGravity = true;
+            if (GameManager.Instance.rightHandContaminated)
+                grabberRight.skinnedMeshRenderer.material = contaminatedMaterial;
+            else
+                grabberRight.skinnedMeshRenderer.material = cleanMaterial;
+        }
     }
 }

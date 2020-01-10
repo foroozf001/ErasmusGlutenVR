@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 23000010489745992}
   - component: {fileID: 6645582308871739685}
   - component: {fileID: 1216984534586005959}
-  - component: {fileID: 2077286475518836230}
   - component: {fileID: 9025848676118549365}
+  - component: {fileID: -5883788879360801444}
   m_Layer: 8
   m_Name: Burger
   m_TagString: Edible
@@ -116,20 +116,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2077286475518836230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000011448446114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0848e6c68c23bbe4bbc4f28685f353f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _lifetimeInSeconds: 10
-  _hasGluten: 1
 --- !u!136 &9025848676118549365
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -144,3 +130,17 @@ CapsuleCollider:
   m_Height: 0.1
   m_Direction: 1
   m_Center: {x: 8.326673e-17, y: 0.0000000055879354, z: 0}
+--- !u!114 &-5883788879360801444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000011448446114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 847d2bc9df0f666479ded15c945b6023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  edibleObjectData: {fileID: 11400000, guid: 5acfd83265639cd4a94049683aac9069, type: 2}
+  hasGluten: 0

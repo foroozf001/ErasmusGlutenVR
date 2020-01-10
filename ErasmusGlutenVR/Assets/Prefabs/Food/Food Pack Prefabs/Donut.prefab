@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -1203885724422746874}
   - component: {fileID: 7973604760638390928}
   - component: {fileID: -4350215354553038816}
-  - component: {fileID: -5614762521261167341}
+  - component: {fileID: 393399986702372480}
   m_Layer: 8
   m_Name: Donut
   m_TagString: Edible
@@ -130,7 +130,7 @@ CapsuleCollider:
   m_Height: 0
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-5614762521261167341
+--- !u!114 &393399986702372480
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,8 +139,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000011379175792}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0848e6c68c23bbe4bbc4f28685f353f8, type: 3}
+  m_Script: {fileID: 11500000, guid: 847d2bc9df0f666479ded15c945b6023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lifetimeInSeconds: 10
-  _hasGluten: 1
+  edibleObjectData: {fileID: 11400000, guid: 5acfd83265639cd4a94049683aac9069, type: 2}
+  hasGluten: 0

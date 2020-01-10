@@ -11,14 +11,13 @@ GameObject:
   - component: {fileID: 3295167911775452876}
   - component: {fileID: 3295167911775452867}
   - component: {fileID: 3295167911775452866}
-  - component: {fileID: 3295167911775452865}
-  - component: {fileID: 3295167911775452864}
-  - component: {fileID: 3295167911775452871}
-  - component: {fileID: 126219315632338017}
-  - component: {fileID: 211523926402536408}
+  - component: {fileID: 5124903833236414890}
+  - component: {fileID: 1298972014119251456}
+  - component: {fileID: 2298439973635474909}
+  - component: {fileID: 5997524237075261581}
   m_Layer: 8
   m_Name: GlutenObject
-  m_TagString: Edible
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,20 +83,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &3295167911775452865
-SphereCollider:
+--- !u!114 &5124903833236414890
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3295167911775452870}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3295167911775452864
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 847d2bc9df0f666479ded15c945b6023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  edibleObjectData: {fileID: 11400000, guid: 5acfd83265639cd4a94049683aac9069, type: 2}
+--- !u!114 &1298972014119251456
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,12 +109,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_allowOffhandGrab: 1
-  m_snapPosition: 1
+  m_snapPosition: 0
   m_snapOrientation: 0
   m_snapOffset: {fileID: 0}
-  m_grabPoints:
-  - {fileID: 3295167911775452865}
---- !u!54 &3295167911775452871
+  m_grabPoints: []
+--- !u!54 &2298439973635474909
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,42 +121,28 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3295167911775452870}
   serializedVersion: 2
-  m_Mass: 0.2
+  m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.01
+  m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 2
---- !u!114 &126219315632338017
-MonoBehaviour:
+  m_CollisionDetection: 0
+--- !u!136 &5997524237075261581
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3295167911775452870}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47db3721d8cfe2e4485e6bb22428834a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thrust: 0.3
-  direction: {x: 0, y: 1, z: -1}
---- !u!114 &211523926402536408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3295167911775452870}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0848e6c68c23bbe4bbc4f28685f353f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifetimeInSeconds: 10
-  _hasGluten: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8507058768574100911
 GameObject:
   m_ObjectHideFlags: 0

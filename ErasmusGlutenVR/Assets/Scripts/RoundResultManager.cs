@@ -62,6 +62,5 @@ public class RoundResultManager : MonoBehaviour
     {
         float fill = timeLeft / maxTime;
         timer.fillAmount = fill;
-
     }
 }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4873346958462445793}
   - component: {fileID: -7599614924574913155}
   - component: {fileID: -1813841436211960465}
-  - component: {fileID: 8262546585716141712}
+  - component: {fileID: -2765123141493911867}
   m_Layer: 8
   m_Name: HotDog
   m_TagString: Edible
@@ -130,7 +130,7 @@ CapsuleCollider:
   m_Height: 0.25
   m_Direction: 0
   m_Center: {x: -0.0000001527369, y: -0.0000000055879354, z: -0.000000018626451}
---- !u!114 &8262546585716141712
+--- !u!114 &-2765123141493911867
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,8 +139,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000013939694586}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0848e6c68c23bbe4bbc4f28685f353f8, type: 3}
+  m_Script: {fileID: 11500000, guid: 847d2bc9df0f666479ded15c945b6023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lifetimeInSeconds: 10
-  _hasGluten: 1
+  edibleObjectData: {fileID: 11400000, guid: 5acfd83265639cd4a94049683aac9069, type: 2}
+  hasGluten: 0
