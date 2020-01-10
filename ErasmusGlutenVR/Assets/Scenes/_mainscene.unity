@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1037074513}
-  m_IndirectSpecularColor: {r: 0.3517761, g: 0.57806706, b: 0.76798236, a: 1}
+  m_IndirectSpecularColor: {r: 0.35239303, g: 0.5784324, b: 0.76843244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -208,7 +208,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 73244553}
   m_LocalRotation: {x: -0, y: 0.29091772, z: -0, w: 0.95674807}
-  m_LocalPosition: {x: 3.922, y: 0.96687186, z: 0.306}
+  m_LocalPosition: {x: 2.82, y: 0.96687186, z: 2.01}
   m_LocalScale: {x: 1.9984186, y: 1, z: 0.23482}
   m_Children:
   - {fileID: 219141901}
@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paused: 0
-  timeLeftInRound: 10
+  timeLeftInRound: 30
   maxRoundTime: 0
 --- !u!1 &219141900
 GameObject:
@@ -692,7 +692,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: new text
 --- !u!222 &1879590504
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -854,17 +854,17 @@ PrefabInstance:
     - target: {fileID: 3173776233680101402, guid: f3c4e1999b6bc404c896f3145adca7c4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.155
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: 3173776233680101402, guid: f3c4e1999b6bc404c896f3145adca7c4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.342
+      value: 0.757
       objectReference: {fileID: 0}
     - target: {fileID: 3173776233680101402, guid: f3c4e1999b6bc404c896f3145adca7c4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.246
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3173776233680101402, guid: f3c4e1999b6bc404c896f3145adca7c4,
         type: 3}
@@ -918,7 +918,7 @@ PrefabInstance:
     - target: {fileID: 1122415176897012046, guid: cdeafc1f98dc2ea46b9d712631381c79,
         type: 3}
       propertyPath: m_Radius
-      value: 0.1
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 5508338275281925659, guid: cdeafc1f98dc2ea46b9d712631381c79,
         type: 3}
@@ -1002,7 +1002,7 @@ PrefabInstance:
     - target: {fileID: 4337890948701202743, guid: 579ca54cd1484604d9adb880345c28dc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: 1.67
       objectReference: {fileID: 0}
     - target: {fileID: 4337890948701202743, guid: 579ca54cd1484604d9adb880345c28dc,
         type: 3}
@@ -1271,10 +1271,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4611848575703696197, guid: d50ada41178e30d4c8e292f0432c0716,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 8e807314fac740245869b0f1310b962e,
+        type: 3}
     - target: {fileID: 9206907592401432166, guid: d50ada41178e30d4c8e292f0432c0716,
         type: 3}
       propertyPath: m_Name
       value: ResultsView
+      objectReference: {fileID: 0}
+    - target: {fileID: 9206907592401432167, guid: d50ada41178e30d4c8e292f0432c0716,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9206907592401432167, guid: d50ada41178e30d4c8e292f0432c0716,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.316
       objectReference: {fileID: 0}
     - target: {fileID: 9206907592401432184, guid: d50ada41178e30d4c8e292f0432c0716,
         type: 3}
@@ -1286,6 +1302,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9206907592401432184, guid: d50ada41178e30d4c8e292f0432c0716,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9206907592401432184, guid: d50ada41178e30d4c8e292f0432c0716,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9206907592401432184, guid: d50ada41178e30d4c8e292f0432c0716,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.8945532
       objectReference: {fileID: 0}
     - target: {fileID: 9206907592923157529, guid: d50ada41178e30d4c8e292f0432c0716,
         type: 3}

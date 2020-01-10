@@ -11,8 +11,11 @@ namespace ErasmusGluten
 
         public void OnEat(EdibleObject o)
         {
-            GameObject plate = GameObject.Instantiate(_plate);
-            plate.transform.position = this.transform.position;
+            if (!o.hasGluten)
+            {
+                GameObject plate = GameObject.Instantiate(_plate);
+                plate.transform.position = this.transform.position;
+            }
         }
 
         public void OnHitChef(EdibleObject o)

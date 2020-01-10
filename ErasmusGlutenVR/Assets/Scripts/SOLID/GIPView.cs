@@ -22,7 +22,7 @@ namespace ErasmusGluten
 
         void OnTimesUp()
         {
-            _text.text = "You ate " + GameManager.Instance.amountOfGlutenObjectsEaten + " foods!";
+            _text.text = "You ate " + GameManager.Instance.amountOfGlutenObjectsEaten + " foods that contain gluten :(";
         }
     }
 }

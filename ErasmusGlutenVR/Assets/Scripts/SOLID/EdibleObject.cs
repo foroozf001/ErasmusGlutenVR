@@ -10,7 +10,7 @@ namespace ErasmusGluten
     {
 
         public EdibleObjectData edibleObjectData;
-        public bool hasGluten;
+        [HideInInspector] public bool hasGluten;
 
         void Awake()
         {
