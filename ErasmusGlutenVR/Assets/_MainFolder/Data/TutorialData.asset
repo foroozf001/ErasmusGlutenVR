@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b739c6dd5e9a6134aac8e6ed2b710272, type: 3}
+  m_Name: TutorialData
+  m_EditorClassIdentifier: 
+  _tutorialStrings:
+  - Grab the food by pressing and holding the side button located under your middle
+    finger. Eat the food by bringing it to your mouth.

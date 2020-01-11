@@ -35,7 +35,7 @@ namespace ErasmusGluten
         // Update is called once per frame
         void Update()
         {
-            if (paused)
+            if (paused || !GameManager.Instance.introCompleted)
                 return;
 
             if (timeLeftInRound > 0)

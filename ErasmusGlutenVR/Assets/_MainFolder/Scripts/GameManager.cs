@@ -8,7 +8,7 @@ namespace ErasmusGluten
 {
     [RequireComponent(typeof(Clock))]
     public class GameManager : Singleton<ErasmusGluten.GameManager>
-        , IEating, IThrowing
+        , IEating, IThrowing, ITutorial
     {
         public EdibleSpawner edibleSpawner;
         private bool _spawnerIsActive = true;
@@ -19,6 +19,10 @@ namespace ErasmusGluten
         public int score;
         public int amountOfGlutenObjectsEaten;
 
+        public bool introCompleted = false;
+
+        [HideInInspector] public string introItemTag = "IntroEdible";
+
         #region delegates
         public delegate void OnStartThrowAnimation();
         public event OnStartThrowAnimation OnStartThrowEvent;
@@ -28,6 +32,7 @@ namespace ErasmusGluten
         private List<Transform> _rootTransforms;
         private List<IEating> _edibleInterfaces;
         private List<IThrowing> _throwableInterface;
+        private List<ITutorial> _tutorialInterfaces;
         #endregion
 
         #region Gameplay
@@ -74,19 +79,29 @@ namespace ErasmusGluten
             _throwableInterface = new List<IThrowing>();
             foreach (Transform t in rootTransforms)
                 _throwableInterface.AddRange(t.GetComponentsInChildren<IThrowing>());
+
+            _tutorialInterfaces = new List<ITutorial>();
+            foreach (Transform t in rootTransforms)
+                _tutorialInterfaces.AddRange(t.GetComponentsInChildren<ITutorial>());
         }
 
-        private void Start()
+        public void Start()
         {
             Reset();
-            StartCoroutine(SpawnEdibleObject());
+            //StartCoroutine(SpawnEdibleObject());
+            StartTutorial();
+        }
+
+        void StartTutorial()
+        {
+            for (int i = 0; i < _tutorialInterfaces.Count; i++)
+                _tutorialInterfaces[i].OnTutorialStart();
         }
 
         void Reset()
         {
             score = 0;
             amountOfGlutenObjectsEaten = 0;
-            _spawnerIsActive = true;
         }
 
         void OnTimesUp()
@@ -119,6 +134,30 @@ namespace ErasmusGluten
             score++;
 
             Destroy(o.gameObject);
+        }
+
+        public void OnTutorialStart()
+        {
+            Vector3 introEdiblePosition;
+
+            //Berekenen waar het intro object moet komen
+            if (GameObject.Find("Player"))
+                introEdiblePosition = GameObject.Find("Player").transform.position + new Vector3(0f, .8f, .5f);
+            else
+                introEdiblePosition = new Vector3(0f, 1f, 1f);
+
+            //Neem een willekeurig non-gluten object
+            EdibleObject randomObject = edibleSpawner.spawnerData.SpawnableNonGlutenObjects.ElementAt(Random.Range(0, edibleSpawner.spawnerData.SpawnableNonGlutenObjects.Count + 1));
+            EdibleObject introEdible = Instantiate(randomObject);
+            introEdible.edibleObjectData.MaxLifetimeInSeconds = 1000;
+            introEdible.transform.position = introEdiblePosition;
+            introEdible.tag = introItemTag;
+        }
+
+        public void OnTutorialComplete()
+        {
+            _spawnerIsActive = true;
+            StartCoroutine(SpawnEdibleObject());
         }
         #endregion
     }

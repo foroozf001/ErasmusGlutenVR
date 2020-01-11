@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ErasmusGluten {
+namespace ErasmusGluten
+{
     [CreateAssetMenu(menuName = "ErasmusGlutenVR/New Food Object Data", fileName = "NewFoodObjectData.asset")]
     public partial class EdibleObjectData : ScriptableObject
     {
         [Header("Food contains gluten")]
-        [SerializeField] private bool _containsGluten= false;
+        [SerializeField] private bool _containsGluten = false;
 
         public bool ContainsGluten
         {
@@ -21,6 +22,7 @@ namespace ErasmusGluten {
         public int MaxLifetimeInSeconds
         {
             get { return _maxLifetimeInSeconds; }
+            set { _maxLifetimeInSeconds = value; }
         }
     }
 }

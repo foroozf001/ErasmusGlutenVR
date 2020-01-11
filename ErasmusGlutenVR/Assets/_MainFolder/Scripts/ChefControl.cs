@@ -8,10 +8,11 @@ namespace ErasmusGluten
     {
         Throw,
         Hit,
+        Tutorial,
     }
 
     public class ChefControl : MonoBehaviour
-        , IThrowing
+        , IThrowing, ITutorial
     {
         public Animator animator;
 
@@ -31,6 +32,16 @@ namespace ErasmusGluten
         public void OnHitChef(EdibleObject o)
         {
             animator.SetBool(TransitionParameters.Hit.ToString(), true);
+        }
+
+        public void OnTutorialStart()
+        {
+            animator.SetBool(TransitionParameters.Tutorial.ToString(), true);
+        }
+
+        public void OnTutorialComplete()
+        {
+            animator.SetBool(TransitionParameters.Tutorial.ToString(), false);
         }
     }
 }
