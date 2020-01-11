@@ -21,8 +21,6 @@ namespace ErasmusGluten
 
         public bool introCompleted = false;
 
-        [HideInInspector] public string introItemTag = "IntroEdible";
-
         #region delegates
         public delegate void OnStartThrowAnimation();
         public event OnStartThrowAnimation OnStartThrowEvent;
@@ -121,6 +119,9 @@ namespace ErasmusGluten
             else
                 amountOfGlutenObjectsEaten++;
 
+            if (o.IsTutorialEdible)
+                OnTutorialComplete();
+
             Destroy(o.gameObject);
         }
 
@@ -147,15 +148,19 @@ namespace ErasmusGluten
                 introEdiblePosition = new Vector3(0f, 1f, 1f);
 
             //Neem een willekeurig non-gluten object
-            EdibleObject randomObject = edibleSpawner.spawnerData.SpawnableNonGlutenObjects.ElementAt(Random.Range(0, edibleSpawner.spawnerData.SpawnableNonGlutenObjects.Count + 1));
+            EdibleObject randomObject = edibleSpawner.spawnerData.SpawnableNonGlutenObjects.ElementAt(Random.Range(0, edibleSpawner.spawnerData.SpawnableNonGlutenObjects.Count));
             EdibleObject introEdible = Instantiate(randomObject);
-            introEdible.edibleObjectData.MaxLifetimeInSeconds = 1000;
             introEdible.transform.position = introEdiblePosition;
-            introEdible.tag = introItemTag;
+            introEdible.IsTutorialEdible = true;
         }
 
         public void OnTutorialComplete()
         {
+            for (int i = 0; i < _tutorialInterfaces.Count; i++)
+                if (_tutorialInterfaces[i].GetType() != typeof(GameManager))
+                    _tutorialInterfaces[i].OnTutorialComplete();
+
+            introCompleted = true;
             _spawnerIsActive = true;
             StartCoroutine(SpawnEdibleObject());
         }

@@ -17,7 +17,7 @@ namespace ErasmusGluten
 
         public void OnTutorialComplete()
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
         }
 
         public void OnTutorialStart()

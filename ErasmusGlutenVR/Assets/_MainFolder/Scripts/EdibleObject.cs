@@ -12,6 +12,14 @@ namespace ErasmusGluten
         public EdibleObjectData edibleObjectData;
         [HideInInspector] public bool hasGluten;
 
+        [SerializeField] private bool _isTutorialEdible = false;
+
+        public bool IsTutorialEdible
+        {
+            get { return _isTutorialEdible; }
+            set { _isTutorialEdible = value; }
+        }
+
         void Awake()
         {
             Assert.IsNotNull(edibleObjectData, "Edible object data");
