@@ -13,13 +13,17 @@ namespace ErasmusGluten
         public EdibleSpawner edibleSpawner;
         private bool _spawnerIsActive = true;
 
-        public bool leftHandContaminated;
-        public bool rightHandContaminated;
+        public OvrAvatar player;
+        public TutorialView tutorial;
+        public GIPView gip;
 
-        public int score;
-        public int amountOfGlutenObjectsEaten;
+        [HideInInspector] public bool leftHandContaminated;
+        [HideInInspector] public bool rightHandContaminated;
 
-        public bool introCompleted = false;
+        [HideInInspector] public int score;
+        [HideInInspector] public int amountOfGlutenObjectsEaten;
+
+        [HideInInspector] public bool introCompleted = false;
 
         #region delegates
         public delegate void OnStartThrowAnimation();
@@ -69,13 +73,17 @@ namespace ErasmusGluten
             score = 0;
             amountOfGlutenObjectsEaten = 0;
             introCompleted = false;
+            leftHandContaminated = false;
+            rightHandContaminated = false;
+            gip.gameObject.SetActive(false);
         }
 
         void OnTimesUp()
         {
             _spawnerIsActive = false;
-            Clock.Instance.paused = false;
-            Start();
+            Clock.Instance.paused = true;
+            gip.gameObject.SetActive(true);
+            //Start();
         }
 
         public void OnEat(EdibleObject o)
@@ -125,14 +133,14 @@ namespace ErasmusGluten
 
         public void OnTutorialStart()
         {
-            if (GameObject.Find("TutorialView"))
-                GameObject.Find("TutorialView").GetComponentInChildren<TextBalloonView>(true).gameObject.SetActive(true);
+            if (tutorial)
+                tutorial.GetComponentInChildren<TextBalloonView>(true).gameObject.SetActive(true);
             
             Vector3 introEdiblePosition;
 
             //Berekenen waar het intro object moet komen
-            if (GameObject.Find("Player"))
-                introEdiblePosition = GameObject.Find("Player").transform.position + new Vector3(0f, .82f, .55f);
+            if (player)
+                introEdiblePosition = player.transform.position + new Vector3(0f, .82f, .55f);
             else
                 introEdiblePosition = new Vector3(0f, 1f, 1f);
 
@@ -145,8 +153,8 @@ namespace ErasmusGluten
 
         public void OnTutorialComplete()
         {
-            if (GameObject.Find("TutorialView"))
-                GameObject.Find("TutorialView").GetComponentInChildren<TextBalloonView>(true).gameObject.SetActive(false);
+            if (tutorial)
+                tutorial.GetComponentInChildren<TextBalloonView>(true).gameObject.SetActive(false);
 
             for (int i = 0; i < _tutorialInterfaces.Count; i++)
                 if (_tutorialInterfaces[i].GetType() != typeof(GameManager))
@@ -166,8 +174,8 @@ namespace ErasmusGluten
             Vector3 introEdiblePosition;
 
             //Berekenen waar het intro object moet komen
-            if (GameObject.Find("Player"))
-                introEdiblePosition = GameObject.Find("Player").transform.position + new Vector3(0f, .82f, .55f);
+            if (player)
+                introEdiblePosition = player.transform.position + new Vector3(0f, .82f, .55f);
             else
                 introEdiblePosition = new Vector3(0f, 1f, 1f);
 
@@ -183,6 +191,9 @@ namespace ErasmusGluten
         private void Awake()
         {
             Assert.IsNotNull(edibleSpawner, "Food spawner");
+            Assert.IsNotNull(player, "Player");
+            Assert.IsNotNull(tutorial, "Tutorial");
+            Assert.IsNotNull(gip, "Gip");
 
             Clock.Instance.OnTimesUpEvent += OnTimesUp;
 

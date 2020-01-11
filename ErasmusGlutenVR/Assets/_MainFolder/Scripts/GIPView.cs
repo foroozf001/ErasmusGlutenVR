@@ -7,7 +7,8 @@ namespace ErasmusGluten
 {
     public class GIPView : MonoBehaviour
     {
-        private Text _text;
+        public Text gipScore;
+        public GameObject gipColor;
 
         void Awake()
         {
@@ -17,12 +18,16 @@ namespace ErasmusGluten
         // Start is called before the first frame update
         void Start()
         {
-            _text = GetComponentInChildren<Text>();
+            gipScore = GetComponentInChildren<Text>();
         }
 
         void OnTimesUp()
         {
-            _text.text = "You ate " + GameManager.Instance.amountOfGlutenObjectsEaten + " foods that contain gluten :(";
+            var block = new MaterialPropertyBlock();
+            float colorDifferential = (float)GameManager.Instance.amountOfGlutenObjectsEaten / (float)GameManager.Instance.score;
+            block.SetColor("_BaseColor", new Color(colorDifferential, 1 - colorDifferential, 0, 1));
+            gipScore.text = GameManager.Instance.amountOfGlutenObjectsEaten.ToString();
+            gipColor.GetComponent<MeshRenderer>().SetPropertyBlock(block);
         }
     }
 }
