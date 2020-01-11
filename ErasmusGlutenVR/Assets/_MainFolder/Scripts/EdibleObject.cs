@@ -20,6 +20,14 @@ namespace ErasmusGluten
             set { _isTutorialEdible = value; }
         }
 
+        [SerializeField] private bool _isTutorialEdibleMiddle = false;
+
+        public bool IsTutorialEdibleMiddle
+        {
+            get { return _isTutorialEdibleMiddle; }
+            set { _isTutorialEdibleMiddle = value; }
+        }
+
         void Awake()
         {
             Assert.IsNotNull(edibleObjectData, "Edible object data");
@@ -32,7 +40,8 @@ namespace ErasmusGluten
 
         void Init() {
             hasGluten = edibleObjectData.ContainsGluten;
-            WaitForDestroy(edibleObjectData.MaxLifetimeInSeconds);
+            if (!_isTutorialEdible)
+                WaitForDestroy(edibleObjectData.MaxLifetimeInSeconds);
             transform.localScale = new Vector3(edibleObjectData.Scale, edibleObjectData.Scale, edibleObjectData.Scale);
             GetComponent<OVRGrabbable>().m_snapPosition = edibleObjectData.IsSnap;
             if (edibleObjectData.IsSnap)
@@ -47,6 +56,25 @@ namespace ErasmusGluten
         public void WaitForDestroy(int seconds)
         {
             Destroy(this.gameObject, (float)seconds);
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (_isTutorialEdible)
+            {
+                if (collision.gameObject.layer == 11) // Collision met environment
+                {
+                    Destroy(this.gameObject);
+                    GameManager.Instance.OnTutorialStart();
+                }
+            } else if (_isTutorialEdibleMiddle)
+            {
+                if (collision.gameObject.layer == 11) // Collision met environment
+                {
+                    Destroy(this.gameObject);
+                    GameManager.Instance.OnTutorialMiddle();
+                }
+            }
         }
     }
 }

@@ -7,6 +7,7 @@ namespace ErasmusGluten
     interface ITutorial
     {
         void OnTutorialStart();
+        void OnTutorialMiddle();
         void OnTutorialComplete();
     }
 }

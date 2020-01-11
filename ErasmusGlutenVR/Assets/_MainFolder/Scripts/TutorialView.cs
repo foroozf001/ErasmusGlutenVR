@@ -17,7 +17,12 @@ namespace ErasmusGluten
 
         public void OnTutorialComplete()
         {
-            //throw new System.NotImplementedException();
+            _text.text = tutorialData.TutorialStrings[2];
+        }
+
+        public void OnTutorialMiddle()
+        {
+            _text.text = tutorialData.TutorialStrings[1];
         }
 
         public void OnTutorialStart()
@@ -28,10 +33,10 @@ namespace ErasmusGluten
         private void Awake()
         {
             Assert.IsNotNull(tutorialData, "tutorial data");
-            Assert.IsNotNull(GetComponentInChildren<TextBalloonView>(), "Text balloon view");
-            _textBalloonView = GetComponentInChildren<TextBalloonView>();
-            _text = _textBalloonView.GetComponentInChildren<Text>();
-            _image = _textBalloonView.GetComponentInChildren<Image>();
+            Assert.IsNotNull(GetComponentInChildren<TextBalloonView>(true), "Text balloon view");
+            _textBalloonView = GetComponentInChildren<TextBalloonView>(true);
+            _text = _textBalloonView.GetComponentInChildren<Text>(true);
+            _image = _textBalloonView.GetComponentInChildren<Image>(true);
         }
     }
 }

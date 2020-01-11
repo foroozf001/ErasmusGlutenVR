@@ -13,7 +13,6 @@ namespace ErasmusGluten
         public bool ContainsGluten
         {
             get { return _containsGluten; }
-            set { _containsGluten = value; }
         }
 
         [Header("Max lifetime in seconds")]
@@ -22,7 +21,6 @@ namespace ErasmusGluten
         public int MaxLifetimeInSeconds
         {
             get { return _maxLifetimeInSeconds; }
-            set { _maxLifetimeInSeconds = value; }
         }
     }
 }

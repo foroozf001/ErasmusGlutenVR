@@ -8,7 +8,8 @@ namespace ErasmusGluten
     {
         Throw,
         Hit,
-        Tutorial,
+        TutorialStart,
+        TutorialMiddle,
     }
 
     public class ChefControl : MonoBehaviour
@@ -36,12 +37,19 @@ namespace ErasmusGluten
 
         public void OnTutorialStart()
         {
-            animator.SetBool(TransitionParameters.Tutorial.ToString(), true);
+            animator.SetBool(TransitionParameters.TutorialStart.ToString(), true);
         }
 
         public void OnTutorialComplete()
         {
-            animator.SetBool(TransitionParameters.Tutorial.ToString(), false);
+            animator.SetBool(TransitionParameters.TutorialStart.ToString(), false);
+            animator.SetBool(TransitionParameters.TutorialMiddle.ToString(), false);
+        }
+
+        public void OnTutorialMiddle()
+        {
+            animator.SetBool(TransitionParameters.TutorialStart.ToString(), false);
+            animator.SetBool(TransitionParameters.TutorialMiddle.ToString(), true);
         }
     }
 }

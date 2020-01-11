@@ -57,6 +57,126 @@ namespace ErasmusGluten
                         );
             }
         }
+
+        void StartTutorial()
+        {
+            for (int i = 0; i < _tutorialInterfaces.Count; i++)
+                _tutorialInterfaces[i].OnTutorialStart();
+        }
+
+        void Reset()
+        {
+            score = 0;
+            amountOfGlutenObjectsEaten = 0;
+            introCompleted = false;
+        }
+
+        void OnTimesUp()
+        {
+            _spawnerIsActive = false;
+            Clock.Instance.paused = false;
+            Start();
+        }
+
+        public void OnEat(EdibleObject o)
+        {
+            if (_edibleInterfaces.Count > 0)
+                for (int i = 0; i < _edibleInterfaces.Count; i++)
+                    if (_edibleInterfaces[i].GetType() != typeof(GameManager)) //Negeert zichzelf als interface
+                        _edibleInterfaces[i].OnEat(o);
+
+            if (!o.hasGluten)
+                score++;
+            else
+                amountOfGlutenObjectsEaten++;
+
+            if (o.IsTutorialEdible)
+            {
+                Destroy(o.gameObject);
+                OnTutorialMiddle();
+                return;
+            }
+            else if (o.IsTutorialEdibleMiddle) //Opnieuw de tutorial sectie starten want hij moet het gooien
+            {
+                Destroy(o.gameObject);
+                OnTutorialMiddle();
+                return;
+            }
+            else
+            {
+                Destroy(o.gameObject);
+            }
+        }
+
+        public void OnHitChef(EdibleObject o)
+        {
+            if (_throwableInterface.Count > 0)
+                for (int i = 0; i < _throwableInterface.Count; i++)
+                    if (_throwableInterface[i].GetType() != typeof(GameManager))
+                        _throwableInterface[i].OnHitChef(o);
+
+            score++;
+
+            if (o.IsTutorialEdibleMiddle)
+                OnTutorialComplete();
+
+            Destroy(o.gameObject);
+        }
+
+        public void OnTutorialStart()
+        {
+            if (GameObject.Find("TutorialView"))
+                GameObject.Find("TutorialView").GetComponentInChildren<TextBalloonView>(true).gameObject.SetActive(true);
+            
+            Vector3 introEdiblePosition;
+
+            //Berekenen waar het intro object moet komen
+            if (GameObject.Find("Player"))
+                introEdiblePosition = GameObject.Find("Player").transform.position + new Vector3(0f, .82f, .55f);
+            else
+                introEdiblePosition = new Vector3(0f, 1f, 1f);
+
+            //Neem een willekeurig non-gluten object
+            EdibleObject randomObject = edibleSpawner.spawnerData.SpawnableNonGlutenObjects.ElementAt(Random.Range(0, edibleSpawner.spawnerData.SpawnableNonGlutenObjects.Count));
+            EdibleObject introEdible = Instantiate(randomObject);
+            introEdible.transform.position = introEdiblePosition;
+            introEdible.IsTutorialEdible = true;
+        }
+
+        public void OnTutorialComplete()
+        {
+            if (GameObject.Find("TutorialView"))
+                GameObject.Find("TutorialView").GetComponentInChildren<TextBalloonView>(true).gameObject.SetActive(false);
+
+            for (int i = 0; i < _tutorialInterfaces.Count; i++)
+                if (_tutorialInterfaces[i].GetType() != typeof(GameManager))
+                    _tutorialInterfaces[i].OnTutorialComplete();
+
+            introCompleted = true;
+            _spawnerIsActive = true;
+            StartCoroutine(SpawnEdibleObject());
+        }
+
+        public void OnTutorialMiddle()
+        {
+            for (int i = 0; i < _tutorialInterfaces.Count; i++)
+                if (_tutorialInterfaces[i].GetType() != typeof(GameManager))
+                    _tutorialInterfaces[i].OnTutorialMiddle();
+
+            Vector3 introEdiblePosition;
+
+            //Berekenen waar het intro object moet komen
+            if (GameObject.Find("Player"))
+                introEdiblePosition = GameObject.Find("Player").transform.position + new Vector3(0f, .82f, .55f);
+            else
+                introEdiblePosition = new Vector3(0f, 1f, 1f);
+
+            //Neem een willekeurig gluten object
+            EdibleObject randomObject = edibleSpawner.spawnerData.SpawnableGlutenObjects.ElementAt(Random.Range(0, edibleSpawner.spawnerData.SpawnableNonGlutenObjects.Count));
+            EdibleObject introEdible = Instantiate(randomObject);
+            introEdible.transform.position = introEdiblePosition;
+            introEdible.IsTutorialEdibleMiddle = true;
+        }
         #endregion
 
         #region Monobehaviour
@@ -86,83 +206,7 @@ namespace ErasmusGluten
         public void Start()
         {
             Reset();
-            //StartCoroutine(SpawnEdibleObject());
             StartTutorial();
-        }
-
-        void StartTutorial()
-        {
-            for (int i = 0; i < _tutorialInterfaces.Count; i++)
-                _tutorialInterfaces[i].OnTutorialStart();
-        }
-
-        void Reset()
-        {
-            score = 0;
-            amountOfGlutenObjectsEaten = 0;
-        }
-
-        void OnTimesUp()
-        {
-            _spawnerIsActive = false;
-        }
-
-        public void OnEat(EdibleObject o)
-        {
-            if (_edibleInterfaces.Count > 0)
-                for (int i = 0; i < _edibleInterfaces.Count; i++)
-                    if (_edibleInterfaces[i].GetType() != typeof(GameManager)) //Negeert zichzelf als interface
-                        _edibleInterfaces[i].OnEat(o);
-
-            if (!o.hasGluten)
-                score++;
-            else
-                amountOfGlutenObjectsEaten++;
-
-            if (o.IsTutorialEdible)
-                OnTutorialComplete();
-
-            Destroy(o.gameObject);
-        }
-
-        public void OnHitChef(EdibleObject o)
-        {
-            if (_throwableInterface.Count > 0)
-                for (int i = 0; i < _throwableInterface.Count; i++)
-                    if (_throwableInterface[i].GetType() != typeof(GameManager))
-                        _throwableInterface[i].OnHitChef(o);
-
-            score++;
-
-            Destroy(o.gameObject);
-        }
-
-        public void OnTutorialStart()
-        {
-            Vector3 introEdiblePosition;
-
-            //Berekenen waar het intro object moet komen
-            if (GameObject.Find("Player"))
-                introEdiblePosition = GameObject.Find("Player").transform.position + new Vector3(0f, .8f, .5f);
-            else
-                introEdiblePosition = new Vector3(0f, 1f, 1f);
-
-            //Neem een willekeurig non-gluten object
-            EdibleObject randomObject = edibleSpawner.spawnerData.SpawnableNonGlutenObjects.ElementAt(Random.Range(0, edibleSpawner.spawnerData.SpawnableNonGlutenObjects.Count));
-            EdibleObject introEdible = Instantiate(randomObject);
-            introEdible.transform.position = introEdiblePosition;
-            introEdible.IsTutorialEdible = true;
-        }
-
-        public void OnTutorialComplete()
-        {
-            for (int i = 0; i < _tutorialInterfaces.Count; i++)
-                if (_tutorialInterfaces[i].GetType() != typeof(GameManager))
-                    _tutorialInterfaces[i].OnTutorialComplete();
-
-            introCompleted = true;
-            _spawnerIsActive = true;
-            StartCoroutine(SpawnEdibleObject());
         }
         #endregion
     }
