@@ -129,7 +129,7 @@ CapsuleCollider:
   m_Radius: 0.13
   m_Height: 0
   m_Direction: 1
-  m_Center: {x: 0, y: -0.000000007450581, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3807828709846306603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,3 +144,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   edibleObjectData: {fileID: 11400000, guid: 82039e7751c3df742986b4d3e21a20e2, type: 2}
   hasGluten: 0
+  _isTutorialEdible: 0
+  _isTutorialEdibleMiddle: 0

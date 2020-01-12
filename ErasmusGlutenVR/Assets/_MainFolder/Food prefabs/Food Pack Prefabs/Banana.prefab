@@ -126,10 +126,10 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: 948611cc428a84b569ad7626e6649205, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.081907906
+  m_Radius: 0.08
   m_Height: 0.23
   m_Direction: 2
-  m_Center: {x: 2.1301894e-10, y: -0.0280921, z: 4.1228398e-10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4000504638758841401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,3 +145,4 @@ MonoBehaviour:
   edibleObjectData: {fileID: 11400000, guid: 82039e7751c3df742986b4d3e21a20e2, type: 2}
   hasGluten: 0
   _isTutorialEdible: 0
+  _isTutorialEdibleMiddle: 0
