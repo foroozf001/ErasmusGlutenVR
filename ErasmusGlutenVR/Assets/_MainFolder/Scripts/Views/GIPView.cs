@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.UI;
 
 namespace ErasmusGluten
@@ -9,25 +10,27 @@ namespace ErasmusGluten
     {
         public Text gipScore;
         public GameObject gipColor;
+        private MaterialPropertyBlock _block;
 
         void Awake()
         {
-            Clock.Instance.OnTimesUpEvent += OnTimesUp;
+            Assert.IsNotNull(gipScore);
+            Assert.IsNotNull(gipColor);
+            Clock.Instance.OnTickEvent += OnTick;
         }
 
         // Start is called before the first frame update
         void Start()
         {
-            gipScore = GetComponentInChildren<Text>();
+            _block = new MaterialPropertyBlock();
         }
 
-        void OnTimesUp()
+        void OnTick()
         {
-            var block = new MaterialPropertyBlock();
             float colorDifferential = (float)GameManager.Instance.amountOfGlutenObjectsEaten / (float)GameManager.Instance.score;
-            block.SetColor("_BaseColor", new Color(colorDifferential, 1 - colorDifferential, 0, 1));
+            _block.SetColor("_BaseColor", new Color(colorDifferential, 1 - colorDifferential, 0, 1));
             gipScore.text = GameManager.Instance.amountOfGlutenObjectsEaten.ToString();
-            gipColor.GetComponent<MeshRenderer>().SetPropertyBlock(block);
+            gipColor.GetComponent<MeshRenderer>().SetPropertyBlock(_block);
         }
     }
 }

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: TutorialData
   m_EditorClassIdentifier: 
   _tutorialStrings:
-  - Hi! Press and hold the side button under your middle finger to grab. Bring the
-    food to your mouth to eat.
-  - Well done! Avoid eating gluten foods and throw them back at me. Touching gluten
-    contaminates your hands.
-  - Don't contaminate safe foods with dirty hands! Throw contaminated foods back or
-    wash your hands.
+  - 'Press/hold side button under your middle finger to grab food. Bring the food
+    to your mouth to eat. Eating gluten increases your GIP score so make sure to avoid
+    them! '
+  - Tutorial text
+  - 'Touching gluten contaminates your hands. Throw gluten back at me or wash your
+    hands before touching safe foods. '

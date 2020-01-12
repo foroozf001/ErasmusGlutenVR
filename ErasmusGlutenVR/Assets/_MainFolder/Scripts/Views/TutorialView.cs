@@ -18,16 +18,23 @@ namespace ErasmusGluten
         public void OnTutorialComplete()
         {
             _text.text = tutorialData.TutorialStrings[2];
+            StartCoroutine(WaitBeforeClose(GameManager.Instance.waitSecondsAfterTutorialComplete));
         }
 
         public void OnTutorialMiddle()
         {
-            _text.text = tutorialData.TutorialStrings[1];
+            //_text.text = tutorialData.TutorialStrings[1];
         }
 
         public void OnTutorialStart()
         {
             _text.text = tutorialData.TutorialStrings[0];
+        }
+
+        IEnumerator WaitBeforeClose(float wait)
+        {
+            yield return new WaitForSeconds(wait);
+            _textBalloonView.gameObject.SetActive(false); 
         }
 
         private void Awake()

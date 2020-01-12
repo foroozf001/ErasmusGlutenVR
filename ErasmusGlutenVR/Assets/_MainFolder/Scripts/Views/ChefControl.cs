@@ -43,13 +43,12 @@ namespace ErasmusGluten
         public void OnTutorialComplete()
         {
             animator.SetBool(TransitionParameters.TutorialStart.ToString(), false);
-            animator.SetBool(TransitionParameters.TutorialMiddle.ToString(), false);
+            //animator.SetBool(TransitionParameters.TutorialMiddle.ToString(), false);
         }
 
         public void OnTutorialMiddle()
         {
-            animator.SetBool(TransitionParameters.TutorialStart.ToString(), false);
-            animator.SetBool(TransitionParameters.TutorialMiddle.ToString(), true);
+            //Doe iets
         }
     }
 }

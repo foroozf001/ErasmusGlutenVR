@@ -12,7 +12,8 @@ namespace ErasmusGluten
         public EdibleObjectData edibleObjectData;
         [HideInInspector] public bool hasGluten;
 
-        [SerializeField] private bool _isTutorialEdible = false;
+        #region tutorial object?
+        private bool _isTutorialEdible = false;
 
         public bool IsTutorialEdible
         {
@@ -20,13 +21,14 @@ namespace ErasmusGluten
             set { _isTutorialEdible = value; }
         }
 
-        [SerializeField] private bool _isTutorialEdibleMiddle = false;
+        private bool _isTutorialEdibleMiddle = false;
 
         public bool IsTutorialEdibleMiddle
         {
             get { return _isTutorialEdibleMiddle; }
             set { _isTutorialEdibleMiddle = value; }
         }
+        #endregion
 
         void Awake()
         {
