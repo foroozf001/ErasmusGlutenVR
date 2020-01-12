@@ -17,14 +17,6 @@ namespace ErasmusGluten
                 {
                     OVRGrabber grabber = other.gameObject.GetComponent<OVRGrabbable>().grabbedBy;
                     OVRGrabbable grabbedObject = grabber.grabbedObject;
-
-                    if (other.gameObject.GetComponent<EdibleObject>().hasGluten)
-                    {
-                        if (grabber.IsLeft)
-                            GameManager.Instance.leftHandContaminated = true;
-                        else
-                            GameManager.Instance.rightHandContaminated = true;
-                    }
                         
                     //grabber.ForceRelease(grabbedObject); //Voordat je het object destroyed moet je hem van de grabber afhalen!!!
                     GameManager.Instance.OnEat(other.gameObject.GetComponent<EdibleObject>()); //registreer eat event
