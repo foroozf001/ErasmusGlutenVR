@@ -8,7 +8,7 @@ using UnityEngine.UI;
 namespace ErasmusGluten
 {
     public class GIPView : MonoBehaviour
-        , IGameLoop
+        , IGameLoop, ITutorial
     {
         public Text gipScore;
         public Text gipText;
@@ -21,25 +21,26 @@ namespace ErasmusGluten
             Assert.IsNotNull(gipColor);
             Assert.IsNotNull(gipText);
             Clock.Instance.OnTickEvent += OnTick;
+            _block = new MaterialPropertyBlock();
         }
 
         // Start is called before the first frame update
         void Start()
         {
-            _block = new MaterialPropertyBlock();
+            
         }
 
         void OnTick()
         {
             float colorDifferential = (float)GameManager.Instance.amountOfGlutenObjectsEaten / (float)GameManager.Instance.score;
             _block.SetColor("_BaseColor", new Color(colorDifferential, 1 - colorDifferential, 0, 1));
-            gipScore.text = GameManager.Instance.amountOfGlutenObjectsEaten.ToString();
+            gipScore.text = GameManager.Instance.score.ToString();
             gipColor.GetComponent<MeshRenderer>().SetPropertyBlock(_block);
         }
 
         public void OnGameStart()
         {
-            gipText.text = "Gluten here";
+            gipText.text = "GIP TEST:" + Environment.NewLine;
             gipScore.text = GameManager.Instance.amountOfGlutenObjectsEaten.ToString();
             gameObject.SetActive(false);
         }
@@ -47,12 +48,39 @@ namespace ErasmusGluten
         public void OnGameEnds()
         {
             gameObject.SetActive(true);
-            gipText.text = "Avoid eating: " + Environment.NewLine;
 
-            foreach (string eatenGlutenObject in GameManager.Instance.glutenObjectsEaten)
+            if (GameManager.Instance.glutenObjectsEaten.Count > 0)
             {
-                gipText.text += eatenGlutenObject.Split('(')[0] + Environment.NewLine;
+                gipText.text += "Avoid eating: " + Environment.NewLine + Environment.NewLine;
+
+                foreach (string eatenGlutenObject in GameManager.Instance.glutenObjectsEaten)
+                {
+                    gipText.text += "> " + eatenGlutenObject.Split('(')[0] + Environment.NewLine;
+                }
             }
+            else if (GameManager.Instance.amountOfGlutenObjectsEaten > 0)
+            {
+                gipText.text += "You managed to avoid eating any gluten-containing foods but next time be careful of contaminating your safe foods with dirty gluten hands!";
+            } else
+            {
+                gipText.text += "Congratulations! You avoided all gluten-containing foods!";
+            }
+            
+        }
+
+        public void OnTutorialStart()
+        {
+            gameObject.SetActive(false);
+        }
+
+        public void OnTutorialMiddle()
+        {
+            //throw new NotImplementedException();
+        }
+
+        public void OnTutorialComplete()
+        {
+            //throw new NotImplementedException();
         }
     }
 }

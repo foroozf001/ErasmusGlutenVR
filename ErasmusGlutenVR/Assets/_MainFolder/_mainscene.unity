@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paused: 0
-  timeLeftInRound: 30
+  timeLeftInRound: 45
   maxRoundTime: 0
 --- !u!4 &426722559 stripped
 Transform:
@@ -1484,7 +1484,7 @@ PrefabInstance:
     - target: {fileID: 5856264277892578916, guid: d50ada41178e30d4c8e292f0432c0716,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.051
+      value: -0.131
       objectReference: {fileID: 0}
     - target: {fileID: 5856264277892578916, guid: d50ada41178e30d4c8e292f0432c0716,
         type: 3}
@@ -1499,7 +1499,7 @@ PrefabInstance:
     - target: {fileID: 5856264277892578916, guid: d50ada41178e30d4c8e292f0432c0716,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1.337
+      value: -1.481
       objectReference: {fileID: 0}
     - target: {fileID: 5856264277892578916, guid: d50ada41178e30d4c8e292f0432c0716,
         type: 3}
@@ -1733,12 +1733,12 @@ PrefabInstance:
     - target: {fileID: 8090162922767532629, guid: 0452b660a5eb5604d89da97edb02face,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.227
+      value: 1.546
       objectReference: {fileID: 0}
     - target: {fileID: 8090162922767532629, guid: 0452b660a5eb5604d89da97edb02face,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.822
+      value: 1.642
       objectReference: {fileID: 0}
     - target: {fileID: 8090162922767532629, guid: 0452b660a5eb5604d89da97edb02face,
         type: 3}
@@ -1803,12 +1803,17 @@ PrefabInstance:
     - target: {fileID: 8090162924442359598, guid: 0452b660a5eb5604d89da97edb02face,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 16
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 8090162924442359598, guid: 0452b660a5eb5604d89da97edb02face,
         type: 3}
       propertyPath: m_FontData.m_MinSize
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090162924442359598, guid: 0452b660a5eb5604d89da97edb02face,
+        type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8090162924489530767, guid: 0452b660a5eb5604d89da97edb02face,
         type: 3}

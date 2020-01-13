@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: TutorialData
   m_EditorClassIdentifier: 
   _tutorialStrings:
-  - 'Press/hold side button under your middle finger to grab food. Bring the food
-    to your mouth to eat. Eating gluten increases your GIP score so make sure to avoid
+  - 'Press and hold the side button on your middle finger to grab. Bring the food
+    to your mouth to eat. Eating gluten increases GIP level so make sure to avoid
     them! '
   - Tutorial text
   - 'Touching gluten contaminates your hands. Throw gluten back at me or wash your

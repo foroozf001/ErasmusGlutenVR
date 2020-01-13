@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 using System.Linq;
+using System;
 
 namespace ErasmusGluten
 {
@@ -46,28 +47,30 @@ namespace ErasmusGluten
         { 
             while (_spawnerIsActive)
             {
-                int wait = edibleSpawner.spawnerData.BaseRespawnTime + Random.Range(0, edibleSpawner.spawnerData.DeviationRespawnTime);
+                int wait = edibleSpawner.spawnerData.BaseRespawnTime + UnityEngine.Random.Range(0, edibleSpawner.spawnerData.DeviationRespawnTime);
                 yield return new WaitForSeconds(wait);
 
-                bool throwGluten = Random.Range(0f, 1f) <= edibleSpawner.spawnerData.ChanceToSpawnGluten;
+                bool throwGluten = UnityEngine.Random.Range(0f, 1f) <= edibleSpawner.spawnerData.ChanceToSpawnGluten;
                 
                 OnStartThrowEvent?.Invoke();
                 
                 if (throwGluten)
                     edibleSpawner.ThrowFoodRoutine(
-                        edibleSpawner.CreateFoodObject(edibleSpawner.spawnerData.SpawnableGlutenObjects[Random.Range(0, edibleSpawner.spawnerData.SpawnableGlutenObjects.Count)], edibleSpawner.transform.position),
+                        edibleSpawner.CreateFoodObject(edibleSpawner.spawnerData.SpawnableGlutenObjects[UnityEngine.Random.Range(0, edibleSpawner.spawnerData.SpawnableGlutenObjects.Count)], edibleSpawner.transform.position),
                         edibleSpawner.spawnerData.ThrowDirection
                         );
                 else
                     edibleSpawner.ThrowFoodRoutine(
-                        edibleSpawner.CreateFoodObject(edibleSpawner.spawnerData.SpawnableNonGlutenObjects[Random.Range(0, edibleSpawner.spawnerData.SpawnableNonGlutenObjects.Count)], edibleSpawner.transform.position),
+                        edibleSpawner.CreateFoodObject(edibleSpawner.spawnerData.SpawnableNonGlutenObjects[UnityEngine.Random.Range(0, edibleSpawner.spawnerData.SpawnableNonGlutenObjects.Count)], edibleSpawner.transform.position),
                         edibleSpawner.spawnerData.ThrowDirection
                         );
             }
         }
 
-        void StartTutorial()
+        IEnumerator StartTutorial(int wait)
         {
+            yield return new WaitForSeconds(wait);
+
             for (int i = 0; i < _tutorialInterfaces.Count; i++)
                 _tutorialInterfaces[i].OnTutorialStart();
         }
@@ -94,7 +97,8 @@ namespace ErasmusGluten
             else
             {
                 amountOfGlutenObjectsEaten++;
-                glutenObjectsEaten.Add(o.name);
+                if (o.edibleObjectData.ContainsGluten)
+                    glutenObjectsEaten.Add(o.name);
             }
                 
 
@@ -143,7 +147,7 @@ namespace ErasmusGluten
                 introEdiblePosition = new Vector3(0f, 1f, 1f);
 
             //Neem een willekeurig non-gluten object
-            EdibleObject randomObject = edibleSpawner.spawnerData.SpawnableNonGlutenObjects.ElementAt(Random.Range(0, edibleSpawner.spawnerData.SpawnableNonGlutenObjects.Count));
+            EdibleObject randomObject = edibleSpawner.spawnerData.SpawnableNonGlutenObjects.ElementAt(UnityEngine.Random.Range(0, edibleSpawner.spawnerData.SpawnableNonGlutenObjects.Count));
             EdibleObject introEdible = Instantiate(randomObject);
             introEdible.transform.position = introEdiblePosition;
             introEdible.IsTutorialEdible = true;
@@ -208,8 +212,26 @@ namespace ErasmusGluten
         IEnumerator WaitBeforeStart(float wait)
         {
             yield return new WaitForSeconds(wait);
+            OnGameStart();
+        }
 
-            StartTutorial();
+        private void Reset()
+        {
+            score = 0;
+            amountOfGlutenObjectsEaten = 0;
+            introCompleted = false;
+            leftHandContaminated = false;
+            rightHandContaminated = false;
+            glutenObjectsEaten.Clear();
+            DestroyAllPlates();
+        }
+
+        private void DestroyAllPlates()
+        {
+            List<Plate> plates = (from t in FindObjectsOfType<Plate>()
+                                              select t).ToList();
+            foreach (Plate t in plates)
+                Destroy(t.gameObject);
         }
 
         public void Start()
@@ -219,25 +241,19 @@ namespace ErasmusGluten
 
         public void OnGameStart()
         {
-            score = 0;
-            amountOfGlutenObjectsEaten = 0;
-            introCompleted = false;
-            leftHandContaminated = false;
-            rightHandContaminated = false;
-            glutenObjectsEaten.Clear();
+            Reset();
 
             if (_gameLoopInterfaces.Count > 0)
                 for (int i = 0; i < _gameLoopInterfaces.Count; i++)
                     if (_gameLoopInterfaces[i].GetType() != typeof(GameManager)) //Negeert zichzelf als interface
                         _gameLoopInterfaces[i].OnGameStart();
 
-            StartCoroutine(WaitBeforeStart(waitSecondsBeforeTutorial));
+            StartCoroutine(StartTutorial(waitSecondsBeforeTutorial));
         }
 
         public void OnGameEnds()
         {
             _spawnerIsActive = false;
-            Clock.Instance.paused = true;
 
             if (_gameLoopInterfaces.Count > 0)
                 for (int i = 0; i < _gameLoopInterfaces.Count; i++)

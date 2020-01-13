@@ -10,10 +10,11 @@ namespace ErasmusGluten
         Hit,
         TutorialStart,
         TutorialMiddle,
+        Wave,
     }
 
     public class ChefControl : MonoBehaviour
-        , IThrowing, ITutorial
+        , IThrowing, ITutorial, IGameLoop
     {
         public Animator animator;
 
@@ -49,6 +50,16 @@ namespace ErasmusGluten
         public void OnTutorialMiddle()
         {
             //Doe iets
+        }
+
+        public void OnGameStart()
+        {
+            animator.SetBool(TransitionParameters.Wave.ToString(), true);
+        }
+
+        public void OnGameEnds()
+        {
+            //throw new System.NotImplementedException();
         }
     }
 }

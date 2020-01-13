@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 33468332869424710}
   - component: {fileID: 23720047286307194}
   - component: {fileID: 4060365271057540055}
+  - component: {fileID: 238975755454107857}
   - component: {fileID: 9071320258372421649}
-  - component: {fileID: -80247674103018777}
   m_Layer: 0
   m_Name: Plate3
   m_TagString: Untagged
@@ -94,6 +94,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.7750545, y: 0.14701551, z: 1.7750543}
   m_Center: {x: 0, y: 0.004500922, z: 0.000000059604645}
+--- !u!114 &238975755454107857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941510315769716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9455fa31210ff734c810051d87bedaf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &9071320258372421649
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -110,15 +122,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-80247674103018777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1941510315769716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fe382e4544fdec428fa5b7f7075643f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

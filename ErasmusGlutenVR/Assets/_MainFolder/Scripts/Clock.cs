@@ -19,13 +19,17 @@ namespace ErasmusGluten
         public event OnTimesUp OnTimesUpEvent;
         #endregion
 
-        // Start is called before the first frame update
-        void Start()
+        void Awake()
         {
             if (timeLeftInRound <= 0)
                 return;
 
             maxRoundTime = timeLeftInRound;
+        }
+        // Start is called before the first frame update
+        void Start()
+        {
+            
         }
 
         // Update is called once per frame
@@ -33,6 +37,7 @@ namespace ErasmusGluten
         {
             if (paused || !GameManager.Instance.introCompleted)
                 return;
+
 
             if (timeLeftInRound > 0)
             { 
