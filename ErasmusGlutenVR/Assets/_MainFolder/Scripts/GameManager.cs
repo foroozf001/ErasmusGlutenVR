@@ -7,21 +7,21 @@ using System.Linq;
 namespace ErasmusGluten
 {
     [RequireComponent(typeof(Clock))]
-    public class GameManager : Singleton<ErasmusGluten.GameManager>
-        , IEating, IThrowing, ITutorial
+    public class GameManager : Singleton<GameManager>
+        , IEating, IThrowing, ITutorial, IGameLoop
     {
         public EdibleSpawner edibleSpawner;
         private bool _spawnerIsActive = true;
 
         public OvrAvatar player;
         public TutorialView tutorial;
-        public GIPView gip;
 
         [HideInInspector] public bool leftHandContaminated;
         [HideInInspector] public bool rightHandContaminated;
 
         [HideInInspector] public int score;
         [HideInInspector] public int amountOfGlutenObjectsEaten;
+        [HideInInspector] public List<string> glutenObjectsEaten;
 
         [HideInInspector] public bool introCompleted = false;
         public int waitSecondsAfterTutorialComplete = 5;
@@ -38,6 +38,7 @@ namespace ErasmusGluten
         private List<IEating> _edibleInterfaces;
         private List<IThrowing> _throwableInterface;
         private List<ITutorial> _tutorialInterfaces;
+        private List<IGameLoop> _gameLoopInterfaces;
         #endregion
 
         #region Gameplay
@@ -71,27 +72,18 @@ namespace ErasmusGluten
                 _tutorialInterfaces[i].OnTutorialStart();
         }
 
-        void Reset()
-        {
-            score = 0;
-            amountOfGlutenObjectsEaten = 0;
-            introCompleted = false;
-            leftHandContaminated = false;
-            rightHandContaminated = false;
-            //gip.gameObject.SetActive(false);
-            Clock.Instance.paused = false;
-        }
-
         void OnTimesUp()
         {
-            _spawnerIsActive = false;
-            Clock.Instance.paused = true;
-            //gip.gameObject.SetActive(true);
-            StartCoroutine(WaitBeforeStart(waitSecondsAfterGameComplete));
+            OnGameEnds();
         }
 
         public void OnEat(EdibleObject o)
         {
+            //Release object from the grabber
+            o.GetComponent<OVRGrabbable>().grabbedBy.ForceRelease(o.GetComponent<OVRGrabbable>());
+            //Disable gravity
+            o.GetComponent<Rigidbody>().useGravity = false;
+
             if (_edibleInterfaces.Count > 0)
                 for (int i = 0; i < _edibleInterfaces.Count; i++)
                     if (_edibleInterfaces[i].GetType() != typeof(GameManager)) //Negeert zichzelf als interface
@@ -100,15 +92,32 @@ namespace ErasmusGluten
             if (!o.hasGluten)
                 score++;
             else
+            {
                 amountOfGlutenObjectsEaten++;
+                glutenObjectsEaten.Add(o.name);
+            }
+                
 
+            //Instead of destroying the edible move it somewhere outside the scene and set invisible and wait for destroy
+            //Spawning many objects and destroying them causes the ovrgrabber to bug because it gets
+            //destroyed before the grabber is able to remove it, it thinks grabber is still holding something
             if (o.IsTutorialEdible)
             {
-                Destroy(o.gameObject);
+                //Destroy(o.gameObject);
+                o.gameObject.GetComponent<MeshRenderer>().enabled = false;
+                o.gameObject.transform.position = new Vector3(3, 1, 3);
+                o.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                o.gameObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
                 OnTutorialComplete();
             }
             else
-                Destroy(o.gameObject);
+            {
+                o.gameObject.GetComponent<MeshRenderer>().enabled = false;
+                o.gameObject.transform.position = new Vector3(3, 1, 3);
+                o.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                o.gameObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+            }
+                
         }
 
         public void OnHitChef(EdibleObject o)
@@ -161,24 +170,6 @@ namespace ErasmusGluten
         public void OnTutorialMiddle()
         {
             //Tutorial section
-
-            //for (int i = 0; i < _tutorialInterfaces.Count; i++)
-            //    if (_tutorialInterfaces[i].GetType() != typeof(GameManager))
-            //        _tutorialInterfaces[i].OnTutorialMiddle();
-
-            //Vector3 introEdiblePosition;
-
-            ////Berekenen waar het intro object moet komen
-            //if (player)
-            //    introEdiblePosition = player.transform.position + new Vector3(0f, .82f, .55f);
-            //else
-            //    introEdiblePosition = new Vector3(0f, 1f, 1f);
-
-            ////Neem een willekeurig gluten object
-            //EdibleObject randomObject = edibleSpawner.spawnerData.SpawnableGlutenObjects.ElementAt(Random.Range(0, edibleSpawner.spawnerData.SpawnableNonGlutenObjects.Count));
-            //EdibleObject introEdible = Instantiate(randomObject);
-            //introEdible.transform.position = introEdiblePosition;
-            //introEdible.IsTutorialEdibleMiddle = true;
         }
         #endregion
 
@@ -188,9 +179,10 @@ namespace ErasmusGluten
             Assert.IsNotNull(edibleSpawner, "Food spawner");
             Assert.IsNotNull(player, "Player");
             Assert.IsNotNull(tutorial, "Tutorial");
-            Assert.IsNotNull(gip, "Gip");
 
             Clock.Instance.OnTimesUpEvent += OnTimesUp;
+
+            glutenObjectsEaten = new List<string>();
 
             List<Transform> rootTransforms = (from t in FindObjectsOfType<Transform>()
                                                where t.parent == null
@@ -198,27 +190,61 @@ namespace ErasmusGluten
 
             _edibleInterfaces = new List<IEating>();
             foreach (Transform t in rootTransforms)
-                _edibleInterfaces.AddRange(t.GetComponentsInChildren<IEating>());
+                _edibleInterfaces.AddRange(t.GetComponentsInChildren<IEating>(true));
 
             _throwableInterface = new List<IThrowing>();
             foreach (Transform t in rootTransforms)
-                _throwableInterface.AddRange(t.GetComponentsInChildren<IThrowing>());
+                _throwableInterface.AddRange(t.GetComponentsInChildren<IThrowing>(true));
 
             _tutorialInterfaces = new List<ITutorial>();
             foreach (Transform t in rootTransforms)
-                _tutorialInterfaces.AddRange(t.GetComponentsInChildren<ITutorial>());
+                _tutorialInterfaces.AddRange(t.GetComponentsInChildren<ITutorial>(true));
+            
+            _gameLoopInterfaces = new List<IGameLoop>();
+            foreach (Transform t in rootTransforms)
+                _gameLoopInterfaces.AddRange(t.GetComponentsInChildren<IGameLoop>(true));
         }
 
         IEnumerator WaitBeforeStart(float wait)
         {
             yield return new WaitForSeconds(wait);
-            Reset();
+
             StartTutorial();
         }
 
         public void Start()
         {
+            OnGameStart();
+        }
+
+        public void OnGameStart()
+        {
+            score = 0;
+            amountOfGlutenObjectsEaten = 0;
+            introCompleted = false;
+            leftHandContaminated = false;
+            rightHandContaminated = false;
+            glutenObjectsEaten.Clear();
+
+            if (_gameLoopInterfaces.Count > 0)
+                for (int i = 0; i < _gameLoopInterfaces.Count; i++)
+                    if (_gameLoopInterfaces[i].GetType() != typeof(GameManager)) //Negeert zichzelf als interface
+                        _gameLoopInterfaces[i].OnGameStart();
+
             StartCoroutine(WaitBeforeStart(waitSecondsBeforeTutorial));
+        }
+
+        public void OnGameEnds()
+        {
+            _spawnerIsActive = false;
+            Clock.Instance.paused = true;
+
+            if (_gameLoopInterfaces.Count > 0)
+                for (int i = 0; i < _gameLoopInterfaces.Count; i++)
+                    if (_gameLoopInterfaces[i].GetType() != typeof(GameManager)) //Negeert zichzelf als interface
+                        _gameLoopInterfaces[i].OnGameEnds();
+
+            StartCoroutine(WaitBeforeStart(waitSecondsAfterGameComplete));
         }
         #endregion
     }

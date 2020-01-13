@@ -6,22 +6,14 @@ namespace ErasmusGluten
 {
     public class EatHandler : MonoBehaviour
     {
+        public OVRGrabber left;
+        public OVRGrabber right;
+
         private void OnTriggerEnter(Collider other)
         {
-            if (other == null)
-                return;
-
-            if (other.gameObject.GetComponent<EdibleObject>() != null)
-            {
-                if (other.gameObject.GetComponent<OVRGrabbable>().grabbedBy != null)
-                {
-                    OVRGrabber grabber = other.gameObject.GetComponent<OVRGrabbable>().grabbedBy;
-                    OVRGrabbable grabbedObject = grabber.grabbedObject;
-                        
-                    //grabber.ForceRelease(grabbedObject); //Voordat je het object destroyed moet je hem van de grabber afhalen!!!
+            if (other.gameObject.GetComponent<OVRGrabbable>().grabbedBy != null)
+                if (other.gameObject.GetComponent<EdibleObject>() != null)
                     GameManager.Instance.OnEat(other.gameObject.GetComponent<EdibleObject>()); //registreer eat event
-                }
-            }
         }
     }
 }

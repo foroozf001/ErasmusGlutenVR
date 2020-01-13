@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -7,8 +8,10 @@ using UnityEngine.UI;
 namespace ErasmusGluten
 {
     public class GIPView : MonoBehaviour
+        , IGameLoop
     {
         public Text gipScore;
+        public Text gipText;
         public GameObject gipColor;
         private MaterialPropertyBlock _block;
 
@@ -16,6 +19,7 @@ namespace ErasmusGluten
         {
             Assert.IsNotNull(gipScore);
             Assert.IsNotNull(gipColor);
+            Assert.IsNotNull(gipText);
             Clock.Instance.OnTickEvent += OnTick;
         }
 
@@ -31,6 +35,24 @@ namespace ErasmusGluten
             _block.SetColor("_BaseColor", new Color(colorDifferential, 1 - colorDifferential, 0, 1));
             gipScore.text = GameManager.Instance.amountOfGlutenObjectsEaten.ToString();
             gipColor.GetComponent<MeshRenderer>().SetPropertyBlock(_block);
+        }
+
+        public void OnGameStart()
+        {
+            gipText.text = "Gluten here";
+            gipScore.text = GameManager.Instance.amountOfGlutenObjectsEaten.ToString();
+            gameObject.SetActive(false);
+        }
+
+        public void OnGameEnds()
+        {
+            gameObject.SetActive(true);
+            gipText.text = "Avoid eating: " + Environment.NewLine;
+
+            foreach (string eatenGlutenObject in GameManager.Instance.glutenObjectsEaten)
+            {
+                gipText.text += eatenGlutenObject.Split('(')[0] + Environment.NewLine;
+            }
         }
     }
 }

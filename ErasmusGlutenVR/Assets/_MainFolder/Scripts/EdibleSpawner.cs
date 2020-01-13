@@ -9,7 +9,7 @@ namespace ErasmusGluten
     {
         public EdibleSpawnerData spawnerData;
         public bool playerOffsetHeight;
-        private Vector3 headTrackerPosition;
+        private Vector3 headPosition;
 
         private void Awake()
         {
@@ -34,7 +34,7 @@ namespace ErasmusGluten
             if (playerOffsetHeight)
             {
                 //Calculate head direction vector
-                Vector3 dir = Vector3.Normalize(headTrackerPosition - transform.position);
+                Vector3 dir = Vector3.Normalize(headPosition - transform.position);
                 //Add offset to direction
                 dir += new Vector3(0f, direction.y, 0f);
 
@@ -70,7 +70,7 @@ namespace ErasmusGluten
         private void Update()
         {
             if (playerOffsetHeight)
-                headTrackerPosition = GameObject.Find("Player").GetComponentInChildren<HeadTracker>().transform.position;
+                headPosition = GameObject.Find("Player").GetComponentInChildren<EatHandler>().transform.position;
         }
     }
 }

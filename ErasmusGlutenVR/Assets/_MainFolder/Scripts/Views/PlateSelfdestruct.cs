@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlateSelfdestruct : MonoBehaviour
+namespace ErasmusGluten
 {
-    // Start is called before the first frame update
-    void Start()
+    public class PlateSelfdestruct : MonoBehaviour
+    , IGameLoop
     {
-        
+        public void OnGameEnds()
+        {
+            //Destroy(this.gameObject);
+        }
+
+        public void OnGameStart()
+        {
+            Destroy(this.gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

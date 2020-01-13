@@ -14,6 +14,9 @@ namespace ErasmusGluten
             {
                 OVRGrabbable grabbedObject = grabber.grabbedObject;
 
+                if (grabber.grabbedObject == null)
+                    return;
+
                 if (grabbedObject.GetComponent<EdibleObject>() != null)
                 {
                     if (grabber.IsLeft)

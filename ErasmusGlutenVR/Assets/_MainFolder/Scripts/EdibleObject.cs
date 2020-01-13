@@ -66,14 +66,24 @@ namespace ErasmusGluten
             {
                 if (collision.gameObject.layer == 11) // Collision met environment
                 {
-                    Destroy(this.gameObject);
+                    GetComponent<MeshRenderer>().enabled = false;
+                    GetComponent<Rigidbody>().useGravity = false;
+                    transform.position = new Vector3(3, 1, 3);
+                    GetComponent<Rigidbody>().velocity = Vector3.zero;
+                    GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+                    WaitForDestroy(10);
                     GameManager.Instance.OnTutorialStart();
                 }
             } else if (_isTutorialEdibleMiddle)
             {
                 if (collision.gameObject.layer == 11) // Collision met environment
                 {
-                    Destroy(this.gameObject);
+                    GetComponent<MeshRenderer>().enabled = false;
+                    GetComponent<Rigidbody>().useGravity = false;
+                    transform.position = new Vector3(3, 1, 3);
+                    GetComponent<Rigidbody>().velocity = Vector3.zero;
+                    GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+                    WaitForDestroy(10);
                     GameManager.Instance.OnTutorialMiddle();
                 }
             }

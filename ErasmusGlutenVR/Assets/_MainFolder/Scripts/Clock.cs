@@ -5,6 +5,7 @@ using UnityEngine;
 namespace ErasmusGluten
 {
     public class Clock : Singleton<Clock>
+        , IGameLoop
     {
         public bool paused = false;
         public float timeLeftInRound = 120f;
@@ -27,11 +28,6 @@ namespace ErasmusGluten
             maxRoundTime = timeLeftInRound;
         }
 
-        public void Reset()
-        {
-            timeLeftInRound = maxRoundTime;
-        }
-
         // Update is called once per frame
         void Update()
         {
@@ -45,10 +41,20 @@ namespace ErasmusGluten
             }
             else
             {
-                paused = true;
-                Reset();
                 OnTimesUpEvent?.Invoke();
             }
+        }
+
+        public void OnGameStart()
+        {
+            timeLeftInRound = maxRoundTime;
+            paused = false;
+        }
+
+        public void OnGameEnds()
+        {
+            paused = true;
+            timeLeftInRound = maxRoundTime;
         }
     }
 }
