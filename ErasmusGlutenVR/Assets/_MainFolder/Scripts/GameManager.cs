@@ -142,7 +142,7 @@ namespace ErasmusGluten
 
             //Berekenen waar het intro object moet komen
             if (player)
-                introEdiblePosition = player.transform.position + new Vector3(0f, .82f, .55f);
+                introEdiblePosition = player.transform.position + new Vector3(0f, 1f, .62f);
             else
                 introEdiblePosition = new Vector3(0f, 1f, 1f);
 

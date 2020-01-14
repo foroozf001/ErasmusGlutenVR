@@ -14,6 +14,7 @@ namespace ErasmusGluten
         public Text gipText;
         public GameObject gipColor;
         private MaterialPropertyBlock _block;
+        private Vector3 _startPosition;
 
         void Awake()
         {
@@ -22,19 +23,20 @@ namespace ErasmusGluten
             Assert.IsNotNull(gipText);
 
             _block = new MaterialPropertyBlock();
-        }
-
-        // Start is called before the first frame update
-        void Start()
-        {
-            
+            _startPosition = new Vector3(0f, 1.2f, 0.1f);
         }
 
         public void OnGameStart()
         {
             gipText.text = "GIP TEST:" + Environment.NewLine + Environment.NewLine;
             gipScore.text = GameManager.Instance.amountOfGlutenObjectsEaten.ToString();
+            if (GetComponent<OVRGrabbable>().grabbedBy != null)
+                GetComponent<OVRGrabbable>().grabbedBy.ForceRelease(GetComponent<OVRGrabbable>());
             gameObject.SetActive(false);
+            transform.position = _startPosition;
+            transform.localRotation = Quaternion.Euler(0, 180f, 0);
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+            GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
         }
 
         public void OnGameEnds()

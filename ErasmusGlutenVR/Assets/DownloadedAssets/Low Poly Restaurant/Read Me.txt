@@ -1,0 +1,12 @@
+Hello and thank you for purchasing Low Poly Restaurant Package.
+
+There are 195 prefabs.
+
+Prefabs are set to static.
+
+Texture is 512*512 png
+
+Example Scenes have baked lightmaps.
+
+For questions you can contact me at:
+a3deve@gmail.com
