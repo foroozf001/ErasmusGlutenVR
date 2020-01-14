@@ -57,7 +57,7 @@ namespace ErasmusGluten
             }
             else if (GameManager.Instance.amountOfGlutenObjectsEaten > 0)
             {
-                gipText.text += "You managed to avoid eating any gluten-containing foods but next time be careful of contaminating your safe foods with dirty gluten hands!";
+                gipText.text += "You avoided eating any gluten-containing foods but next time be careful of contaminating safe foods with your dirty gluten hands!";
             } else
             {
                 gipText.text += "Congratulations! You avoided all gluten-containing foods!";
