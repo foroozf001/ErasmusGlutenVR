@@ -97,7 +97,7 @@ namespace ErasmusGluten
             else
             {
                 amountOfGlutenObjectsEaten++;
-                if (o.edibleObjectData.ContainsGluten)
+                if (o.edibleObjectData.ContainsGluten && !glutenObjectsEaten.Contains(o.name))
                     glutenObjectsEaten.Add(o.name);
             }
                 

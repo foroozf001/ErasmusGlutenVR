@@ -20,7 +20,7 @@ namespace ErasmusGluten
             Assert.IsNotNull(gipScore);
             Assert.IsNotNull(gipColor);
             Assert.IsNotNull(gipText);
-            Clock.Instance.OnTickEvent += OnTick;
+
             _block = new MaterialPropertyBlock();
         }
 
@@ -30,28 +30,25 @@ namespace ErasmusGluten
             
         }
 
-        void OnTick()
-        {
-            float colorDifferential = (float)GameManager.Instance.amountOfGlutenObjectsEaten / (float)GameManager.Instance.score;
-            _block.SetColor("_BaseColor", new Color(colorDifferential, 1 - colorDifferential, 0, 1));
-            gipScore.text = GameManager.Instance.score.ToString();
-            gipColor.GetComponent<MeshRenderer>().SetPropertyBlock(_block);
-        }
-
         public void OnGameStart()
         {
-            gipText.text = "GIP TEST:" + Environment.NewLine;
+            gipText.text = "GIP TEST:" + Environment.NewLine + Environment.NewLine;
             gipScore.text = GameManager.Instance.amountOfGlutenObjectsEaten.ToString();
             gameObject.SetActive(false);
         }
 
         public void OnGameEnds()
         {
+            float colorDifferential = (float)GameManager.Instance.amountOfGlutenObjectsEaten / (float)GameManager.Instance.score;
+            _block.SetColor("_BaseColor", new Color(colorDifferential, 1 - colorDifferential, 0, 1));
+            gipScore.text = GameManager.Instance.score.ToString();
+            gipColor.GetComponent<MeshRenderer>().SetPropertyBlock(_block);
+
             gameObject.SetActive(true);
 
             if (GameManager.Instance.glutenObjectsEaten.Count > 0)
             {
-                gipText.text += "Avoid eating: " + Environment.NewLine + Environment.NewLine;
+                gipText.text += "Avoid eating: " + Environment.NewLine;
 
                 foreach (string eatenGlutenObject in GameManager.Instance.glutenObjectsEaten)
                 {
