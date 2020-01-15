@@ -56,6 +56,7 @@ MonoBehaviour:
   waitSecondsAfterTutorialComplete: 5
   waitSecondsBeforeTutorial: 3
   waitSecondsAfterGameComplete: 14
+  _skipTutorialMode: 0
 --- !u!114 &182284949
 MonoBehaviour:
   m_ObjectHideFlags: 0
