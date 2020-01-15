@@ -1844,30 +1844,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6791837901275510459}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1102450495 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6247828905279721625, guid: e6ac471a050ae424aa4f4385163dd0ff,
-    type: 3}
-  m_PrefabInstance: {fileID: 6247828904557541554}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1102450499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1102450495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbd107dfae92740409aac9eeff995432, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSrcThrow: {fileID: 561303223}
-  audioSrcEat: {fileID: 3833776041210355820}
-  audioSrcHit: {fileID: 561303223}
-  audioSrcClock: {fileID: 2084255392}
-  tickingSound: {fileID: 8300000, guid: 45feff74068d47f40bc726d23205e1d5, type: 3}
-  timeUpSound: {fileID: 8300000, guid: 9dd6c0f1c86954d44b5fb963ce4c6e54, type: 3}
 --- !u!1 &1113865371
 GameObject:
   m_ObjectHideFlags: 0
@@ -4426,10 +4402,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 182284949, guid: e6ac471a050ae424aa4f4385163dd0ff, type: 3}
-      propertyPath: timeLeftInRound
-      value: 10
-      objectReference: {fileID: 0}
+    - target: {fileID: 1102450499, guid: e6ac471a050ae424aa4f4385163dd0ff, type: 3}
+      propertyPath: audioSrcThrow
+      value: 
+      objectReference: {fileID: 561303223}
+    - target: {fileID: 1102450499, guid: e6ac471a050ae424aa4f4385163dd0ff, type: 3}
+      propertyPath: audioSrcEat
+      value: 
+      objectReference: {fileID: 3833776041210355820}
+    - target: {fileID: 1102450499, guid: e6ac471a050ae424aa4f4385163dd0ff, type: 3}
+      propertyPath: audioSrcHit
+      value: 
+      objectReference: {fileID: 561303223}
+    - target: {fileID: 1102450499, guid: e6ac471a050ae424aa4f4385163dd0ff, type: 3}
+      propertyPath: audioSrcClock
+      value: 
+      objectReference: {fileID: 2084255392}
     - target: {fileID: 6247828905279721625, guid: e6ac471a050ae424aa4f4385163dd0ff,
         type: 3}
       propertyPath: m_Name
@@ -4450,11 +4438,6 @@ PrefabInstance:
       propertyPath: tutorial
       value: 
       objectReference: {fileID: 932707041}
-    - target: {fileID: 6247828905279721630, guid: e6ac471a050ae424aa4f4385163dd0ff,
-        type: 3}
-      propertyPath: _skipTutorialMode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6247828905279721631, guid: e6ac471a050ae424aa4f4385163dd0ff,
         type: 3}
       propertyPath: m_LocalPosition.x
