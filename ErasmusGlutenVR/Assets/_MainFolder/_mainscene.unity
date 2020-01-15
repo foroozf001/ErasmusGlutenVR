@@ -4438,6 +4438,11 @@ PrefabInstance:
       propertyPath: tutorial
       value: 
       objectReference: {fileID: 932707041}
+    - target: {fileID: 6247828905279721630, guid: e6ac471a050ae424aa4f4385163dd0ff,
+        type: 3}
+      propertyPath: _skipTutorialMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6247828905279721631, guid: e6ac471a050ae424aa4f4385163dd0ff,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4502,6 +4507,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1847983373}
     m_Modifications:
+    - target: {fileID: 2564413933922677254, guid: d50ada41178e30d4c8e292f0432c0716,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.021
+      objectReference: {fileID: 0}
+    - target: {fileID: 2564413933922677254, guid: d50ada41178e30d4c8e292f0432c0716,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -6
+      objectReference: {fileID: 0}
     - target: {fileID: 9206907592923157529, guid: d50ada41178e30d4c8e292f0432c0716,
         type: 3}
       propertyPath: m_Name
