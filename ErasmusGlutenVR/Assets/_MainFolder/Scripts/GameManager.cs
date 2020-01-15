@@ -250,10 +250,14 @@ namespace ErasmusGluten
                     if (_gameLoopInterfaces[i].GetType() != typeof(GameManager)) //Negeert zichzelf als interface
                         _gameLoopInterfaces[i].OnGameStart();
 
+#if UNITY_EDITOR
             if (_skipTutorialMode)
                 StartCoroutine(WaitAfterTutorialCompleteRoutine(waitSecondsAfterTutorialComplete));
             else
                 StartCoroutine(StartTutorial(waitSecondsBeforeTutorial));
+#else
+            StartCoroutine(StartTutorial(waitSecondsBeforeTutorial));
+#endif
         }
 
         public void OnGameEnds()
@@ -267,6 +271,6 @@ namespace ErasmusGluten
 
             StartCoroutine(WaitBeforeStart(waitSecondsAfterGameComplete));
         }
-        #endregion
+#endregion
     }
 }
