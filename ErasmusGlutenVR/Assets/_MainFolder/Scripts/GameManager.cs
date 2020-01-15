@@ -84,6 +84,8 @@ namespace ErasmusGluten
 
         public void OnEat(EdibleObject o)
         {
+            SoundManager.sndMan.PlayEatSound();
+
             //Release object from the grabber
             o.GetComponent<OVRGrabbable>().grabbedBy.ForceRelease(o.GetComponent<OVRGrabbable>());
             //Disable gravity
@@ -128,6 +130,8 @@ namespace ErasmusGluten
 
         public void OnHitChef(EdibleObject o)
         {
+            SoundManager.sndMan.PlayHitSound();
+
             if (_throwableInterface.Count > 0)
                 for (int i = 0; i < _throwableInterface.Count; i++)
                     if (_throwableInterface[i].GetType() != typeof(GameManager))
