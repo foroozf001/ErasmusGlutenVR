@@ -10,6 +10,11 @@ public class SoundManager : MonoBehaviour
     private AudioClip[] throwSounds;
     private int randomThrowSound;
 
+    [SerializeField] AudioSource audioSrcEat;
+    private AudioClip[] eatSounds;
+    private int randomEatSound;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,9 +27,15 @@ public class SoundManager : MonoBehaviour
         randomThrowSound = Random.Range(0, 2);
         audioSrcThrow.PlayOneShot(throwSounds[randomThrowSound]);
     }
+
+    public void PlayEatSound()
+    {
+        randomEatSound = Random.Range(0, 3);
+        audioSrcEat.PlayOneShot(throwSounds[randomEatSound]);
+    }
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

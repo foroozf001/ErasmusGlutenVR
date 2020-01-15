@@ -1979,6 +1979,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSrcThrow: {fileID: 561303223}
+  audioSrcEat: {fileID: 3833776041210355820}
 --- !u!1 &1113865371
 GameObject:
   m_ObjectHideFlags: 0
@@ -3832,8 +3833,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5571855482189537247, guid: cdeafc1f98dc2ea46b9d712631381c79,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdeafc1f98dc2ea46b9d712631381c79, type: 3}
+--- !u!82 &3833776041210355820 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5571855482189537247, guid: cdeafc1f98dc2ea46b9d712631381c79,
+    type: 3}
+  m_PrefabInstance: {fileID: 3833776041210355819}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4337890949598630557
 PrefabInstance:
   m_ObjectHideFlags: 0
