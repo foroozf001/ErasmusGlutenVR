@@ -29,6 +29,8 @@ namespace ErasmusGluten
         public int waitSecondsBeforeTutorial = 5;
         public int waitSecondsAfterGameComplete = 20;
 
+        [SerializeField] protected bool _skipTutorialMode = false;
+
         #region delegates
         public delegate void OnStartThrowAnimation();
         public event OnStartThrowAnimation OnStartThrowEvent;
@@ -248,7 +250,10 @@ namespace ErasmusGluten
                     if (_gameLoopInterfaces[i].GetType() != typeof(GameManager)) //Negeert zichzelf als interface
                         _gameLoopInterfaces[i].OnGameStart();
 
-            StartCoroutine(StartTutorial(waitSecondsBeforeTutorial));
+            if (_skipTutorialMode)
+                StartCoroutine(WaitAfterTutorialCompleteRoutine(waitSecondsAfterTutorialComplete));
+            else
+                StartCoroutine(StartTutorial(waitSecondsBeforeTutorial));
         }
 
         public void OnGameEnds()
