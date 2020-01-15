@@ -30,6 +30,7 @@ namespace ErasmusGluten
         public IEnumerator ThrowFoodObject(EdibleObject o, Vector3 direction)
         {
             Rigidbody rb = o.GetComponent<Rigidbody>();
+            SoundManager.sndMan.PlayThrowSound();
 
             if (playerOffsetHeight)
             {
