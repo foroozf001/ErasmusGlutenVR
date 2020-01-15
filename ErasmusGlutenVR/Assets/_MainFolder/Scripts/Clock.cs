@@ -10,6 +10,7 @@ namespace ErasmusGluten
         public bool paused = false;
         public float timeLeftInRound = 120f;
         [HideInInspector] public float maxRoundTime;
+        bool tickingBool = false;
 
         #region delegates
         public delegate void OnTick();
@@ -29,7 +30,6 @@ namespace ErasmusGluten
         // Start is called before the first frame update
         void Start()
         {
-            
         }
 
         // Update is called once per frame
@@ -38,6 +38,15 @@ namespace ErasmusGluten
             if (paused || !GameManager.Instance.introCompleted)
                 return;
 
+            if (timeLeftInRound <=6)
+            {
+                if (!tickingBool)
+                {
+                    TimeAlmostUp();
+                    tickingBool = true;
+                }
+
+            }
 
             if (timeLeftInRound > 0)
             { 
@@ -60,6 +69,11 @@ namespace ErasmusGluten
         {
             paused = true;
             timeLeftInRound = maxRoundTime;
+        }
+
+        public void TimeAlmostUp()
+        {
+            SoundManager.sndMan.PlayTickingSound();
         }
     }
 }
