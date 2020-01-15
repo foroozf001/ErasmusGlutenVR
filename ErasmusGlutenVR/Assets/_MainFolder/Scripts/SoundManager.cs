@@ -32,8 +32,8 @@ namespace ErasmusGluten
             eatSounds = Resources.LoadAll<AudioClip>("eatSounds");
             hitSounds = Resources.LoadAll<AudioClip>("hitSounds");
 
-            Clock.Instance.OnTickEvent += PlayTickingSound;
             Clock.Instance.OnTimesUpEvent += PlayTimeUpSound;
+            Clock.Instance.OnClockThresholdEvent += PlayTickingSound;
             GameManager.Instance.OnStartThrowEvent += PlayThrowSound;
         }
 
@@ -57,7 +57,8 @@ namespace ErasmusGluten
 
         public void PlayTickingSound()
         {
-            //audioSrcClock.PlayOneShot(tickingSound);
+            Debug.Log("yes");
+            audioSrcClock.PlayOneShot(tickingSound);
         }
 
         public void PlayTimeUpSound()

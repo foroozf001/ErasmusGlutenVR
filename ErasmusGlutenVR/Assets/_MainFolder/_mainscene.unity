@@ -4426,6 +4426,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 182284949, guid: e6ac471a050ae424aa4f4385163dd0ff, type: 3}
+      propertyPath: timeLeftInRound
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6247828905279721625, guid: e6ac471a050ae424aa4f4385163dd0ff,
         type: 3}
       propertyPath: m_Name
@@ -4449,7 +4453,7 @@ PrefabInstance:
     - target: {fileID: 6247828905279721630, guid: e6ac471a050ae424aa4f4385163dd0ff,
         type: 3}
       propertyPath: _skipTutorialMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6247828905279721631, guid: e6ac471a050ae424aa4f4385163dd0ff,
         type: 3}
