@@ -18,6 +18,9 @@ public class SoundManager : MonoBehaviour
     private AudioClip[] hitSounds;
     private int randomhitSound;
 
+    [SerializeField] AudioSource audioSrcClock;
+    [SerializeField] AudioClip tickingSound;
+    [SerializeField] AudioClip timeUpSound;
 
 
     // Start is called before the first frame update
@@ -48,6 +51,15 @@ public class SoundManager : MonoBehaviour
         audioSrcHit.PlayOneShot(hitSounds[randomhitSound]);
     }
 
+    public void PlayTickingSound()
+    {
+        audioSrcClock.PlayOneShot(tickingSound);
+    }
+
+    public void PlayTimeUpSound()
+    {
+        audioSrcClock.PlayOneShot(timeUpSound);
+    }
 
     // Update is called once per frame
     void Update()

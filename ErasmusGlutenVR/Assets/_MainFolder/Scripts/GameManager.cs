@@ -79,6 +79,7 @@ namespace ErasmusGluten
 
         void OnTimesUp()
         {
+            SoundManager.sndMan.PlayTimeUpSound();
             OnGameEnds();
         }
 
