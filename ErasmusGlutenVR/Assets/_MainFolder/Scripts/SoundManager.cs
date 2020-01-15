@@ -18,6 +18,10 @@ public class SoundManager : MonoBehaviour
     private AudioClip[] hitSounds;
     private int randomhitSound;
 
+    [SerializeField] AudioSource audioSrcClean;
+    private AudioClip[] cleanSounds;
+    private int randomcleanSound;
+
     [SerializeField] AudioSource audioSrcClock;
     [SerializeField] AudioClip tickingSound;
     [SerializeField] AudioClip timeUpSound;
@@ -30,7 +34,7 @@ public class SoundManager : MonoBehaviour
         throwSounds = Resources.LoadAll<AudioClip>("throwSounds");
         eatSounds = Resources.LoadAll<AudioClip>("eatSounds");
         hitSounds = Resources.LoadAll<AudioClip>("hitSounds");
-
+        cleanSounds = Resources.LoadAll<AudioClip>("cleanSounds");
     }
 
     public void PlayThrowSound()
@@ -49,6 +53,12 @@ public class SoundManager : MonoBehaviour
     {
         randomhitSound = Random.Range(0, 1);
         audioSrcHit.PlayOneShot(hitSounds[randomhitSound]);
+    }
+
+    public void PlayCleanSound()
+    {
+        randomcleanSound = Random.Range(0, 2);
+        audioSrcClean.PlayOneShot(cleanSounds[randomcleanSound]);
     }
 
     public void PlayTickingSound()
