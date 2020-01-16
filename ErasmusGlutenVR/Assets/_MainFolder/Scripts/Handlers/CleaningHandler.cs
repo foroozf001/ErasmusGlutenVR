@@ -11,7 +11,7 @@ namespace ErasmusGluten
             OVRGrabber grabber = other.gameObject.transform.parent.parent.GetComponent<OVRGrabber>();
             if (grabber != null)
             {
-                SoundManager.sndMan.PlayCleanSound();
+                SoundManager.Instance.PlayCleanSound();
                 if (grabber.IsLeft)
                     GameManager.Instance.leftHandContaminated = false;
                 else if (grabber.IsRight)
