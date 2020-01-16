@@ -4052,6 +4052,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1122415176897012046, guid: cdeafc1f98dc2ea46b9d712631381c79,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1122415176897012046, guid: cdeafc1f98dc2ea46b9d712631381c79,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1122415176897012046, guid: cdeafc1f98dc2ea46b9d712631381c79,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5508338275281925659, guid: cdeafc1f98dc2ea46b9d712631381c79,
         type: 3}
       propertyPath: m_Name
@@ -4626,6 +4641,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 182284949, guid: e6ac471a050ae424aa4f4385163dd0ff, type: 3}
+      propertyPath: timeLeftInRound
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1102450499, guid: e6ac471a050ae424aa4f4385163dd0ff, type: 3}
       propertyPath: audioSrcThrow
       value: 
