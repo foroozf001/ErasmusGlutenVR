@@ -16,6 +16,6 @@ MonoBehaviour:
   - 'Press and hold the side button on your middle finger to grab. Bring the food
     to your mouth to eat. Eating gluten increases GIP level so make sure to avoid
     them! '
-  - Tutorial text
-  - 'Touching gluten contaminates your hands. Throw gluten back at me or wash your
-    hands before touching safe foods. '
+  - '-'
+  - Touching gluten contaminates your hands. Throw gluten back at me or wash your
+    hands using the soap dispenser before touching safe foods.

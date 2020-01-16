@@ -9,8 +9,9 @@ namespace ErasmusGluten
     {
         public bool paused = false;
         public float timeLeftInRound = 120f;
+        public int clockTickerThreshHold = 5;
+        private bool _tickerActive = false;
         [HideInInspector] public float maxRoundTime;
-        bool tickingBool = false;
 
         #region delegates
         public delegate void OnTick();
@@ -18,6 +19,9 @@ namespace ErasmusGluten
 
         public delegate void OnTimesUp();
         public event OnTimesUp OnTimesUpEvent;
+
+        public delegate void OnClockThreshold();
+        public event OnClockThreshold OnClockThresholdEvent;
         #endregion
 
         void Awake()
@@ -38,20 +42,16 @@ namespace ErasmusGluten
             if (paused || !GameManager.Instance.introCompleted)
                 return;
 
-            if (timeLeftInRound <=6)
-            {
-                if (!tickingBool)
-                {
-                    TimeAlmostUp();
-                    tickingBool = true;
-                }
-
-            }
-
             if (timeLeftInRound > 0)
-            { 
+            {
                 timeLeftInRound -= Time.deltaTime;
                 OnTickEvent?.Invoke();
+
+                if (timeLeftInRound < (float)clockTickerThreshHold && !_tickerActive)
+                {
+                    _tickerActive = true;
+                    OnClockThresholdEvent?.Invoke();
+                }
             }
             else
             {
@@ -59,9 +59,15 @@ namespace ErasmusGluten
             }
         }
 
+        void LateUpdate()
+        {
+            
+        }
+
         public void OnGameStart()
         {
             timeLeftInRound = maxRoundTime;
+            _tickerActive = false;
             paused = false;
         }
 
@@ -69,11 +75,6 @@ namespace ErasmusGluten
         {
             paused = true;
             timeLeftInRound = maxRoundTime;
-        }
-
-        public void TimeAlmostUp()
-        {
-            SoundManager.sndMan.PlayTickingSound();
         }
     }
 }

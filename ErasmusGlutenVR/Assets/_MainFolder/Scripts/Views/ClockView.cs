@@ -6,6 +6,7 @@ using UnityEngine.UI;
 namespace ErasmusGluten
 {
     public class ClockView : MonoBehaviour
+        , IGameLoop
     {
         private Text _text;
         private Image _timer;
@@ -13,7 +14,6 @@ namespace ErasmusGluten
         private void Awake()
         {
             Clock.Instance.OnTickEvent += OnTickEvent;
-            Clock.Instance.OnTimesUpEvent += OnTimesUp;
         }
 
         private void Start()
@@ -26,14 +26,24 @@ namespace ErasmusGluten
         }
         void OnTickEvent()
         {
-            _text.text = Clock.Instance.timeLeftInRound.ToString("0") + "/" + Clock.Instance.maxRoundTime.ToString("0");
-            float fill = Clock.Instance.timeLeftInRound / Clock.Instance.maxRoundTime;
-            _timer.fillAmount = fill;
+            Reset();
         }
 
-        void OnTimesUp()
+        public void OnGameStart()
         {
-            OnTickEvent();
+            Reset();
+        }
+
+        public void OnGameEnds()
+        {
+            Reset();
+        }
+
+        void Reset()
+        {
+            _text.text = Clock.Instance.timeLeftInRound.ToString("0");
+            float fill = Clock.Instance.timeLeftInRound / Clock.Instance.maxRoundTime;
+            _timer.fillAmount = fill;
         }
     }
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6247828905279721631}
   - component: {fileID: 6247828905279721630}
   - component: {fileID: 182284949}
+  - component: {fileID: 1102450499}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -55,8 +56,8 @@ MonoBehaviour:
   introCompleted: 0
   waitSecondsAfterTutorialComplete: 5
   waitSecondsBeforeTutorial: 3
-  waitSecondsAfterGameComplete: 14
-  _skipTutorialMode: 0
+  waitSecondsAfterGameComplete: 15
+  _skipTutorialMode: 1
 --- !u!114 &182284949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,4 +72,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paused: 0
   timeLeftInRound: 45
+  clockTickerThreshHold: 5
   maxRoundTime: 0
+--- !u!114 &1102450499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6247828905279721625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbd107dfae92740409aac9eeff995432, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSrcThrow: {fileID: 0}
+  audioSrcEat: {fileID: 0}
+  audioSrcHit: {fileID: 0}
+  audioSrcClock: {fileID: 0}
+  tickingSound: {fileID: 8300000, guid: 45feff74068d47f40bc726d23205e1d5, type: 3}
+  timeUpSound: {fileID: 8300000, guid: 9dd6c0f1c86954d44b5fb963ce4c6e54, type: 3}
