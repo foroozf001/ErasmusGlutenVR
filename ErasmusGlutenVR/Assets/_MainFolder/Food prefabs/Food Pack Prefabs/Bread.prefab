@@ -29,13 +29,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000010864150500}
-  m_LocalRotation: {x: -0.22368902, y: -0.19658601, z: -0.34331566, w: 0.890759}
+  m_LocalRotation: {x: -0.36821315, y: 0.765822, z: 0.35020804, w: 0.39406866}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -32.241, y: -13.443001, z: -38.253002}
+  m_LocalEulerAnglesHint: {x: -55.751003, y: 142.106, z: -30.774002}
 --- !u!33 &33000011332585078
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -144,5 +144,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   edibleObjectData: {fileID: 11400000, guid: 5acfd83265639cd4a94049683aac9069, type: 2}
   hasGluten: 0
-  _isTutorialEdible: 0
-  _isTutorialEdibleMiddle: 0

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2254269204690923034}
   - component: {fileID: 8730381167595363887}
   m_Layer: 8
-  m_Name: Cheese_02
+  m_Name: Cheese
   m_TagString: Edible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,13 +29,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000010528404258}
-  m_LocalRotation: {x: 0.28501794, y: -0.38133824, z: -0.028258814, w: -0.8789467}
+  m_LocalRotation: {x: -0.9215621, y: 0.29807866, z: 0.15374038, w: 0.19554102}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -31.506002, y: 410.118, z: -11.344001}
+  m_LocalEulerAnglesHint: {x: -26.876001, y: 550.777, z: 213.265}
 --- !u!33 &33000010284298170
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -144,5 +144,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   edibleObjectData: {fileID: 11400000, guid: 82039e7751c3df742986b4d3e21a20e2, type: 2}
   hasGluten: 0
-  _isTutorialEdible: 0
-  _isTutorialEdibleMiddle: 0
