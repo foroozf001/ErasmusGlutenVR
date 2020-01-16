@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -856409116565193762}
   - component: {fileID: -7699322696629270220}
   m_Layer: 8
-  m_Name: IceCream_Cone
+  m_Name: Ice Cream
   m_TagString: Edible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,13 +29,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000013122234568}
-  m_LocalRotation: {x: 0.09617103, y: 0.57972527, z: -0.6116579, w: 0.5296644}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.28907606, y: 0.39261228, z: -0.5474656, w: 0.6801265}
+  m_LocalPosition: {x: -0.00000032827884, y: 0.000000021654209, z: -0.00000016264119}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 54.2, y: 58.074, z: -66.5}
+  m_LocalEulerAnglesHint: {x: 55.396004, y: 22.523, z: -65.729004}
 --- !u!33 &33000012468301878
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -126,8 +126,8 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: 948611cc428a84b569ad7626e6649205, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.05
-  m_Height: 0.22
+  m_Radius: 0.07
+  m_Height: 0.23
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &-7699322696629270220
@@ -144,5 +144,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   edibleObjectData: {fileID: 11400000, guid: 5acfd83265639cd4a94049683aac9069, type: 2}
   hasGluten: 0
-  _isTutorialEdible: 0
-  _isTutorialEdibleMiddle: 0
