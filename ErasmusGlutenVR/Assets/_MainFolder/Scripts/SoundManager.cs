@@ -7,8 +7,6 @@ namespace ErasmusGluten
     public class SoundManager : Singleton<SoundManager>
         , IEating, IThrowing
     {
-        public static SoundManager sndMan;
-
         [SerializeField] AudioSource audioSrcThrow;
         private AudioClip[] throwSounds;
         private int randomThrowSound;
@@ -31,7 +29,6 @@ namespace ErasmusGluten
 
         void Awake()
         {
-            sndMan = this;
             throwSounds = Resources.LoadAll<AudioClip>("throwSounds");
             eatSounds = Resources.LoadAll<AudioClip>("eatSounds");
             hitSounds = Resources.LoadAll<AudioClip>("hitSounds");
