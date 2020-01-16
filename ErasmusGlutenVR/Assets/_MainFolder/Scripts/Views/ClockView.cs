@@ -13,17 +13,15 @@ namespace ErasmusGluten
 
         private void Awake()
         {
-            Clock.Instance.OnTickEvent += OnTickEvent;
-        }
-
-        private void Start()
-        {
             foreach (Transform eachChild in transform)
                 if (eachChild.GetComponent<Text>())
                     _text = eachChild.GetComponent<Text>();
 
             _timer = gameObject.GetComponent<Image>();
+
+            Clock.Instance.OnTickEvent += OnTickEvent;
         }
+
         void OnTickEvent()
         {
             Reset();
